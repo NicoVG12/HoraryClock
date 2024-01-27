@@ -63,9 +63,69 @@ namespace HoraryClockUI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _00blueicon {
+            get {
+                object obj = ResourceManager.GetObject("00blueicon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _01purpleicon {
+            get {
+                object obj = ResourceManager.GetObject("01purpleicon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _02orangeicon {
+            get {
+                object obj = ResourceManager.GetObject("02orangeicon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _03culminationicon {
+            get {
+                object obj = ResourceManager.GetObject("03culminationicon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _04noeffect {
+            get {
+                object obj = ResourceManager.GetObject("04noeffect", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap background {
             get {
                 object obj = ResourceManager.GetObject("background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap background_control_clock {
+            get {
+                object obj = ResourceManager.GetObject("background_control_clock", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -86,6 +146,16 @@ namespace HoraryClockUI.Properties {
         internal static System.Drawing.Bitmap btnGoBack {
             get {
                 object obj = ResourceManager.GetObject("btnGoBack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btnRctg_0 {
+            get {
+                object obj = ResourceManager.GetObject("btnRctg_0", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,6 +193,16 @@ namespace HoraryClockUI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btnSettingsDarkBackground {
+            get {
+                object obj = ResourceManager.GetObject("btnSettingsDarkBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btnSettingSelected {
             get {
                 object obj = ResourceManager.GetObject("btnSettingSelected", resourceCulture);
@@ -136,6 +216,26 @@ namespace HoraryClockUI.Properties {
         internal static System.Drawing.Bitmap empty_bg {
             get {
                 object obj = ResourceManager.GetObject("empty_bg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Horary {
+            get {
+                object obj = ResourceManager.GetObject("Horary", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lblBackgroundDark {
+            get {
+                object obj = ResourceManager.GetObject("lblBackgroundDark", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

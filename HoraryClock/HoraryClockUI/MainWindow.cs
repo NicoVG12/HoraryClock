@@ -18,6 +18,8 @@ namespace HoraryClockUI
             InitializeControls();
             InitializeTitle();
             ShowTab(CLOCK_ID);
+
+            this.TopMost = true;
         }
 
         private void InitializeControls()

@@ -9,6 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\HoraryEffects\HoraryEffects.csproj" />
+    <ProjectReference Include="..\Settings\Settings.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
