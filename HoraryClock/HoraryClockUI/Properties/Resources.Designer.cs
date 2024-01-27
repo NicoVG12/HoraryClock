@@ -183,6 +183,16 @@ namespace HoraryClockUI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btnRctg_1 {
+            get {
+                object obj = ResourceManager.GetObject("btnRctg_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btnSave {
             get {
                 object obj = ResourceManager.GetObject("btnSave", resourceCulture);

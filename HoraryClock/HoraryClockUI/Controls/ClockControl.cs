@@ -25,6 +25,7 @@ namespace HoraryClockUI.Controls
         public ClockControl(MainForm mainForm)
         {
             InitializeComponent();
+            AttachDelegates();
             InitializeImageArray();
             _mainForm = mainForm;
             _effectManager = EffectManager.Instance();
@@ -43,11 +44,6 @@ namespace HoraryClockUI.Controls
             UpdateLabels();
             if (!_isRunning)
             {
-                if (_wasReset)
-                {
-                    _wasReset = false;
-                    _elapsedTime = 0;
-                }
                 _lastCheck = DateTime.Now;
                 _isRunning = true;
                 while (_isRunning)
@@ -96,7 +92,7 @@ namespace HoraryClockUI.Controls
             }
             if (Config.Instance().PvPOffsett == 1)
             {
-                _elapsedTime = 3;
+                _elapsedTime = 3000;
                 lblRemainingTimeValue.Text = "17.0000 s";
             }
             else
@@ -120,6 +116,46 @@ namespace HoraryClockUI.Controls
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void AttachDelegates()
+        {
+            lblStart.MouseEnter += OnMouseEnterStart;
+            lblStart.MouseLeave += OnMouseLeaveStart;
+            lblPause.MouseEnter += OnMouseEnterPause;
+            lblPause.MouseLeave += OnMouseLeavePause;
+            lblReset.MouseEnter += OnMouseEnterReset;
+            lblReset.MouseLeave += OnMouseLeaveReset;
+        }
+
+        private void OnMouseEnterStart(object sender, EventArgs e)
+        {
+            lblStart.Image = Properties.Resources.btnRctg_1;
+        }
+
+        private void OnMouseLeaveStart(object sender, EventArgs e)
+        {
+            lblStart.Image = Properties.Resources.btnRctg_0;
+        }
+
+        private void OnMouseEnterPause(object sender, EventArgs e)
+        {
+            lblPause.Image = Properties.Resources.btnRctg_1;
+        }
+
+        private void OnMouseLeavePause(object sender, EventArgs e)
+        {
+            lblPause.Image = Properties.Resources.btnRctg_0;
+        }
+
+        private void OnMouseEnterReset(object sender, EventArgs e)
+        {
+            lblReset.Image = Properties.Resources.btnRctg_1;
+        }
+
+        private void OnMouseLeaveReset(object sender, EventArgs e)
+        {
+            lblReset.Image = Properties.Resources.btnRctg_0;
         }
     }
 }
