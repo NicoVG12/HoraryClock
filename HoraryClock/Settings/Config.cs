@@ -7,6 +7,7 @@ namespace HoraryClock
         private static Config _instance = null;
 
         public int LanguageId { get; set; }
+        public double WindowOpacity { get; set; }
         public bool PvPOffsett { get; set; }
         public bool StopClockOnReset { get; set; }
         public bool WindowAlwaysOnTop { get; set; }

@@ -143,6 +143,26 @@ namespace HoraryClockUI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btnClose_hover {
+            get {
+                object obj = ResourceManager.GetObject("btnClose_hover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btnClose_normal {
+            get {
+                object obj = ResourceManager.GetObject("btnClose_normal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btnGoBack {
             get {
                 object obj = ResourceManager.GetObject("btnGoBack", resourceCulture);
@@ -227,6 +247,16 @@ namespace HoraryClockUI.Properties {
             get {
                 object obj = ResourceManager.GetObject("Horary", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
+        /// </summary>
+        internal static System.Drawing.Icon Horary1 {
+            get {
+                object obj = ResourceManager.GetObject("Horary1", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         

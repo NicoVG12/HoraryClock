@@ -127,6 +127,9 @@
   <data name="background_control_settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\background_control_settings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="btnClose_normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnClose_normal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="btnSettings" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnSettings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -169,13 +172,19 @@
   <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="btnSettingsDarkBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnSettingsDarkBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="00blueicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\00blueicon.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="btnSettingHovered" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnSettingHovered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btnSettingsDarkBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnSettingsDarkBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnClose_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnClose_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Horary1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Horary.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
