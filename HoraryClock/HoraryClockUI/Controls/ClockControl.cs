@@ -12,9 +12,16 @@ namespace HoraryClockUI.Controls
 {
     public partial class ClockControl : UserControl
     {
-        public ClockControl()
+        MainForm _mainForm;
+        public ClockControl(MainForm mainForm)
         {
             InitializeComponent();
+            _mainForm = mainForm;
+        }
+
+        private void lblSettings_Click(object sender, EventArgs e)
+        {
+            _mainForm.ShowTab(MainForm.SETTINGS_ID);
         }
     }
 }

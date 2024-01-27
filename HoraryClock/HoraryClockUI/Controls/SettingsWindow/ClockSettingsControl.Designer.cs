@@ -1,6 +1,6 @@
-﻿namespace HoraryClockUI.Controls
+﻿namespace HoraryClockUI.Controls.SettingsWindow
 {
-    partial class ClockControl
+    partial class ClockSettingsControl
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -28,29 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblSettings = new Label();
-            SuspendLayout();
-            // 
-            // lblSettings
-            // 
-            lblSettings.Image = Properties.Resources.btnSettings;
-            lblSettings.Location = new Point(482, 239);
-            lblSettings.Name = "lblSettings";
-            lblSettings.Size = new Size(35, 46);
-            lblSettings.TabIndex = 0;
-            lblSettings.Click += lblSettings_Click;
-            // 
-            // ClockControl
-            // 
-            AutoScaleMode = AutoScaleMode.None;
-            Controls.Add(lblSettings);
-            Name = "ClockControl";
-            Size = new Size(525, 292);
-            ResumeLayout(false);
+            components = new System.ComponentModel.Container();
+            AutoScaleMode = AutoScaleMode.Font;
         }
 
         #endregion
-
-        private Label lblSettings;
     }
 }

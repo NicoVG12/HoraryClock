@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             btnEnglish = new RadioButton();
-            groupBox1 = new GroupBox();
+            grpLanguages = new GroupBox();
             btnSpanish = new RadioButton();
             lblBackground = new Label();
-            groupBox1.SuspendLayout();
+            grpLanguages.SuspendLayout();
             SuspendLayout();
             // 
             // btnEnglish
@@ -40,7 +40,7 @@
             btnEnglish.AutoSize = true;
             btnEnglish.BackColor = Color.Silver;
             btnEnglish.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnEnglish.Location = new Point(28, 22);
+            btnEnglish.Location = new Point(25, 19);
             btnEnglish.Name = "btnEnglish";
             btnEnglish.Size = new Size(84, 25);
             btnEnglish.TabIndex = 0;
@@ -48,24 +48,26 @@
             btnEnglish.Text = "English";
             btnEnglish.UseVisualStyleBackColor = false;
             // 
-            // groupBox1
+            // grpLanguages
             // 
-            groupBox1.Controls.Add(btnSpanish);
-            groupBox1.Controls.Add(btnEnglish);
-            groupBox1.Controls.Add(lblBackground);
-            groupBox1.Location = new Point(-15, -15);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(411, 319);
-            groupBox1.TabIndex = 1;
-            groupBox1.TabStop = false;
-            groupBox1.Enter += groupBox1_Enter;
+            grpLanguages.Controls.Add(btnSpanish);
+            grpLanguages.Controls.Add(btnEnglish);
+            grpLanguages.Controls.Add(lblBackground);
+            grpLanguages.Location = new Point(-15, -15);
+            grpLanguages.Margin = new Padding(0);
+            grpLanguages.Name = "grpLanguages";
+            grpLanguages.Padding = new Padding(0);
+            grpLanguages.Size = new Size(411, 319);
+            grpLanguages.TabIndex = 1;
+            grpLanguages.TabStop = false;
+            grpLanguages.Enter += groupBox1_Enter;
             // 
             // btnSpanish
             // 
             btnSpanish.AutoSize = true;
             btnSpanish.BackColor = Color.Silver;
             btnSpanish.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSpanish.Location = new Point(28, 53);
+            btnSpanish.Location = new Point(25, 50);
             btnSpanish.Name = "btnSpanish";
             btnSpanish.Size = new Size(88, 25);
             btnSpanish.TabIndex = 2;
@@ -85,18 +87,18 @@
             // LanguageControl
             // 
             AutoScaleMode = AutoScaleMode.None;
-            Controls.Add(groupBox1);
+            Controls.Add(grpLanguages);
             Name = "LanguageControl";
             Size = new Size(326, 257);
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            grpLanguages.ResumeLayout(false);
+            grpLanguages.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
         private RadioButton btnEnglish;
-        private GroupBox groupBox1;
+        private GroupBox grpLanguages;
         private RadioButton btnSpanish;
         private Label lblBackground;
     }

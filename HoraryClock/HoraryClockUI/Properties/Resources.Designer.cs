@@ -83,6 +83,16 @@ namespace HoraryClockUI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btnGoBack {
+            get {
+                object obj = ResourceManager.GetObject("btnGoBack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btnSettingHovered {
             get {
                 object obj = ResourceManager.GetObject("btnSettingHovered", resourceCulture);
@@ -103,6 +113,16 @@ namespace HoraryClockUI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btnSettings {
+            get {
+                object obj = ResourceManager.GetObject("btnSettings", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btnSettingSelected {
             get {
                 object obj = ResourceManager.GetObject("btnSettingSelected", resourceCulture);
@@ -116,6 +136,16 @@ namespace HoraryClockUI.Properties {
         internal static System.Drawing.Bitmap empty_bg {
             get {
                 object obj = ResourceManager.GetObject("empty_bg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap setting_specific_opaque_bg {
+            get {
+                object obj = ResourceManager.GetObject("setting_specific_opaque_bg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
