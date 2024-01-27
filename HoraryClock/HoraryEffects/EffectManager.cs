@@ -24,12 +24,7 @@ namespace HoraryEffects
         public EffectManager()
         {
             CurrentEffectId = 0;
-            Effects = new List<EffectType>();
-        }
-
-        public void InitializeDefaultData()
-        {
-
+            EffectInitializer.InitializeEffects(Effects);
         }
     }
 }
