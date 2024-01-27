@@ -5,6 +5,7 @@
         public int LanguageId { get; set; }
         public bool PvPOffsett { get; set; }
         public bool StopClockOnReset { get; set; }
+        public bool WindowAlwaysOnTop { get; set; }
         
         public KeyBinding KeyBindings { get; set; }
 
