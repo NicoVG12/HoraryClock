@@ -1,4 +1,5 @@
 using HoraryClockUI.Controls.MainWindow;
+using HoraryClockUI.Controls.SettingsWindow;
 
 namespace HoraryClockUI
 {
@@ -15,6 +16,8 @@ namespace HoraryClockUI
             Text = "Horary Clock Tool v2.0";
             lblBackground.Text = Text;
 
+            mainPanel.Controls.Add(new SettingsControl());
+            mainPanel.Refresh();
             //Icon
         }
 

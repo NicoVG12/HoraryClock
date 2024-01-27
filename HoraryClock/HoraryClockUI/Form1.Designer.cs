@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             lblBackground = new Label();
+            mainPanel = new FlowLayoutPanel();
             SuspendLayout();
             // 
             // lblBackground
@@ -44,10 +45,18 @@
             lblBackground.TabIndex = 1;
             lblBackground.Text = "Horary Clock Tool v2.0";
             // 
+            // mainPanel
+            // 
+            mainPanel.Location = new Point(2, 38);
+            mainPanel.Name = "mainPanel";
+            mainPanel.Size = new Size(525, 292);
+            mainPanel.TabIndex = 2;
+            // 
             // MainForm
             // 
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(529, 332);
+            Controls.Add(mainPanel);
             Controls.Add(lblBackground);
             FormBorderStyle = FormBorderStyle.None;
             Name = "MainForm";
@@ -58,5 +67,6 @@
 
         #endregion
         private Label lblBackground;
+        private FlowLayoutPanel mainPanel;
     }
 }
