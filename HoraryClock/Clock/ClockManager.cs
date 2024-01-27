@@ -6,25 +6,40 @@ namespace Clock
 {
     public class ClockManager
     {
-        private DateTime _lastCheck;
+        private static ClockManager _instance;
 
+        private DateTime LaastCheck { get; set; }
         public bool IsRunning { get; private set; }
         public double ElapsedTime { get; set; }
 
         private EffectManager EffectManager { get; set; } = EffectManager.Instance();
         private Config Config { get; set; } = Config.Instance();
 
-        public void Start()
+        private ClockManager()
+        {
+            
+        }
+
+        public static ClockManager Instance()
+        {
+            if (_instance == null)
+            {
+                _instance = new ClockManager();
+            }
+            return _instance;
+        }
+
+        public async Task StartAsync()
         {
             if (!IsRunning)
             {
-                _lastCheck = DateTime.Now;
+                LaastCheck = DateTime.Now;
                 IsRunning = true;
                 while (IsRunning)
                 {
                     DateTime newCheck = DateTime.Now;
-                    ElapsedTime += ((newCheck - _lastCheck).TotalMilliseconds);
-                    _lastCheck = newCheck;
+                    ElapsedTime += ((newCheck - LaastCheck).TotalMilliseconds);
+                    LaastCheck = newCheck;
 
                     if (ElapsedTime > EffectManager.CurrentEffect().Duration * 1000)
                     {
@@ -47,7 +62,7 @@ namespace Clock
                 Pause();
             } else
             {
-                Start();
+                Task.Run(() => StartAsync());
             }
             if (Config.PvPOffsett == Config.CHECKED)
             {
