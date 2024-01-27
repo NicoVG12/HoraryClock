@@ -44,6 +44,7 @@
             lblCloseWindow.Name = "lblCloseWindow";
             lblCloseWindow.Size = new Size(29, 28);
             lblCloseWindow.TabIndex = 4;
+            lblCloseWindow.Click += lblCloseWindow_Click;
             // 
             // lblMaximize
             // 
@@ -104,6 +105,8 @@
             lblBackground.Size = new Size(239, 104);
             lblBackground.TabIndex = 19;
             lblBackground.Text = "Horary Clock Tool v2.0";
+            lblBackground.Click += lblBackground_Click;
+            lblBackground.MouseDown += lblBackground_MouseDown;
             // 
             // MiniClockControl
             // 

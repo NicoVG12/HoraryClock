@@ -124,7 +124,7 @@ namespace HoraryClockUI
             lblCloseWindow.Image = Properties.Resources.btnClose_normal;
         }
 
-        public void Minimize(double elapsed, bool isRunning)
+        public void Minimize()
         {
             _controlsBeforeResize = new Control[Controls.Count];
             Controls.CopyTo(_controlsBeforeResize, 0);

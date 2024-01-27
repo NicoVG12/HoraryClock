@@ -1,4 +1,5 @@
-﻿using HoraryClock;
+﻿using Clock;
+using HoraryClock;
 using HoraryEffects;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,10 +15,7 @@ namespace HoraryClockUI.Controls
 {
     public partial class ClockControl : UserControl
     {
-        private bool _isRunning = false;
-        private bool _wasReset = true;
-        private double _elapsedTime = 0;
-        private DateTime _lastCheck;
+        private ClockManager _clockManager;
         private EffectManager _effectManager;
         private Image[] _icons = new Image[4];
 
@@ -28,6 +26,7 @@ namespace HoraryClockUI.Controls
             AttachDelegates();
             InitializeImageArray();
             _mainForm = mainForm;
+            _clockManager = ClockManager.Instance();
             _effectManager = EffectManager.Instance();
         }
 
@@ -41,35 +40,16 @@ namespace HoraryClockUI.Controls
 
         private async Task StartClock()
         {
-            UpdateLabels();
-            if (!_isRunning)
+            Task.Run(() => _clockManager.StartAsync());
+            await (Task.Delay(15));
+            while (_clockManager.IsRunning)
             {
-                _lastCheck = DateTime.Now;
-                _isRunning = true;
-                while (_isRunning)
-                {
-                    DateTime newCheck = DateTime.Now;
-
-                    _elapsedTime += ((newCheck - _lastCheck).TotalMilliseconds);
-                    if (_elapsedTime <= _effectManager.CurrentEffect().Duration * 1000)
-                    {
-                        lblRemainingTimeValue.Text = String.Format("{0:0.0000}", ((double)_effectManager.CurrentEffect().Duration - _elapsedTime / 1000)) + " s";
-                    }
-                    await Task.Delay(10);
-
-                    if (_elapsedTime > _effectManager.CurrentEffect().Duration * 1000)
-                    {
-                        _elapsedTime -= _effectManager.CurrentEffect().Duration * 1000;
-                        _effectManager.AdvanceEffect();
-                        UpdateLabels();
-                    }
-
-                    _lastCheck = newCheck;
-                }
+                double elapsedTime = _clockManager.ElapsedTime;
+                UpdateLabels(String.Format("{0:0.0000}", ((double)_effectManager.CurrentEffect().Duration - elapsedTime / 1000)) + " s");
             }
         }
 
-        private void UpdateLabels()
+        private void UpdateLabels(string RemainingTimeMsg)
         {
             EffectType currentEffect = _effectManager.CurrentEffect();
 
@@ -77,6 +57,10 @@ namespace HoraryClockUI.Controls
             lblCurrentEffectIcon.Image = _icons[_effectManager.CurrentEffectId];
             lblFirstDescription.Text = currentEffect.Description[0];
             lblSecondDescription.Text = currentEffect.Description[1];
+            if (!RemainingTimeMsg.StartsWith("-"))
+            {
+                lblRemainingTimeValue.Text = RemainingTimeMsg;
+            }
         }
 
         private void lblSettings_Click(object sender, EventArgs e)
@@ -86,21 +70,14 @@ namespace HoraryClockUI.Controls
 
         private void lblReset_Click(object sender, EventArgs e)
         {
-            if (!(Config.Instance().StartClockOnReset == 1))
+            _clockManager.Reset();
+            if (Config.Instance().PvPOffsett == Config.CHECKED)
             {
-                _isRunning = false;
-            }
-            if (Config.Instance().PvPOffsett == 1)
+                UpdateLabels("17.0000 s");
+            } else
             {
-                _elapsedTime = 3000;
-                lblRemainingTimeValue.Text = "17.0000 s";
+                UpdateLabels("20.0000 s");
             }
-            else
-            {
-                _elapsedTime = 0;
-                lblRemainingTimeValue.Text = "20.0000 s";
-            }
-            _effectManager.Reset();
         }
 
         private void lblStart_Click(object sender, EventArgs e)
@@ -110,7 +87,7 @@ namespace HoraryClockUI.Controls
 
         private void lblPause_Click(object sender, EventArgs e)
         {
-            _isRunning = false;
+            _clockManager.Pause();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -160,9 +137,7 @@ namespace HoraryClockUI.Controls
 
         private void lblMinimize_Click(object sender, EventArgs e)
         {
-            bool isRunning = _isRunning;
-            _isRunning = false;
-            _mainForm.Minimize(_elapsedTime, isRunning);
+            _mainForm.Minimize();
             
         }
     }

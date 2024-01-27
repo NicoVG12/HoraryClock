@@ -17,7 +17,11 @@ namespace Clock
 
         private ClockManager()
         {
-            
+            IsRunning = false;
+            if (Config.PvPOffsett == Config.CHECKED)
+            {
+                ElapsedTime = 3000;
+            }
         }
 
         public static ClockManager Instance()
