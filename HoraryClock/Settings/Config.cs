@@ -4,13 +4,16 @@ namespace HoraryClock
 {
     public class Config
     {
+        public const int CHECKED = 1;
+        public const int UNCHECKED = 0;
+
         private static Config _instance = null;
 
         public int LanguageId { get; set; }
-        public double WindowOpacity { get; set; }
-        public bool PvPOffsett { get; set; }
-        public bool StopClockOnReset { get; set; }
-        public bool WindowAlwaysOnTop { get; set; }
+        public int WindowOpacity { get; set; }
+        public int PvPOffsett { get; set; }
+        public int StartClockOnReset { get; set; }
+        public int WindowAlwaysOnTop { get; set; }
         
         public KeyBinding KeyBindings { get; set; }
 
@@ -18,8 +21,10 @@ namespace HoraryClock
         private Config() 
         {
             LanguageId = LanguageIds.ENGLISH;
-            PvPOffsett = false;
-            StopClockOnReset = false;
+            PvPOffsett = 0;
+            StartClockOnReset = 0;
+            WindowOpacity = 9;
+            WindowAlwaysOnTop = 0;
             KeyBindings = new KeyBinding();
         }
 
@@ -32,9 +37,14 @@ namespace HoraryClock
             return _instance;
         }
 
-        public void LoadFromStorage()
+        public void Load()
         {
             //TODO: Read from file
+        }
+
+        public void Save()
+        {
+            //TODO: Save config to a file
         }
     }
 }

@@ -90,11 +90,11 @@ namespace HoraryClockUI.Controls
 
         private void lblReset_Click(object sender, EventArgs e)
         {
-            if (Config.Instance().StopClockOnReset)
+            if (!(Config.Instance().StartClockOnReset == 1))
             {
                 _isRunning = false;
             }
-            if (Config.Instance().PvPOffsett)
+            if (Config.Instance().PvPOffsett == 1)
             {
                 _elapsedTime = 3;
                 lblRemainingTimeValue.Text = "17.0000 s";

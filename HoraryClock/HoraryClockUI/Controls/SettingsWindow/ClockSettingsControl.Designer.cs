@@ -37,6 +37,13 @@
             lblOpacityDescription = new Label();
             lblAlwaysOnTopDescription = new Label();
             label1 = new Label();
+            chkOffset = new CheckBox();
+            chkStartClockOnReset = new CheckBox();
+            chkAlwaysOnTop = new CheckBox();
+            lblSave = new Label();
+            trkOpacity = new TrackBar();
+            lblOpacityProgress = new Label();
+            ((System.ComponentModel.ISupportInitialize)trkOpacity).BeginInit();
             SuspendLayout();
             // 
             // lblPvPOffsetTitle
@@ -73,7 +80,7 @@
             lblOpacity.Name = "lblOpacity";
             lblOpacity.Size = new Size(317, 49);
             lblOpacity.TabIndex = 2;
-            lblOpacity.Text = "Window Opacity";
+            lblOpacity.Text = "Window's Opacity";
             // 
             // lblAlwaysOnTop
             // 
@@ -118,9 +125,9 @@
             lblOpacityDescription.Location = new Point(7, 124);
             lblOpacityDescription.Margin = new Padding(0);
             lblOpacityDescription.Name = "lblOpacityDescription";
-            lblOpacityDescription.Size = new Size(255, 31);
+            lblOpacityDescription.Size = new Size(146, 31);
             lblOpacityDescription.TabIndex = 6;
-            lblOpacityDescription.Text = "Set the window opacity.";
+            lblOpacityDescription.Text = "Set the window's opacity.\r\n(10%~100%)";
             lblOpacityDescription.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblAlwaysOnTopDescription
@@ -147,10 +154,76 @@
             label1.TabIndex = 8;
             label1.Text = "PvP Offset";
             // 
+            // chkOffset
+            // 
+            chkOffset.Location = new Point(291, 16);
+            chkOffset.Name = "chkOffset";
+            chkOffset.Size = new Size(28, 31);
+            chkOffset.TabIndex = 9;
+            chkOffset.UseVisualStyleBackColor = true;
+            // 
+            // chkStartClockOnReset
+            // 
+            chkStartClockOnReset.Location = new Point(291, 70);
+            chkStartClockOnReset.Name = "chkStartClockOnReset";
+            chkStartClockOnReset.Size = new Size(28, 31);
+            chkStartClockOnReset.TabIndex = 10;
+            chkStartClockOnReset.UseVisualStyleBackColor = true;
+            // 
+            // chkAlwaysOnTop
+            // 
+            chkAlwaysOnTop.Location = new Point(291, 178);
+            chkAlwaysOnTop.Name = "chkAlwaysOnTop";
+            chkAlwaysOnTop.Size = new Size(28, 31);
+            chkAlwaysOnTop.TabIndex = 12;
+            chkAlwaysOnTop.UseVisualStyleBackColor = true;
+            // 
+            // lblSave
+            // 
+            lblSave.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lblSave.ForeColor = Color.White;
+            lblSave.Image = Properties.Resources.btnSave;
+            lblSave.Location = new Point(112, 224);
+            lblSave.Margin = new Padding(0);
+            lblSave.Name = "lblSave";
+            lblSave.Size = new Size(103, 27);
+            lblSave.TabIndex = 13;
+            lblSave.Text = "Save";
+            lblSave.TextAlign = ContentAlignment.MiddleCenter;
+            lblSave.Click += lblSave_Click;
+            // 
+            // trkOpacity
+            // 
+            trkOpacity.AutoSize = false;
+            trkOpacity.Location = new Point(215, 124);
+            trkOpacity.Maximum = 9;
+            trkOpacity.Name = "trkOpacity";
+            trkOpacity.Size = new Size(104, 31);
+            trkOpacity.TabIndex = 14;
+            trkOpacity.Scroll += trkOpacity_Scroll;
+            // 
+            // lblOpacityProgress
+            // 
+            lblOpacityProgress.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblOpacityProgress.ForeColor = Color.Black;
+            lblOpacityProgress.Location = new Point(153, 124);
+            lblOpacityProgress.Margin = new Padding(0);
+            lblOpacityProgress.Name = "lblOpacityProgress";
+            lblOpacityProgress.Size = new Size(62, 31);
+            lblOpacityProgress.TabIndex = 15;
+            lblOpacityProgress.Text = "100%";
+            lblOpacityProgress.TextAlign = ContentAlignment.MiddleRight;
+            // 
             // ClockSettingsControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(lblOpacityProgress);
+            Controls.Add(trkOpacity);
+            Controls.Add(lblSave);
+            Controls.Add(chkAlwaysOnTop);
+            Controls.Add(chkStartClockOnReset);
+            Controls.Add(chkOffset);
             Controls.Add(lblAlwaysOnTopDescription);
             Controls.Add(lblOpacityDescription);
             Controls.Add(lblStartClockOnResetDescription);
@@ -160,13 +233,16 @@
             Controls.Add(lblStartClockOnReset);
             Controls.Add(lblPvPOffsetTitle);
             Controls.Add(label1);
+            Margin = new Padding(0);
             Name = "ClockSettingsControl";
             Size = new Size(326, 257);
+            ((System.ComponentModel.ISupportInitialize)trkOpacity).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
+        private Label lblSave;
         private Label lblPvPOffsetTitle;
         private Label lblStartClockOnReset;
         private Label lblOpacity;
@@ -176,5 +252,10 @@
         private Label lblOpacityDescription;
         private Label lblAlwaysOnTopDescription;
         private Label label1;
+        private CheckBox chkOffset;
+        private CheckBox chkStartClockOnReset;
+        private CheckBox chkAlwaysOnTop;
+        private TrackBar trkOpacity;
+        private Label lblOpacityProgress;
     }
 }

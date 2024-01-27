@@ -88,6 +88,7 @@
             // 
             AutoScaleMode = AutoScaleMode.None;
             Controls.Add(grpLanguages);
+            Margin = new Padding(0);
             Name = "LanguageControl";
             Size = new Size(326, 257);
             grpLanguages.ResumeLayout(false);

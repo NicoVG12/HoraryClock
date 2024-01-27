@@ -136,8 +136,8 @@
   <data name="setting_specific_opaque_bg_new" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\setting_specific_opaque_bg_new.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnClose_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnClose_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="setting_specific_opaque_bg1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\setting_specific_opaque_bg1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,20 +157,23 @@
   <data name="background_control_clock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\background_control_clock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="settings_control_bg1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\settings_control_bg1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Horary1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Horary.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="empty_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\empty_bg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="btnSettingsDarkBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnSettingsDarkBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="setting_specific_opaque_bg_new1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\setting_specific_opaque_bg_new1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btnClose_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnClose_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="btnSettings" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnSettings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -199,7 +202,7 @@
   <data name="setting_specific_opaque_bg_new2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\setting_specific_opaque_bg_new2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="settings_control_bg1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\settings_control_bg1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnSave" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnSave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
