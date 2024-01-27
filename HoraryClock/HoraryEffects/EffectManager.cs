@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,8 +9,26 @@ namespace HoraryEffects
 {
     public class EffectManager
     {
-        public List<EffectType> Effects { get { return new List<EffectType>(Effects); } set { Effects = value; } }
+        private static EffectManager _instance = null;
+
+        public List<EffectType> Effects { get; set; }
         public int CurrentEffectId { get; set; }
+
+        private EffectManager()
+        {
+            Effects = new List<EffectType>();
+            CurrentEffectId = 0;
+            EffectInitializer.InitializeEffects(Effects);
+        }
+
+        public static EffectManager Instance()
+        {
+            if (_instance == null)
+            {
+                _instance = new EffectManager();
+            }
+            return _instance;
+        }
 
         public int NextEffectId()
         {
@@ -21,15 +40,14 @@ namespace HoraryEffects
             CurrentEffectId = NextEffectId();
         }
 
-        public EffectManager()
+        public EffectType CurrentEffect()
         {
-            CurrentEffectId = 0;
-            Effects = new List<EffectType>();
+            return Effects[CurrentEffectId];
         }
 
-        public void InitializeDefaultData()
+        public void Reset()
         {
-
+            CurrentEffectId = 0;
         }
     }
 }

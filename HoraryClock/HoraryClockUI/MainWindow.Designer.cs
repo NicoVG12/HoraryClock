@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             lblBackground = new Label();
+            mainPanel = new FlowLayoutPanel();
+            lblCloseWindow = new Label();
             SuspendLayout();
             // 
             // lblBackground
@@ -43,11 +45,30 @@
             lblBackground.Size = new Size(529, 332);
             lblBackground.TabIndex = 1;
             lblBackground.Text = "Horary Clock Tool v2.0";
+            lblBackground.MouseDown += lblBackground_MouseDown;
+            // 
+            // mainPanel
+            // 
+            mainPanel.Location = new Point(2, 38);
+            mainPanel.Name = "mainPanel";
+            mainPanel.Size = new Size(525, 292);
+            mainPanel.TabIndex = 2;
+            // 
+            // lblCloseWindow
+            // 
+            lblCloseWindow.Image = Properties.Resources.btnClose_normal;
+            lblCloseWindow.Location = new Point(498, 2);
+            lblCloseWindow.Name = "lblCloseWindow";
+            lblCloseWindow.Size = new Size(29, 28);
+            lblCloseWindow.TabIndex = 3;
+            lblCloseWindow.Click += lblCloseWindow_Click;
             // 
             // MainForm
             // 
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(529, 332);
+            Controls.Add(lblCloseWindow);
+            Controls.Add(mainPanel);
             Controls.Add(lblBackground);
             FormBorderStyle = FormBorderStyle.None;
             Name = "MainForm";
@@ -58,5 +79,7 @@
 
         #endregion
         private Label lblBackground;
+        private FlowLayoutPanel mainPanel;
+        private Label lblCloseWindow;
     }
 }
