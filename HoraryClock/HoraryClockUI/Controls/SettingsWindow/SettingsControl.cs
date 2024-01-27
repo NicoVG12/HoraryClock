@@ -30,6 +30,7 @@ namespace HoraryClockUI.Controls.SettingsWindow
             InitializeComponent();
             InitializeLabelArray();
             InitializeControls();
+            InitializeHoverIcons();
             SetSelected(LANGUAGE_SETTINGS_ID);
             Refresh();
         }
@@ -45,19 +46,22 @@ namespace HoraryClockUI.Controls.SettingsWindow
         private void InitializeControls()
         {
             _settingsControls[LANGUAGE_SETTINGS_ID] = new LanguageControl();
-            _settingsControls[CLOCK_SETTINGS_ID] = new ClockSettingsControl();
+            _settingsControls[CLOCK_SETTINGS_ID] = new ClockSettingsControl(_mainForm);
         }
 
         private void SetSelected(int settingId)
         {
-            UnselectAllSettings();
-            _settingSelected[settingId] = true;
-            _labels[settingId].Image = Properties.Resources.btnSettingSelected;
+            if (!_settingSelected[settingId])
+            {
+                UnselectAllSettings();
+                _settingSelected[settingId] = true;
+                _labels[settingId].Image = Properties.Resources.btnSettingSelected;
 
-            pnlSpecificSettings.Controls.Clear();
-            pnlSpecificSettings.Controls.Add(_settingsControls[settingId]);
-            pnlSpecificSettings.Refresh();
-            Refresh();
+                pnlSpecificSettings.Controls.Clear();
+                pnlSpecificSettings.Controls.Add(_settingsControls[settingId]);
+                pnlSpecificSettings.Refresh();
+                Refresh();
+            }
         }
 
         private void UnselectAllSettings()
@@ -82,6 +86,88 @@ namespace HoraryClockUI.Controls.SettingsWindow
         private void lblGoBack_Click(object sender, EventArgs e)
         {
             _mainForm.ShowTab(MainForm.CLOCK_ID);
+        }
+
+        private void InitializeHoverIcons()
+        {
+            lblLanguage.MouseEnter += OnMouseEnterLanguage;
+            lblLanguage.MouseLeave += OnMouseLeaveLanguage;
+            lblPvPOffset.MouseEnter += OnMouseEnterClock;
+            lblPvPOffset.MouseLeave += OnMouseLeaveClock;
+            lblKeyBindings.MouseEnter += OnMouseEnterKeys;
+            lblKeyBindings.MouseLeave += OnMouseLeaveKeys;
+            lblOther.MouseEnter += OnMouseEnterOther;
+            lblOther.MouseLeave += OnMouseLeaveOther;
+
+        }
+
+        private void Other_MouseEnter(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OnMouseEnterLanguage(object sender, EventArgs e)
+        {
+            if (!_settingSelected[LANGUAGE_SETTINGS_ID])
+            {
+                lblLanguage.Image = Properties.Resources.btnSettingHovered;
+            }
+        }
+
+        private void OnMouseLeaveLanguage(object sender, EventArgs e)
+        {
+            if (!_settingSelected[LANGUAGE_SETTINGS_ID])
+            {
+                lblLanguage.Image = Properties.Resources.btnSettingNotSelected;
+            }
+        }
+
+        private void OnMouseEnterClock(object sender, EventArgs e)
+        {
+            if (!_settingSelected[CLOCK_SETTINGS_ID])
+            {
+                lblPvPOffset.Image = Properties.Resources.btnSettingHovered;
+            }
+        }
+
+        private void OnMouseLeaveClock(object sender, EventArgs e)
+        {
+            if (!_settingSelected[CLOCK_SETTINGS_ID])
+            {
+                lblPvPOffset.Image = Properties.Resources.btnSettingNotSelected;
+            }
+        }
+
+        private void OnMouseEnterKeys(object sender, EventArgs e)
+        {
+            if (!_settingSelected[KEY_SETTINGS_ID])
+            {
+                lblKeyBindings.Image = Properties.Resources.btnSettingHovered;
+            }
+        }
+
+        private void OnMouseLeaveKeys(object sender, EventArgs e)
+        {
+            if (!_settingSelected[KEY_SETTINGS_ID])
+            {
+                lblKeyBindings.Image = Properties.Resources.btnSettingNotSelected;
+            }
+        }
+
+        private void OnMouseEnterOther(object sender, EventArgs e)
+        {
+            if (!_settingSelected[OTHER_SETTINGS_ID])
+            {
+                lblOther.Image = Properties.Resources.btnSettingHovered;
+            }
+        }
+
+        private void OnMouseLeaveOther(object sender, EventArgs e)
+        {
+            if (!_settingSelected[OTHER_SETTINGS_ID])
+            {
+                lblOther.Image = Properties.Resources.btnSettingNotSelected;
+            }
         }
     }
 }
