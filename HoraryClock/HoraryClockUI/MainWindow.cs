@@ -30,8 +30,15 @@ namespace HoraryClockUI
             InitializeControls();
             InitializeTitle();
             AttachDelegates();
+            LoadConfig();
             ShowTab(CLOCK_ID);
             SetAlwaysOnTop(true);
+        }
+
+        private void LoadConfig()
+        {
+            TopMost = _config.WindowAlwaysOnTop == Config.CHECKED;
+            Opacity = 0.1*(_config.WindowOpacity + 1);
         }
 
         private void AttachDelegates()

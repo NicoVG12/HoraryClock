@@ -39,6 +39,12 @@ namespace HoraryClock
 
         public void Load()
         {
+            StreamReader sr = new StreamReader("config");
+
+            if (File.Exists("config"))
+            {
+
+            }
             //TODO: Read from file
         }
 
