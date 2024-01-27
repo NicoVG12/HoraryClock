@@ -17,5 +17,10 @@
             StopClockOnReset = false;
             KeyBindings = new KeyBinding();
         }
+
+        public void LoadFromStorage()
+        {
+            //TODO: Read from file
+        }
     }
 }
