@@ -35,7 +35,7 @@ namespace HoraryClockUI
             SetAlwaysOnTop(true);
         }
 
-        private void LoadConfig()
+        public void LoadConfig()
         {
             TopMost = _config.WindowAlwaysOnTop == Config.CHECKED;
             Opacity = 0.1*(_config.WindowOpacity + 1);
