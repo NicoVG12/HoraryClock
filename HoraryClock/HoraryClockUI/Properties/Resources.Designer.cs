@@ -173,6 +173,26 @@ namespace HoraryClockUI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btnMaximizeDarkBackground {
+            get {
+                object obj = ResourceManager.GetObject("btnMaximizeDarkBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btnMinimizeDarkBackground {
+            get {
+                object obj = ResourceManager.GetObject("btnMinimizeDarkBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btnRctg_0 {
             get {
                 object obj = ResourceManager.GetObject("btnRctg_0", resourceCulture);
@@ -306,6 +326,16 @@ namespace HoraryClockUI.Properties {
         internal static System.Drawing.Bitmap lblBackgroundDark {
             get {
                 object obj = ResourceManager.GetObject("lblBackgroundDark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MiniClockwindow {
+            get {
+                object obj = ResourceManager.GetObject("MiniClockwindow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

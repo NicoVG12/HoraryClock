@@ -17,13 +17,15 @@ namespace HoraryClockUI
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
-        private const int CONTROL_AMOUNT = 2;
+        private const int CONTROL_AMOUNT = 3;
 
         public const int CLOCK_ID = 0;
         public const int SETTINGS_ID = 1;
+        public const int MINI_CLOCK_ID = 2;
 
         private Config _config = Config.Instance();
         private Control[] _controls = new Control[CONTROL_AMOUNT];
+        private Control[] _controlsBeforeResize;
         public MainForm()
         {
             InitializeComponent();
@@ -51,6 +53,7 @@ namespace HoraryClockUI
         {
             _controls[CLOCK_ID] = new ClockControl(this);
             _controls[SETTINGS_ID] = new SettingsControl(this);
+            _controls[MINI_CLOCK_ID] = new MiniClockControl(this);
         }
 
         private void InitializeTitle()
@@ -119,6 +122,25 @@ namespace HoraryClockUI
         private void OnMouseLeave(object sender, EventArgs e)
         {
             lblCloseWindow.Image = Properties.Resources.btnClose_normal;
+        }
+
+        public void Minimize(double elapsed, bool isRunning)
+        {
+            _controlsBeforeResize = new Control[Controls.Count];
+            Controls.CopyTo(_controlsBeforeResize, 0);
+            Controls.Clear();
+            Controls.Add(_controls[MINI_CLOCK_ID]);
+            Size = new Size(239, 104);
+        }
+
+        internal void Maximize(double elapsed, bool isRunning)
+        {
+            Controls.Clear();
+            foreach(Control c in _controlsBeforeResize)
+            {
+                Controls.Add(c);
+            }
+            Size = new Size(529, 332);
         }
     }
 }

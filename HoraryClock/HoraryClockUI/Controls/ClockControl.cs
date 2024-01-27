@@ -157,5 +157,13 @@ namespace HoraryClockUI.Controls
         {
             lblReset.Image = Properties.Resources.btnRctg_0;
         }
+
+        private void lblMinimize_Click(object sender, EventArgs e)
+        {
+            bool isRunning = _isRunning;
+            _isRunning = false;
+            _mainForm.Minimize(_elapsedTime, isRunning);
+            
+        }
     }
 }
