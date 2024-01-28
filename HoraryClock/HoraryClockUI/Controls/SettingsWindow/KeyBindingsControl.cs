@@ -57,9 +57,10 @@ namespace HoraryClockUI.Controls.SettingsWindow
             {
                 _config.KeyBindings.StartKey = txtStartKey.Text;
                 _config.KeyBindings.PauseKey = txtPauseKey.Text;
-                _config.KeyBindings.ResetKey = txtPauseKey.Text;
+                _config.KeyBindings.ResetKey = txtResetKey.Text;
 
                 _mainForm.LoadConfig();
+                _mainForm.RefreshKeyBindings();
                 _config.Save();
             }
 

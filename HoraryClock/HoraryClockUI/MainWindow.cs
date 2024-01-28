@@ -38,6 +38,7 @@ namespace HoraryClockUI
             InitializeTitle();
             AttachDelegates();
             LoadConfig();
+            LoadKeyBindings();
             ShowTab(CLOCK_ID);
         }
 
@@ -45,8 +46,6 @@ namespace HoraryClockUI
         {
             TopMost = _config.WindowAlwaysOnTop == Config.CHECKED;
             Opacity = 0.1 * (_config.WindowOpacity + 1);
-
-            LoadKeyBindings();
         }
 
         private void LoadKeyBindings()
@@ -81,6 +80,13 @@ namespace HoraryClockUI
             _hotkeys.Add(startHK);
             _hotkeys.Add(pauseHK);
             _hotkeys.Add(resetHK);
+        }
+
+        public void RefreshKeyBindings()
+        {
+            _hotkeys[0].KeyCode = StringToKeys(_config.KeyBindings.StartKey);
+            _hotkeys[1].KeyCode = StringToKeys(_config.KeyBindings.PauseKey);
+            _hotkeys[2].KeyCode = StringToKeys(_config.KeyBindings.ResetKey);
         }
 
         private void StartKeyDelegate()
