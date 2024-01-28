@@ -56,7 +56,6 @@ namespace HoraryClock
             {
                 //TODO: Handle wrong config file exception
             }
-            //TODO: Read from file
         }
 
         public void Save()
