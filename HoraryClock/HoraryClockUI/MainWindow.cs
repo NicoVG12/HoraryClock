@@ -1,3 +1,4 @@
+using Clock;
 using HoraryClock;
 using HoraryClockUI.Controls;
 using HoraryClockUI.Controls.MainWindow;
@@ -40,7 +41,7 @@ namespace HoraryClockUI
         public void LoadConfig()
         {
             TopMost = _config.WindowAlwaysOnTop == Config.CHECKED;
-            Opacity = 0.1*(_config.WindowOpacity + 1);
+            Opacity = 0.1 * (_config.WindowOpacity + 1);
         }
 
         private void AttachDelegates()
@@ -124,23 +125,48 @@ namespace HoraryClockUI
             lblCloseWindow.Image = Properties.Resources.btnClose_normal;
         }
 
-        public void Minimize()
+        public async void Minimize(string RemainingTimeMessage)
         {
+            MiniClockControl MiniClockControl = _controls[MINI_CLOCK_ID] as MiniClockControl;
+            MiniClockControl.UpdateLabels(RemainingTimeMessage);
+
             _controlsBeforeResize = new Control[Controls.Count];
             Controls.CopyTo(_controlsBeforeResize, 0);
             Controls.Clear();
             Controls.Add(_controls[MINI_CLOCK_ID]);
+            if (ClockManager.Instance().IsRunning)
+            {
+                await Task.Delay(15);
+                ClockManager.Instance().Pause();
+                Task.Run(() => MiniClockControl.StartClock());
+            }
             Size = new Size(239, 104);
         }
 
-        internal void Maximize(double elapsed, bool isRunning)
+        public async void Maximize(string RemainingTimeMessage)
         {
+            ClockControl clockControl = _controls[CLOCK_ID] as ClockControl;
+            clockControl.UpdateLabels(RemainingTimeMessage);
             Controls.Clear();
-            foreach(Control c in _controlsBeforeResize)
+            foreach (Control c in _controlsBeforeResize)
             {
                 Controls.Add(c);
             }
+
+            if (ClockManager.Instance().IsRunning)
+            {
+                ClockManager.Instance().Pause();
+                await Task.Delay(15);
+                Task.Run(() => clockControl.StartClock());
+            }
+
             Size = new Size(529, 332);
+        }
+
+        private void lblMinimize_Click(object sender, EventArgs e)
+        {
+            ClockControl clockControl = _controls[CLOCK_ID] as ClockControl;
+            Minimize(clockControl.GetRemainingTime());
         }
     }
 }

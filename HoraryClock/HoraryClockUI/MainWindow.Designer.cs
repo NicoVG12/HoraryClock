@@ -31,6 +31,7 @@
             lblBackground = new Label();
             mainPanel = new FlowLayoutPanel();
             lblCloseWindow = new Label();
+            lblMinimize = new Label();
             SuspendLayout();
             // 
             // lblBackground
@@ -63,10 +64,20 @@
             lblCloseWindow.TabIndex = 3;
             lblCloseWindow.Click += lblCloseWindow_Click;
             // 
+            // lblMinimize
+            // 
+            lblMinimize.Image = Properties.Resources.btnMinimize;
+            lblMinimize.Location = new Point(471, 2);
+            lblMinimize.Name = "lblMinimize";
+            lblMinimize.Size = new Size(22, 13);
+            lblMinimize.TabIndex = 4;
+            lblMinimize.Click += lblMinimize_Click;
+            // 
             // MainForm
             // 
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(529, 332);
+            Controls.Add(lblMinimize);
             Controls.Add(lblCloseWindow);
             Controls.Add(mainPanel);
             Controls.Add(lblBackground);
@@ -81,5 +92,6 @@
         private Label lblBackground;
         private FlowLayoutPanel mainPanel;
         private Label lblCloseWindow;
+        private Label lblMinimize;
     }
 }

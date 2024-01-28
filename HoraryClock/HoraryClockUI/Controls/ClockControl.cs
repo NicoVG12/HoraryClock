@@ -38,7 +38,7 @@ namespace HoraryClockUI.Controls
             _icons[3] = Properties.Resources._03culminationicon;
         }
 
-        private async Task StartClock()
+        public async Task StartClock()
         {
             Task.Run(() => _clockManager.StartAsync());
             await (Task.Delay(15));
@@ -49,7 +49,7 @@ namespace HoraryClockUI.Controls
             }
         }
 
-        private void UpdateLabels(string RemainingTimeMsg)
+        public void UpdateLabels(string RemainingTimeMsg)
         {
             EffectType currentEffect = _effectManager.CurrentEffect();
 
@@ -74,7 +74,8 @@ namespace HoraryClockUI.Controls
             if (Config.Instance().PvPOffsett == Config.CHECKED)
             {
                 UpdateLabels("17.0000 s");
-            } else
+            }
+            else
             {
                 UpdateLabels("20.0000 s");
             }
@@ -137,8 +138,13 @@ namespace HoraryClockUI.Controls
 
         private void lblMinimize_Click(object sender, EventArgs e)
         {
-            _mainForm.Minimize();
-            
+            _mainForm.Minimize(lblRemainingTimeValue.Text);
+
+        }
+
+        internal string GetRemainingTime()
+        {
+            return lblRemainingTimeValue.Text;
         }
     }
 }

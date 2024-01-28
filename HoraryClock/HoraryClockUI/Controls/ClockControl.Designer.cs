@@ -39,7 +39,6 @@
             lblFirstDescription = new Label();
             lblSecondDescription = new Label();
             lblBackground = new Label();
-            lblMinimize = new Label();
             SuspendLayout();
             // 
             // lblSettings
@@ -173,20 +172,10 @@
             lblBackground.TabIndex = 10;
             lblBackground.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // lblMinimize
-            // 
-            lblMinimize.Image = Properties.Resources.btnMinimizeDarkBackground;
-            lblMinimize.Location = new Point(428, 13);
-            lblMinimize.Name = "lblMinimize";
-            lblMinimize.Size = new Size(35, 46);
-            lblMinimize.TabIndex = 11;
-            lblMinimize.Click += lblMinimize_Click;
-            // 
             // ClockControl
             // 
             AutoScaleMode = AutoScaleMode.None;
             Controls.Add(lblSettings);
-            Controls.Add(lblMinimize);
             Controls.Add(lblCurrentEffectIcon);
             Controls.Add(lblFirstDescription);
             Controls.Add(lblSecondDescription);
@@ -215,6 +204,5 @@
         private Label lblFirstDescription;
         private Label lblSecondDescription;
         private Label lblBackground;
-        private Label lblMinimize;
     }
 }

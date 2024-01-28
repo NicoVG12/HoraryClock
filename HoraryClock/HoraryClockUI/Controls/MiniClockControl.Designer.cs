@@ -30,16 +30,16 @@
         {
             lblCloseWindow = new Label();
             lblMaximize = new Label();
-            label2 = new Label();
+            lblReset = new Label();
             lblCurrentEffectIcon = new Label();
             lblRemainingTimeValue = new Label();
-            label1 = new Label();
+            lblPlay = new Label();
             lblBackground = new Label();
             SuspendLayout();
             // 
             // lblCloseWindow
             // 
-            lblCloseWindow.Image = Properties.Resources.btnClose_normal;
+            lblCloseWindow.Image = Properties.Resources.btnMiniClose;
             lblCloseWindow.Location = new Point(208, 2);
             lblCloseWindow.Name = "lblCloseWindow";
             lblCloseWindow.Size = new Size(29, 28);
@@ -48,20 +48,20 @@
             // 
             // lblMaximize
             // 
-            lblMaximize.Image = Properties.Resources.btnMaximizeDarkBackground;
-            lblMaximize.Location = new Point(202, 47);
+            lblMaximize.Image = Properties.Resources.btnMaximize;
+            lblMaximize.Location = new Point(182, 2);
             lblMaximize.Name = "lblMaximize";
-            lblMaximize.Size = new Size(35, 46);
+            lblMaximize.Size = new Size(22, 13);
             lblMaximize.TabIndex = 12;
             lblMaximize.Click += lblMaximize_Click;
             // 
-            // label2
+            // lblReset
             // 
-            label2.Image = Properties.Resources.btnClose_normal;
-            label2.Location = new Point(157, 71);
-            label2.Name = "label2";
-            label2.Size = new Size(40, 27);
-            label2.TabIndex = 14;
+            lblReset.Image = Properties.Resources.miniReset;
+            lblReset.Location = new Point(197, 53);
+            lblReset.Name = "lblReset";
+            lblReset.Size = new Size(36, 35);
+            lblReset.TabIndex = 14;
             // 
             // lblCurrentEffectIcon
             // 
@@ -78,20 +78,21 @@
             // 
             lblRemainingTimeValue.Font = new Font("Consolas", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblRemainingTimeValue.ForeColor = Color.Black;
-            lblRemainingTimeValue.Location = new Point(67, 54);
+            lblRemainingTimeValue.Location = new Point(59, 54);
             lblRemainingTimeValue.Name = "lblRemainingTimeValue";
-            lblRemainingTimeValue.Size = new Size(81, 32);
+            lblRemainingTimeValue.Size = new Size(95, 32);
             lblRemainingTimeValue.TabIndex = 16;
             lblRemainingTimeValue.Text = "-";
             lblRemainingTimeValue.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // label1
+            // lblPlay
             // 
-            label1.Image = Properties.Resources.btnClose_normal;
-            label1.Location = new Point(157, 41);
-            label1.Name = "label1";
-            label1.Size = new Size(40, 27);
-            label1.TabIndex = 18;
+            lblPlay.Image = Properties.Resources.miniPlay;
+            lblPlay.Location = new Point(155, 53);
+            lblPlay.Name = "lblPlay";
+            lblPlay.Size = new Size(36, 35);
+            lblPlay.TabIndex = 18;
+            lblPlay.Click += label1_Click;
             // 
             // lblBackground
             // 
@@ -111,11 +112,11 @@
             // MiniClockControl
             // 
             AutoScaleMode = AutoScaleMode.None;
-            Controls.Add(label1);
-            Controls.Add(lblRemainingTimeValue);
             Controls.Add(lblCurrentEffectIcon);
-            Controls.Add(label2);
             Controls.Add(lblMaximize);
+            Controls.Add(lblPlay);
+            Controls.Add(lblRemainingTimeValue);
+            Controls.Add(lblReset);
             Controls.Add(lblCloseWindow);
             Controls.Add(lblBackground);
             Margin = new Padding(0);
@@ -128,10 +129,10 @@
 
         private Label lblCloseWindow;
         private Label lblMaximize;
-        private Label label2;
+        private Label lblReset;
         private Label lblCurrentEffectIcon;
         private Label lblRemainingTimeValue;
-        private Label label1;
+        private Label lblPlay;
         private Label lblBackground;
     }
 }
