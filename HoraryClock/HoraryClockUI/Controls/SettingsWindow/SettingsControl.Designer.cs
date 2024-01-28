@@ -75,6 +75,7 @@
             lblKeyBindings.TabIndex = 2;
             lblKeyBindings.Text = "Key Bindings";
             lblKeyBindings.TextAlign = ContentAlignment.MiddleCenter;
+            lblKeyBindings.Click += lblKeyBindings_Click;
             // 
             // lblOther
             // 
@@ -108,13 +109,14 @@
             // 
             // lblGoBack
             // 
-            lblGoBack.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            lblGoBack.ForeColor = Color.MidnightBlue;
-            lblGoBack.Image = Properties.Resources.btnGoBack;
-            lblGoBack.Location = new Point(0, 0);
+            lblGoBack.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblGoBack.ForeColor = Color.White;
+            lblGoBack.Image = Properties.Resources.btnReturnToClock;
+            lblGoBack.Location = new Point(27, 240);
             lblGoBack.Name = "lblGoBack";
-            lblGoBack.Size = new Size(27, 27);
+            lblGoBack.Size = new Size(127, 34);
             lblGoBack.TabIndex = 7;
+            lblGoBack.Text = "Return";
             lblGoBack.TextAlign = ContentAlignment.MiddleCenter;
             lblGoBack.Click += lblGoBack_Click;
             // 

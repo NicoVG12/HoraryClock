@@ -4,7 +4,9 @@ using HoraryClockUI.Controls;
 using HoraryClockUI.Controls.MainWindow;
 using HoraryClockUI.Controls.SettingsWindow;
 using System.Configuration;
+using System.Globalization;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace HoraryClockUI
 {
@@ -24,6 +26,7 @@ namespace HoraryClockUI
         public const int SETTINGS_ID = 1;
         public const int MINI_CLOCK_ID = 2;
 
+        private List<Hotkey> _hotkeys = new List<Hotkey>();
         private Config _config = Config.Instance();
         private Control[] _controls = new Control[CONTROL_AMOUNT];
         private Control[] _controlsBeforeResize;
@@ -41,6 +44,86 @@ namespace HoraryClockUI
         {
             TopMost = _config.WindowAlwaysOnTop == Config.CHECKED;
             Opacity = 0.1 * (_config.WindowOpacity + 1);
+
+            LoadKeyBindings();
+        }
+
+        private void LoadKeyBindings()
+        {
+            foreach(Hotkey hk in _hotkeys)
+            {
+                hk.Unregister();
+                _hotkeys.Remove(hk);
+            }
+
+            Hotkey startHK = new Hotkey();
+            Hotkey pauseHK = new Hotkey();
+            Hotkey resetHK = new Hotkey();
+
+            startHK.KeyCode = StringToKeys(_config.KeyBindings.StartKey);
+            startHK.Pressed += delegate { StartKeyDelegate(); } ;
+            startHK.Register(this);
+
+            pauseHK.KeyCode = StringToKeys(_config.KeyBindings.PauseKey);
+            pauseHK.Pressed += delegate { PauseKeyDelegate(); };
+            pauseHK.Register(this);
+
+            resetHK.KeyCode = StringToKeys(_config.KeyBindings.ResetKey);
+            resetHK.Pressed += delegate { ResetKeyDelegate(); };
+            resetHK.Register(this);
+
+            _hotkeys.Add(startHK);
+            _hotkeys.Add(pauseHK);
+            _hotkeys.Add(resetHK);
+        }
+
+        private void StartKeyDelegate()
+        {
+            if (!ClockManager.Instance().IsRunning)
+            {
+                if (!Minimized(Height))
+                {
+                    ClockControl clockControl = (ClockControl)_controls[CLOCK_ID];
+                    Task.Run(() => clockControl.StartClock());
+                }
+                else
+                {
+                    MiniClockControl clockControl = (MiniClockControl)_controls[MINI_CLOCK_ID];
+                    clockControl.label1_Click(null, null);
+                }
+            }
+        }
+
+        private void PauseKeyDelegate()
+        {
+            if (!Minimized(Height))
+            {
+                ClockManager.Instance().Pause();
+            }
+            else
+            {
+                MiniClockControl clockControl = (MiniClockControl)_controls[MINI_CLOCK_ID];
+                clockControl.label1_Click(null, null);
+            }
+        }
+
+        private void ResetKeyDelegate()
+        {
+            if (!Minimized(Height))
+            {
+                ClockControl clockControl = (ClockControl)_controls[CLOCK_ID];
+                clockControl.lblReset_Click(null, null);
+            }
+            else
+            {
+                MiniClockControl clockControl = (MiniClockControl)_controls[MINI_CLOCK_ID];
+                clockControl.lblReset_Click(null, null);
+            }
+        }
+
+        private bool Minimized(int height)
+        {
+            return height == 104;
         }
 
         private void AttachDelegates()
@@ -136,7 +219,7 @@ namespace HoraryClockUI
         {
             MiniClockControl MiniClockControl = _controls[MINI_CLOCK_ID] as MiniClockControl;
             MiniClockControl.UpdateLabels(RemainingTimeMessage);
-            MiniClockControl.SetInitialPlayLabel();
+            MiniClockControl.RefreshPlayLabel();
 
             _controlsBeforeResize = new Control[Controls.Count];
             Controls.CopyTo(_controlsBeforeResize, 0);
@@ -154,7 +237,7 @@ namespace HoraryClockUI
         public async void Maximize(string RemainingTimeMessage)
         {
             ClockControl clockControl = _controls[CLOCK_ID] as ClockControl;
-            clockControl.UpdateLabels(RemainingTimeMessage);
+            clockControl.UpdateLabels(RemainingTimeMessage.Substring(0,RemainingTimeMessage.Length-1) + "00s");
             Controls.Clear();
             foreach (Control c in _controlsBeforeResize)
             {
@@ -171,7 +254,6 @@ namespace HoraryClockUI
             {
                 clockControl.SetInitialLabels();
             }
-
             Size = new Size(529, 332);
         }
 
@@ -179,6 +261,26 @@ namespace HoraryClockUI
         {
             ClockControl clockControl = _controls[CLOCK_ID] as ClockControl;
             Minimize(clockControl.GetRemainingTime());
+        }
+
+        public Keys StringToKeys(string key)
+        {
+            switch (key)
+            {
+                case "F1": return Keys.F1;
+                case "F2": return Keys.F2; 
+                case "F3": return Keys.F3;
+                case "F4": return Keys.F4;
+                case "F5": return Keys.F5;
+                case "F6": return Keys.F6;
+                case "F7": return Keys.F7;
+                case "F8": return Keys.F8;
+                case "F9": return Keys.F9;
+                case "F10": return Keys.F10;
+                case "F11": return Keys.F11;
+                case "F12": return Keys.F12;
+                default: return Keys.F1;
+            }
         }
     }
 }

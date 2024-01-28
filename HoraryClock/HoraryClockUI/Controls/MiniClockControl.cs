@@ -69,7 +69,7 @@ namespace HoraryClockUI.Controls
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        public void label1_Click(object sender, EventArgs e)
         {
             if (!_clockManager.IsRunning)
             {
@@ -172,6 +172,18 @@ namespace HoraryClockUI.Controls
             }
         }
 
+        public void RefreshPlayLabel()
+        {
+            if (_clockManager.IsRunning)
+            {
+                lblPlay.Image = Properties.Resources.miniPause;
+            }
+            else
+            {
+                lblPlay.Image = Properties.Resources.miniPlay;
+            }
+        }
+
         private void OnMouseEnterReset(object sender, EventArgs e)
         {
             lblReset.Image = Properties.Resources.miniResetHover;
@@ -202,7 +214,7 @@ namespace HoraryClockUI.Controls
             lblMaximize.Image = Properties.Resources.btnMaximize;
         }
 
-        private async void lblReset_Click(object sender, EventArgs e)
+        public async void lblReset_Click(object sender, EventArgs e)
         {
             _clockManager.Reset();
             await Task.Delay(20);

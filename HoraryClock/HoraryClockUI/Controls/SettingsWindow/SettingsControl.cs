@@ -47,6 +47,7 @@ namespace HoraryClockUI.Controls.SettingsWindow
         {
             _settingsControls[LANGUAGE_SETTINGS_ID] = new LanguageControl();
             _settingsControls[CLOCK_SETTINGS_ID] = new ClockSettingsControl(_mainForm);
+            _settingsControls[KEY_SETTINGS_ID] = new KeyBindingsControl(_mainForm);
         }
 
         private void SetSelected(int settingId)
@@ -98,6 +99,9 @@ namespace HoraryClockUI.Controls.SettingsWindow
             lblKeyBindings.MouseLeave += OnMouseLeaveKeys;
             lblOther.MouseEnter += OnMouseEnterOther;
             lblOther.MouseLeave += OnMouseLeaveOther;
+
+            lblGoBack.MouseEnter += OnMouseEnterReturn;
+            lblGoBack.MouseLeave += OnMouseLeaveReturn;
 
         }
 
@@ -168,6 +172,21 @@ namespace HoraryClockUI.Controls.SettingsWindow
             {
                 lblOther.Image = Properties.Resources.btnSettingNotSelected;
             }
+        }
+
+        private void OnMouseEnterReturn(object sender, EventArgs e)
+        {
+            lblGoBack.Image = Properties.Resources.btnReturnToClockHover;
+        }
+
+        private void OnMouseLeaveReturn(object sender, EventArgs e)
+        {
+            lblGoBack.Image = Properties.Resources.btnReturnToClock;
+        }
+
+        private void lblKeyBindings_Click(object sender, EventArgs e)
+        {
+            SetSelected(KEY_SETTINGS_ID);
         }
     }
 }

@@ -69,7 +69,7 @@ namespace HoraryClockUI.Controls
             _mainForm.ShowTab(MainForm.SETTINGS_ID);
         }
 
-        private async void lblReset_Click(object sender, EventArgs e)
+        public async void lblReset_Click(object sender, EventArgs e)
         {
             _clockManager.Reset();
             await Task.Delay(20);

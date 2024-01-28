@@ -273,6 +273,26 @@ namespace HoraryClockUI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btnReturnToClock {
+            get {
+                object obj = ResourceManager.GetObject("btnReturnToClock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btnReturnToClockHover {
+            get {
+                object obj = ResourceManager.GetObject("btnReturnToClockHover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btnSave {
             get {
                 object obj = ResourceManager.GetObject("btnSave", resourceCulture);
@@ -387,6 +407,36 @@ namespace HoraryClockUI.Properties {
             get {
                 object obj = ResourceManager.GetObject("Horary1", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keys_settings_control_bg {
+            get {
+                object obj = ResourceManager.GetObject("keys_settings_control_bg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keys_settings_control_bg1 {
+            get {
+                object obj = ResourceManager.GetObject("keys_settings_control_bg1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap keys_settings_label_bg {
+            get {
+                object obj = ResourceManager.GetObject("keys_settings_label_bg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
