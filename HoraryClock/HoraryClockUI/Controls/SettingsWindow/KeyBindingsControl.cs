@@ -48,12 +48,39 @@ namespace HoraryClockUI.Controls.SettingsWindow
 
         private void lblSave_Click(object sender, EventArgs e)
         {
-            _config.KeyBindings.StartKey = txtStartKey.Text;
-            _config.KeyBindings.PauseKey = txtPauseKey.Text;
-            _config.KeyBindings.ResetKey = txtPauseKey.Text;
+            if (KeysRepeated())
+            {
+                lblMessage.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
+                lblMessage.Text = "The same key cannot be bound to multiple actions.";
+               
+            } else
+            {
+                _config.KeyBindings.StartKey = txtStartKey.Text;
+                _config.KeyBindings.PauseKey = txtPauseKey.Text;
+                _config.KeyBindings.ResetKey = txtPauseKey.Text;
 
-            _mainForm.LoadConfig();
-            _config.Save();
+                _mainForm.LoadConfig();
+                _config.Save();
+            }
+
+        }
+
+        private bool KeysRepeated()
+        {
+            bool repeated = false;
+
+            repeated |= txtStartKey.Text == txtPauseKey.Text;
+            repeated |= txtStartKey.Text == txtResetKey.Text;
+            repeated |= txtPauseKey.Text == txtResetKey.Text;
+
+            return repeated;
+        }
+
+        private void SetText(TextBox textBox, KeyEventArgs e)
+        {
+            string newKey = e.KeyCode.ToString();
+            newKey = _mainForm.StringToKeys(newKey).ToString();
+            textBox.Text = newKey;
         }
 
         private void txtStartKey_KeyPress(object sender, KeyPressEventArgs e)
@@ -63,9 +90,42 @@ namespace HoraryClockUI.Controls.SettingsWindow
 
         private void txtStartKey_KeyUp(object sender, KeyEventArgs e)
         {
-            string newKey = e.KeyCode.ToString();
-            newKey = _mainForm.StringToKeys(newKey).ToString();
-            txtStartKey.Text = newKey;
+            SetText(txtStartKey, e);
+        }
+
+        private void txtPauseKey_KeyDown(object sender, KeyEventArgs e)
+        {
+            txtPauseKey.Text = "";
+        }
+
+        private void txtPauseKey_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            txtPauseKey.Text = "";
+        }
+
+        private void txtPauseKey_KeyUp(object sender, KeyEventArgs e)
+        {
+            SetText(txtPauseKey, e);
+        }
+
+        private void txtResetKey_KeyDown(object sender, KeyEventArgs e)
+        {
+            txtResetKey.Text = "";
+        }
+
+        private void txtResetKey_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            txtResetKey.Text = "";
+        }
+
+        private void txtResetKey_KeyUp(object sender, KeyEventArgs e)
+        {
+            SetText(txtResetKey, e);
+        }
+
+        private void txtStartKey_KeyDown(object sender, KeyEventArgs e)
+        {
+            txtStartKey.Text = "";
         }
     }
 }

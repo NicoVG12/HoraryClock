@@ -5,6 +5,7 @@ using HoraryClockUI.Controls.MainWindow;
 using HoraryClockUI.Controls.SettingsWindow;
 using System.Configuration;
 using System.Globalization;
+using System.Linq.Expressions;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -50,18 +51,23 @@ namespace HoraryClockUI
 
         private void LoadKeyBindings()
         {
-            foreach(Hotkey hk in _hotkeys)
+            try
             {
-                hk.Unregister();
-                _hotkeys.Remove(hk);
+                foreach (Hotkey hk in _hotkeys)
+                {
+                    hk.Unregister();
+                    _hotkeys.Remove(hk);
+                }
             }
+            catch { }
+
 
             Hotkey startHK = new Hotkey();
             Hotkey pauseHK = new Hotkey();
             Hotkey resetHK = new Hotkey();
 
             startHK.KeyCode = StringToKeys(_config.KeyBindings.StartKey);
-            startHK.Pressed += delegate { StartKeyDelegate(); } ;
+            startHK.Pressed += delegate { StartKeyDelegate(); };
             startHK.Register(this);
 
             pauseHK.KeyCode = StringToKeys(_config.KeyBindings.PauseKey);
@@ -237,7 +243,7 @@ namespace HoraryClockUI
         public async void Maximize(string RemainingTimeMessage)
         {
             ClockControl clockControl = _controls[CLOCK_ID] as ClockControl;
-            clockControl.UpdateLabels(RemainingTimeMessage.Substring(0,RemainingTimeMessage.Length-1) + "00s");
+            clockControl.UpdateLabels(RemainingTimeMessage.Substring(0, RemainingTimeMessage.Length - 1) + "00s");
             Controls.Clear();
             foreach (Control c in _controlsBeforeResize)
             {
@@ -268,7 +274,7 @@ namespace HoraryClockUI
             switch (key)
             {
                 case "F1": return Keys.F1;
-                case "F2": return Keys.F2; 
+                case "F2": return Keys.F2;
                 case "F3": return Keys.F3;
                 case "F4": return Keys.F4;
                 case "F5": return Keys.F5;

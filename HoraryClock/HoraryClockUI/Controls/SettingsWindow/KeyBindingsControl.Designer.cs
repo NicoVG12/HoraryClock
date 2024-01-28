@@ -39,7 +39,7 @@
             lblResetKey = new Label();
             lblSave = new Label();
             label1 = new Label();
-            label2 = new Label();
+            lblMessage = new Label();
             SuspendLayout();
             // 
             // lblStartKey
@@ -74,6 +74,7 @@
             txtStartKey.Size = new Size(49, 29);
             txtStartKey.TabIndex = 6;
             txtStartKey.TextAlign = HorizontalAlignment.Center;
+            txtStartKey.KeyDown += txtStartKey_KeyDown;
             txtStartKey.KeyPress += txtStartKey_KeyPress;
             txtStartKey.KeyUp += txtStartKey_KeyUp;
             // 
@@ -85,6 +86,9 @@
             txtPauseKey.Size = new Size(49, 29);
             txtPauseKey.TabIndex = 9;
             txtPauseKey.TextAlign = HorizontalAlignment.Center;
+            txtPauseKey.KeyDown += txtPauseKey_KeyDown;
+            txtPauseKey.KeyPress += txtPauseKey_KeyPress;
+            txtPauseKey.KeyUp += txtPauseKey_KeyUp;
             // 
             // lblPauseKeyDescription
             // 
@@ -118,6 +122,9 @@
             txtResetKey.Size = new Size(49, 29);
             txtResetKey.TabIndex = 12;
             txtResetKey.TextAlign = HorizontalAlignment.Center;
+            txtResetKey.KeyDown += txtResetKey_KeyDown;
+            txtResetKey.KeyPress += txtResetKey_KeyPress;
+            txtResetKey.KeyUp += txtResetKey_KeyUp;
             // 
             // lblResetKeyDescription
             // 
@@ -169,23 +176,23 @@
             label1.TabIndex = 14;
             label1.Text = "PvP Offset";
             // 
-            // label2
+            // lblMessage
             // 
-            label2.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.ForeColor = Color.White;
-            label2.Image = Properties.Resources.keys_settings_label_bg;
-            label2.Location = new Point(35, 171);
-            label2.Margin = new Padding(0);
-            label2.Name = "label2";
-            label2.Size = new Size(255, 38);
-            label2.TabIndex = 16;
-            label2.Text = "Only F1~F12 Keys are allowed.";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
+            lblMessage.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblMessage.ForeColor = Color.White;
+            lblMessage.Image = Properties.Resources.keys_settings_label_bg;
+            lblMessage.Location = new Point(35, 171);
+            lblMessage.Margin = new Padding(0);
+            lblMessage.Name = "lblMessage";
+            lblMessage.Size = new Size(255, 38);
+            lblMessage.TabIndex = 16;
+            lblMessage.Text = "Only F1~F12 Keys are allowed.";
+            lblMessage.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // KeyBindingsControl
             // 
             AutoScaleMode = AutoScaleMode.None;
-            Controls.Add(label2);
+            Controls.Add(lblMessage);
             Controls.Add(txtResetKey);
             Controls.Add(lblResetKeyDescription);
             Controls.Add(lblResetKey);
@@ -217,6 +224,6 @@
         private Label lblResetKey;
         private Label lblSave;
         private Label label1;
-        private Label label2;
+        private Label lblMessage;
     }
 }
