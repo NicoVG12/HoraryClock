@@ -43,7 +43,7 @@
             // 
             // lblSettings
             // 
-            lblSettings.Image = Properties.Resources.btnSettingsDarkBackground;
+            lblSettings.Image = Properties.Resources.btnSettingsDarkBackgroundNotHovered;
             lblSettings.Location = new Point(469, 13);
             lblSettings.Name = "lblSettings";
             lblSettings.Size = new Size(35, 46);

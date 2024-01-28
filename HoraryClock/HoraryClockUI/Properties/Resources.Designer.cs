@@ -343,6 +343,16 @@ namespace HoraryClockUI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btnSettingsDarkBackgroundNotHovered {
+            get {
+                object obj = ResourceManager.GetObject("btnSettingsDarkBackgroundNotHovered", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btnSettingSelected {
             get {
                 object obj = ResourceManager.GetObject("btnSettingSelected", resourceCulture);

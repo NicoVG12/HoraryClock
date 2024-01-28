@@ -28,30 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnEnglish = new RadioButton();
             grpLanguages = new GroupBox();
-            btnSpanish = new RadioButton();
             lblBackground = new Label();
             grpLanguages.SuspendLayout();
             SuspendLayout();
             // 
-            // btnEnglish
-            // 
-            btnEnglish.AutoSize = true;
-            btnEnglish.BackColor = Color.Silver;
-            btnEnglish.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnEnglish.Location = new Point(25, 19);
-            btnEnglish.Name = "btnEnglish";
-            btnEnglish.Size = new Size(84, 25);
-            btnEnglish.TabIndex = 0;
-            btnEnglish.TabStop = true;
-            btnEnglish.Text = "English";
-            btnEnglish.UseVisualStyleBackColor = false;
-            // 
             // grpLanguages
             // 
-            grpLanguages.Controls.Add(btnSpanish);
-            grpLanguages.Controls.Add(btnEnglish);
             grpLanguages.Controls.Add(lblBackground);
             grpLanguages.Location = new Point(-15, -15);
             grpLanguages.Margin = new Padding(0);
@@ -61,19 +44,6 @@
             grpLanguages.TabIndex = 1;
             grpLanguages.TabStop = false;
             grpLanguages.Enter += groupBox1_Enter;
-            // 
-            // btnSpanish
-            // 
-            btnSpanish.AutoSize = true;
-            btnSpanish.BackColor = Color.Silver;
-            btnSpanish.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSpanish.Location = new Point(25, 50);
-            btnSpanish.Name = "btnSpanish";
-            btnSpanish.Size = new Size(88, 25);
-            btnSpanish.TabIndex = 2;
-            btnSpanish.TabStop = true;
-            btnSpanish.Text = "Español";
-            btnSpanish.UseVisualStyleBackColor = false;
             // 
             // lblBackground
             // 
@@ -92,15 +62,11 @@
             Name = "LanguageControl";
             Size = new Size(326, 257);
             grpLanguages.ResumeLayout(false);
-            grpLanguages.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private RadioButton btnEnglish;
         private GroupBox grpLanguages;
-        private RadioButton btnSpanish;
         private Label lblBackground;
     }
 }

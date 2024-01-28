@@ -1,4 +1,5 @@
 ﻿using Clock;
+using HoraryClock;
 using HoraryEffects;
 using System;
 using System.Collections.Generic;
@@ -25,6 +26,7 @@ namespace HoraryClockUI.Controls
         {
             _mainForm = mainForm;
             InitializeComponent();
+            AttachDelegates();
             InitializeImageArray();
         }
 
@@ -69,7 +71,17 @@ namespace HoraryClockUI.Controls
 
         private void label1_Click(object sender, EventArgs e)
         {
-            Task.Run(() => StartClock());
+            if (!_clockManager.IsRunning)
+            {
+                Task.Run(() => StartClock());
+                lblPlay.Image = Properties.Resources.miniPauseHover;
+            }
+            else
+            {
+                _clockManager.Pause();
+                lblPlay.Image = Properties.Resources.miniPlayHover;
+            }
+
         }
 
         internal void UpdateLabels(string remainingTimeMessage)
@@ -79,12 +91,14 @@ namespace HoraryClockUI.Controls
             lblCurrentEffectIcon.Image = _icons[_effectManager.CurrentEffectId];
             if (!remainingTimeMessage.StartsWith("-"))
             {
+                string message = "";
                 int length = 5;
-                if (remainingTimeMessage.Length < 9)
+                if (remainingTimeMessage.Length < 8)
                 {
                     length = 4;
+                    message = "0";
                 }
-                lblRemainingTimeValue.Text = remainingTimeMessage.Substring(0, length) + " s";
+                lblRemainingTimeValue.Text = message + remainingTimeMessage.Substring(0, length) + "s";
             }
         }
 
@@ -95,8 +109,113 @@ namespace HoraryClockUI.Controls
             while (_clockManager.IsRunning)
             {
                 double elapsedTime = _clockManager.ElapsedTime;
-                UpdateLabels(String.Format("{0:0.0000}", ((double)_effectManager.CurrentEffect().Duration - elapsedTime / 1000)) + " s");
+                UpdateLabels(String.Format("{0:0.0000}", ((double)_effectManager.CurrentEffect().Duration - elapsedTime / 1000)) + "s");
             }
+        }
+
+        private void AttachDelegates()
+        {
+            lblPlay.MouseEnter += OnMouseEnterStart;
+            lblPlay.MouseLeave += OnMouseLeaveStart;
+            lblReset.MouseEnter += OnMouseEnterReset;
+            lblReset.MouseLeave += OnMouseLeaveReset;
+
+            lblCloseWindow.MouseEnter += OnMouseEnterClose;
+            lblCloseWindow.MouseLeave += OnMouseLeaveClose;
+            lblMaximize.MouseEnter += OnMouseEnterMaximize;
+            lblMaximize.MouseLeave += OnMouseLeaveMaximize;
+
+        }
+
+        private void OnMouseEnterStart(object sender, EventArgs e)
+        {
+            if (_clockManager.IsRunning)
+            {
+                lblPlay.Image = Properties.Resources.miniPauseHover;
+            }
+            else
+            {
+                lblPlay.Image = Properties.Resources.miniPlayHover;
+            }
+        }
+
+        private void OnMouseLeaveStart(object sender, EventArgs e)
+        {
+            if (_clockManager.IsRunning)
+            {
+                lblPlay.Image = Properties.Resources.miniPause;
+            }
+            else
+            {
+                lblPlay.Image = Properties.Resources.miniPlay;
+            }
+        }
+
+        public void SetInitialPlayLabel()
+        {
+            if (_clockManager.IsRunning)
+            {
+                lblPlay.Image = Properties.Resources.miniPause;
+            }
+            else
+            {
+                lblPlay.Image = Properties.Resources.miniPlay;
+                lblCurrentEffectIcon.Image = Properties.Resources._04noeffect;
+            }
+            if (Config.Instance().PvPOffsett == Config.CHECKED)
+            {
+                lblRemainingTimeValue.Text = "17.00s";
+            }
+            else
+            {
+                lblRemainingTimeValue.Text = "20.00s";
+            }
+        }
+
+        private void OnMouseEnterReset(object sender, EventArgs e)
+        {
+            lblReset.Image = Properties.Resources.miniResetHover;
+        }
+
+        private void OnMouseLeaveReset(object sender, EventArgs e)
+        {
+            lblReset.Image = Properties.Resources.miniReset;
+        }
+
+        private void OnMouseEnterClose(object sender, EventArgs e)
+        {
+            lblCloseWindow.Image = Properties.Resources.btnMiniCloseHover;
+        }
+
+        private void OnMouseLeaveClose(object sender, EventArgs e)
+        {
+            lblCloseWindow.Image = Properties.Resources.btnMiniClose;
+        }
+
+        private void OnMouseEnterMaximize(object sender, EventArgs e)
+        {
+            lblMaximize.Image = Properties.Resources.btnMaximizeHover;
+        }
+
+        private void OnMouseLeaveMaximize(object sender, EventArgs e)
+        {
+            lblMaximize.Image = Properties.Resources.btnMaximize;
+        }
+
+        private async void lblReset_Click(object sender, EventArgs e)
+        {
+            _clockManager.Reset();
+            await Task.Delay(20);
+            SetInitialPlayLabel();
+            if (!_clockManager.IsRunning)
+            {
+                lblCurrentEffectIcon.Image = Properties.Resources._04noeffect;
+            }
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

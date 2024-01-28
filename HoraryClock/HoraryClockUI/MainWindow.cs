@@ -35,7 +35,6 @@ namespace HoraryClockUI
             AttachDelegates();
             LoadConfig();
             ShowTab(CLOCK_ID);
-            SetAlwaysOnTop(true);
         }
 
         public void LoadConfig()
@@ -48,6 +47,9 @@ namespace HoraryClockUI
         {
             lblCloseWindow.MouseEnter += OnMouseEnter;
             lblCloseWindow.MouseLeave += OnMouseLeave;
+
+            lblMinimize.MouseEnter += OnMouseEnterMinimize;
+            lblMinimize.MouseLeave += OnMouseLeaveMinimize;
         }
 
         private void InitializeControls()
@@ -67,11 +69,6 @@ namespace HoraryClockUI
         private void Form1_Load(object sender, EventArgs e)
         {
 
-        }
-
-        public void SetAlwaysOnTop(bool alwaysOnTop)
-        {
-            TopMost = alwaysOnTop;
         }
 
         public void ShowTab(int tabId)
@@ -125,10 +122,21 @@ namespace HoraryClockUI
             lblCloseWindow.Image = Properties.Resources.btnClose_normal;
         }
 
+        private void OnMouseEnterMinimize(object sender, EventArgs e)
+        {
+            lblMinimize.Image = Properties.Resources.btnMinimizeHover;
+        }
+
+        private void OnMouseLeaveMinimize(object sender, EventArgs e)
+        {
+            lblMinimize.Image = Properties.Resources.btnMinimize;
+        }
+
         public async void Minimize(string RemainingTimeMessage)
         {
             MiniClockControl MiniClockControl = _controls[MINI_CLOCK_ID] as MiniClockControl;
             MiniClockControl.UpdateLabels(RemainingTimeMessage);
+            MiniClockControl.SetInitialPlayLabel();
 
             _controlsBeforeResize = new Control[Controls.Count];
             Controls.CopyTo(_controlsBeforeResize, 0);
@@ -158,6 +166,10 @@ namespace HoraryClockUI
                 ClockManager.Instance().Pause();
                 await Task.Delay(15);
                 Task.Run(() => clockControl.StartClock());
+            }
+            else if (ClockManager.Instance().ElapsedTime == 0 || ClockManager.Instance().ElapsedTime == 3000)
+            {
+                clockControl.SetInitialLabels();
             }
 
             Size = new Size(529, 332);

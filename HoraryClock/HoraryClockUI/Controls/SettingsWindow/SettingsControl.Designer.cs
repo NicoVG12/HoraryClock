@@ -35,7 +35,6 @@
             lblOther = new Label();
             lblBackground = new Label();
             pnlSpecificSettings = new FlowLayoutPanel();
-            label1 = new Label();
             lblGoBack = new Label();
             SuspendLayout();
             // 
@@ -44,7 +43,7 @@
             lblLanguage.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblLanguage.ForeColor = Color.White;
             lblLanguage.Image = Properties.Resources.btnSettingNotSelected;
-            lblLanguage.Location = new Point(27, 80);
+            lblLanguage.Location = new Point(27, 19);
             lblLanguage.Name = "lblLanguage";
             lblLanguage.Size = new Size(127, 27);
             lblLanguage.TabIndex = 0;
@@ -57,7 +56,7 @@
             lblPvPOffset.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblPvPOffset.ForeColor = Color.White;
             lblPvPOffset.Image = Properties.Resources.btnSettingNotSelected;
-            lblPvPOffset.Location = new Point(27, 111);
+            lblPvPOffset.Location = new Point(27, 50);
             lblPvPOffset.Name = "lblPvPOffset";
             lblPvPOffset.Size = new Size(127, 27);
             lblPvPOffset.TabIndex = 1;
@@ -70,7 +69,7 @@
             lblKeyBindings.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblKeyBindings.ForeColor = Color.White;
             lblKeyBindings.Image = Properties.Resources.btnSettingNotSelected;
-            lblKeyBindings.Location = new Point(27, 142);
+            lblKeyBindings.Location = new Point(27, 81);
             lblKeyBindings.Name = "lblKeyBindings";
             lblKeyBindings.Size = new Size(127, 27);
             lblKeyBindings.TabIndex = 2;
@@ -82,7 +81,7 @@
             lblOther.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblOther.ForeColor = Color.White;
             lblOther.Image = Properties.Resources.btnSettingNotSelected;
-            lblOther.Location = new Point(27, 173);
+            lblOther.Location = new Point(27, 112);
             lblOther.Name = "lblOther";
             lblOther.Size = new Size(127, 27);
             lblOther.TabIndex = 3;
@@ -107,17 +106,6 @@
             pnlSpecificSettings.Size = new Size(326, 257);
             pnlSpecificSettings.TabIndex = 5;
             // 
-            // label1
-            // 
-            label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.Black;
-            label1.Location = new Point(27, 17);
-            label1.Name = "label1";
-            label1.Size = new Size(127, 34);
-            label1.TabIndex = 6;
-            label1.Text = "Settings";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
-            // 
             // lblGoBack
             // 
             lblGoBack.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
@@ -134,7 +122,6 @@
             // 
             AutoScaleMode = AutoScaleMode.None;
             Controls.Add(lblGoBack);
-            Controls.Add(label1);
             Controls.Add(pnlSpecificSettings);
             Controls.Add(lblOther);
             Controls.Add(lblKeyBindings);
@@ -155,7 +142,6 @@
         private Label lblOther;
         private Label lblBackground;
         private FlowLayoutPanel pnlSpecificSettings;
-        private Label label1;
         private Label lblGoBack;
     }
 }
