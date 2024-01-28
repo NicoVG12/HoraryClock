@@ -9,7 +9,13 @@ namespace Language
     public class LanguageData
     {
         public string Name { get; set; }
-        public struct ClockWindow
+        public ClockWindowData ClockWindow { get; set; } = new ClockWindowData();
+        public HoraryEffectsData HoraryEffects { get; set; } = new HoraryEffectsData();
+        public SettingsData Settings { get; set; } = new SettingsData();
+        public ClockSettingsData ClockSettings { get; set; } = new ClockSettingsData();
+        public KeySettingsData KeySettings { get; set; } = new KeySettingsData();
+
+        public class ClockWindowData
         {
             public string NotStartedYet { get; set; }
             public string NoEffectsApplied { get; set; }
@@ -19,31 +25,37 @@ namespace Language
             public string Reset { get; set; }
         }
 
-        public struct HoraryEffects
+        public class HoraryEffectsData
         {
-            public struct CollectionOfLight
+            public CollectionOfLightData CollectionOfLight { get; set; } = new CollectionOfLightData();
+            public VoidOfCurseData VoidOfCurse { get; set; } = new VoidOfCurseData();
+            public JudgementData Judgement { get; set; } = new JudgementData();
+            public CulminationData Culmination { get; set; } = new CulminationData();
+
+            public class CollectionOfLightData
             {
                 public string Name { get; set; }
                 public string Description0 { get; set; }
                 public string Description1 { get; set; }
             }
 
-            public struct VoidOfCurse
+            public class VoidOfCurseData
             {
                 public string Name { get; set; }
                 public string Description0 { get; set; }
                 public string Description1 { get; set; }
                 public string Description2 { get; set; }
+                public string Description3 { get; set; }
             }
 
-            public struct Judgement
+            public class JudgementData
             {
                 public string Name { get; set; }
                 public string Description0 { get; set; }
                 public string Description1 { get; set; }
             }
 
-            public struct Culmination
+            public class CulminationData
             {
                 public string Name { get; set; }
                 public string Description0 { get; set; }
@@ -53,7 +65,7 @@ namespace Language
             }
         }
 
-        public struct Settings
+        public class SettingsData
         {
             public string Language { get; set; }
             public string Clock { get; set; }
@@ -63,48 +75,58 @@ namespace Language
             public string Save { get; set; }
         }
 
-        public struct ClockSettings
+        public class ClockSettingsData
         {
-            public struct PvPOffset
+            public PvPOffsetData PvPOffset { get; set; } = new PvPOffsetData();
+            public StartClockOnResetData StartOnClockReset { get; set; } = new StartClockOnResetData();
+            public WindowOpacityData WindowOpacity { get; set; } = new WindowOpacityData(); 
+            public WindowAlwaysOnTopData WindowAlwaysOnTop { get; set; } = new WindowAlwaysOnTopData();
+
+            public class PvPOffsetData
             {
                 public string Name { get; set; }
                 public string Description { get; set; }
             };
 
-            public struct StartClockOnReset
+            public class StartClockOnResetData
             {
                 public string Name { get; set; }
                 public string Description { get; set; }
             }
 
-            public struct WindowOpacity
+            public class WindowOpacityData
             {
                 public string Name { get; set; }
                 public string Description { get; set; }
             }
 
-            public struct WindowAlwaysOnTop
+            public class WindowAlwaysOnTopData
             {
                 public string Name { get; set; }
                 public string Description { get; set; }
             }
         }
 
-        public struct KeySettings
+        public class KeySettingsData
         {
-            public struct StartKey
+            public StartKeyData StartKey { get; set; } = new StartKeyData();
+            public PauseKeyData PauseKey { get; set; } = new PauseKeyData();
+            public ResetKeyData ResetKey { get; set; } = new ResetKeyData();
+
+
+            public class StartKeyData
             {
                 public string Name { get; set; }
                 public string Description { get; set; }
             }
 
-            public struct PauseKey
+            public class PauseKeyData
             {
                 public string Name { get; set; }
                 public string Description { get; set; }
             }
 
-            public struct ResetKey
+            public class ResetKeyData
             {
                 public string Name { get; set; }
                 public string Description { get; set; }
