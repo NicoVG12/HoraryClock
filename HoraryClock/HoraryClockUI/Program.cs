@@ -1,4 +1,5 @@
 using HoraryClock;
+using Language;
 
 namespace HoraryClockUI
 {
@@ -13,6 +14,7 @@ namespace HoraryClockUI
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             Config.Instance().Load();
+            LanguageManager.Instance().LoadLanguages();
             ApplicationConfiguration.Initialize();
             Application.Run(new MainForm());
         }

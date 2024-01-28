@@ -1,4 +1,5 @@
 ﻿using HoraryClock;
+using Language;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +12,7 @@ using System.Windows.Forms;
 
 namespace HoraryClockUI.Controls.SettingsWindow
 {
-    public partial class ClockSettingsControl : UserControl
+    public partial class ClockSettingsControl : UserControl, ILanguageSetter
     {
         private MainForm _mainForm;
 
@@ -64,6 +65,19 @@ namespace HoraryClockUI.Controls.SettingsWindow
         private void OnMouseLeave(object sender, EventArgs e)
         {
             lblSave.Image = Properties.Resources.btnSave;
+        }
+
+        public void SetLanguage(LanguageData languageData)
+        {
+            lblPvPOffsetTitle.Text = languageData.ClockSettings.PvPOffset.Name;
+            lblOffsetDescription.Text = languageData.ClockSettings.PvPOffset.Description.Replace("\\r\\n", "\r\n"); ;
+            lblStartClockOnReset.Text = languageData.ClockSettings.StartOnClockReset.Name;
+            lblStartClockOnResetDescription.Text = languageData.ClockSettings.StartOnClockReset.Description;
+            lblOpacity.Text = languageData.ClockSettings.WindowOpacity.Name;
+            lblOpacityDescription.Text = languageData.ClockSettings.WindowOpacity.Description.Replace("\\r\\n", "\r\n"); ;
+            lblAlwaysOnTop.Text = languageData.ClockSettings.WindowAlwaysOnTop.Name;
+            lblAlwaysOnTopDescription.Text = languageData.ClockSettings.WindowAlwaysOnTop.Description;
+            lblSave.Text = languageData.Settings.Save;
         }
     }
 }

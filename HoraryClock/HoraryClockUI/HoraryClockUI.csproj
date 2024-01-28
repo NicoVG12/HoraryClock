@@ -16,6 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Clock\Clock.csproj" />
     <ProjectReference Include="..\HoraryEffects\HoraryEffects.csproj" />
+    <ProjectReference Include="..\Language\Language.csproj" />
     <ProjectReference Include="..\Settings\Settings.csproj" />
   </ItemGroup>
 

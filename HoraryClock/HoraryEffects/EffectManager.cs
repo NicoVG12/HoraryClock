@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HoraryClock;
+using Language;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -18,7 +20,13 @@ namespace HoraryEffects
         {
             Effects = new List<EffectType>();
             CurrentEffectId = 0;
-            EffectInitializer.InitializeEffects(Effects);
+            EffectInitializer.InitializeEffects(Effects, LanguageManager.Instance().GetLanguageData(Config.Instance().LanguageId));
+        }
+
+        public void SetLanguage(LanguageData language)
+        {
+            Effects = new List<EffectType>();
+            EffectInitializer.InitializeEffects(Effects, language);
         }
 
         public static EffectManager Instance()

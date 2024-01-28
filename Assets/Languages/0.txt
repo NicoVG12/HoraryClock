@@ -37,19 +37,19 @@ Save
 
 //Clock Settings
 PvP Offset
-Adds a 3 second offset to the clock.\r\n(The clock will start on 17s)
+Adds a 3 second offset to the clock./\(The clock will start on 17s)
 Start Clock on Reset
 Automatically start the clock upon reset.
 Window's Opacity
-Set the window's opacity.\r\n(10%~100%)
+Set the window's opacity./\(10%~100%)
 Window Always on Top
 The window will always stay on top.
 
 //Key Bindings Menu
 Start Key
-The clock will start when this key is pressed.\r\n(Also pauses the clock when minimized)
+The clock will start when this key is pressed. (Also pauses the clock when minimized)
 Pause Key
-The clock will stop when this key is pressed.\r\n(Also starts the clock when minimized)
+The clock will stop when this key is pressed./\(Also starts the clock when minimized)
 Reset Key
 The clock will be reset when this key is pressed.
 Only F1~F12 Keys are allowed.

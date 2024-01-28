@@ -1,6 +1,7 @@
 ﻿using Clock;
 using HoraryClock;
 using HoraryEffects;
+using Language;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +15,7 @@ using System.Windows.Forms;
 
 namespace HoraryClockUI.Controls
 {
-    public partial class MiniClockControl : UserControl
+    public partial class MiniClockControl : UserControl, ILanguageSetter
     {
         private MainForm _mainForm;
         private bool _isRunning;
@@ -228,6 +229,11 @@ namespace HoraryClockUI.Controls
         private void label1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        public void SetLanguage(LanguageData languageData)
+        {
+            
         }
     }
 }
