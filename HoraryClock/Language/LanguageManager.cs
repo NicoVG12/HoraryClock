@@ -8,7 +8,7 @@ namespace Language
 {
     public class LanguageManager
     {
-        public const int LANGUAGE_AMOUNT = 2;
+        public const int LANGUAGE_AMOUNT = 11;
 
         private static LanguageManager _instance;
         private List<LanguageData> Languages { get; set ; } = new List<LanguageData>();

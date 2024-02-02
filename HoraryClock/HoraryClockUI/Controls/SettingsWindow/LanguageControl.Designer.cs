@@ -62,18 +62,18 @@
             // 
             lblLanguageSample.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lblLanguageSample.ForeColor = Color.White;
-            lblLanguageSample.Image = Properties.Resources.btnRoundRct_Active;
+            lblLanguageSample.Image = Properties.Resources.btnRoundRct_Active_Small;
             lblLanguageSample.Location = new Point(35, 16);
             lblLanguageSample.Margin = new Padding(0);
             lblLanguageSample.Name = "lblLanguageSample";
-            lblLanguageSample.Size = new Size(118, 33);
+            lblLanguageSample.Size = new Size(105, 29);
             lblLanguageSample.TabIndex = 17;
             lblLanguageSample.Text = "English";
             lblLanguageSample.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblLanguageSampleMessage
             // 
-            lblLanguageSampleMessage.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblLanguageSampleMessage.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblLanguageSampleMessage.ForeColor = Color.White;
             lblLanguageSampleMessage.Image = Properties.Resources.keys_settings_label_bg;
             lblLanguageSampleMessage.Location = new Point(35, 171);
@@ -87,6 +87,10 @@
             // LanguageControl
             // 
             AutoScaleMode = AutoScaleMode.None;
+            Controls.Add(lblLanguageSample);
+            Controls.Add(lblLanguageSampleMessage);
+            Controls.Add(lblSave);
+            Controls.Add(lblBackground);
             Margin = new Padding(0);
             Name = "LanguageControl";
             Size = new Size(326, 257);
