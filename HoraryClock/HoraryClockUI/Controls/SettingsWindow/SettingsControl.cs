@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Language;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 
 namespace HoraryClockUI.Controls.SettingsWindow
 {
-    public partial class SettingsControl : UserControl
+    public partial class SettingsControl : UserControl, ILanguageSetter
     {
         private const int CONTROL_AMOUNT = 4;
 
@@ -33,6 +34,9 @@ namespace HoraryClockUI.Controls.SettingsWindow
             InitializeHoverIcons();
             SetSelected(LANGUAGE_SETTINGS_ID);
             Refresh();
+
+            //No "Other" Options so far
+            lblOther.Visible = false;
         }
 
         private void InitializeLabelArray()
@@ -45,7 +49,7 @@ namespace HoraryClockUI.Controls.SettingsWindow
 
         private void InitializeControls()
         {
-            _settingsControls[LANGUAGE_SETTINGS_ID] = new LanguageControl();
+            _settingsControls[LANGUAGE_SETTINGS_ID] = new LanguageControl(_mainForm);
             _settingsControls[CLOCK_SETTINGS_ID] = new ClockSettingsControl(_mainForm);
             _settingsControls[KEY_SETTINGS_ID] = new KeyBindingsControl(_mainForm);
         }
@@ -187,6 +191,24 @@ namespace HoraryClockUI.Controls.SettingsWindow
         private void lblKeyBindings_Click(object sender, EventArgs e)
         {
             SetSelected(KEY_SETTINGS_ID);
+        }
+
+        public void SetLanguage(LanguageData languageData)
+        {
+            lblLanguage.Text = languageData.Settings.Language;
+            lblPvPOffset.Text = languageData.Settings.Clock;
+            lblKeyBindings.Text = languageData.Settings.KeyBindings;
+            lblOther.Text = languageData.Settings.Other;
+            lblGoBack.Text = languageData.Settings.Return;
+
+            foreach (Control c in _settingsControls)
+            {
+                ILanguageSetter languageSetter = c as ILanguageSetter;
+                if (languageSetter != null)
+                {
+                    languageSetter.SetLanguage(languageData);
+                }
+            }
         }
     }
 }

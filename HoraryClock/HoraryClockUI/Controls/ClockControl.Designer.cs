@@ -167,6 +167,7 @@
             lblBackground.ForeColor = Color.Black;
             lblBackground.Image = Properties.Resources.background_control_clock;
             lblBackground.Location = new Point(0, 0);
+            lblBackground.Margin = new Padding(0);
             lblBackground.Name = "lblBackground";
             lblBackground.Size = new Size(525, 292);
             lblBackground.TabIndex = 10;
@@ -186,6 +187,7 @@
             Controls.Add(lblPause);
             Controls.Add(lblStart);
             Controls.Add(lblBackground);
+            Margin = new Padding(0);
             Name = "ClockControl";
             Size = new Size(525, 292);
             ResumeLayout(false);

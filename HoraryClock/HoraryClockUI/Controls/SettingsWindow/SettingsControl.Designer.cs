@@ -100,7 +100,7 @@
             // 
             // pnlSpecificSettings
             // 
-            pnlSpecificSettings.BackColor = Color.Transparent;
+            pnlSpecificSettings.BackColor = Color.White;
             pnlSpecificSettings.Location = new Point(181, 17);
             pnlSpecificSettings.Margin = new Padding(0);
             pnlSpecificSettings.Name = "pnlSpecificSettings";
@@ -109,12 +109,12 @@
             // 
             // lblGoBack
             // 
-            lblGoBack.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lblGoBack.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lblGoBack.ForeColor = Color.White;
             lblGoBack.Image = Properties.Resources.btnReturnToClock;
-            lblGoBack.Location = new Point(27, 240);
+            lblGoBack.Location = new Point(33, 245);
             lblGoBack.Name = "lblGoBack";
-            lblGoBack.Size = new Size(127, 34);
+            lblGoBack.Size = new Size(107, 29);
             lblGoBack.TabIndex = 7;
             lblGoBack.Text = "Return";
             lblGoBack.TextAlign = ContentAlignment.MiddleCenter;

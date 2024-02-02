@@ -1,4 +1,5 @@
 ﻿using HoraryClock;
+using Language;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,8 +12,9 @@ using System.Windows.Forms;
 
 namespace HoraryClockUI.Controls.SettingsWindow
 {
-    public partial class KeyBindingsControl : UserControl
+    public partial class KeyBindingsControl : UserControl, ILanguageSetter
     {
+        private string _cannotBoundSameKeyToMultipleActionsMessage;
         private MainForm _mainForm;
         private Config _config = Config.Instance();
         public KeyBindingsControl(MainForm mainForm)
@@ -51,7 +53,7 @@ namespace HoraryClockUI.Controls.SettingsWindow
             if (KeysRepeated())
             {
                 lblMessage.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
-                lblMessage.Text = "The same key cannot be bound to multiple actions.";
+                lblMessage.Text = _cannotBoundSameKeyToMultipleActionsMessage;
                
             } else
             {
@@ -127,6 +129,20 @@ namespace HoraryClockUI.Controls.SettingsWindow
         private void txtStartKey_KeyDown(object sender, KeyEventArgs e)
         {
             txtStartKey.Text = "";
+        }
+
+        public void SetLanguage(LanguageData languageData)
+        {
+            lblStartKey.Text = languageData.KeySettings.StartKey.Name;
+            lblStartKeyDescription.Text = languageData.KeySettings.StartKey.Description.Replace("\\r\\n", "\r\n");
+            lblPauseKey.Text = languageData.KeySettings.PauseKey.Name;
+            lblPauseKeyDescription.Text = languageData.KeySettings.PauseKey.Description.Replace("\\r\\n", "\r\n"); ;
+            lblResetKey.Text = languageData.KeySettings.ResetKey.Name;
+            lblResetKeyDescription.Text = languageData.KeySettings.ResetKey.Description;
+
+            lblSave.Text = languageData.Settings.Save;
+            lblMessage.Text = languageData.KeySettings.KeysAllowed;
+            _cannotBoundSameKeyToMultipleActionsMessage = languageData.KeySettings.CannotBoundSameKeyToMultipleActions;
         }
     }
 }

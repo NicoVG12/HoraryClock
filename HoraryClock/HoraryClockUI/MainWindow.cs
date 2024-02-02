@@ -3,6 +3,8 @@ using HoraryClock;
 using HoraryClockUI.Controls;
 using HoraryClockUI.Controls.MainWindow;
 using HoraryClockUI.Controls.SettingsWindow;
+using HoraryEffects;
+using Language;
 using System.Configuration;
 using System.Globalization;
 using System.Linq.Expressions;
@@ -11,7 +13,7 @@ using System.Windows.Forms;
 
 namespace HoraryClockUI
 {
-    public partial class MainForm : Form
+    public partial class MainForm : Form, ILanguageSetter
     {
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -29,6 +31,7 @@ namespace HoraryClockUI
 
         private List<Hotkey> _hotkeys = new List<Hotkey>();
         private Config _config = Config.Instance();
+        private LanguageManager _languageManager = LanguageManager.Instance();
         private Control[] _controls = new Control[CONTROL_AMOUNT];
         private Control[] _controlsBeforeResize;
         public MainForm()
@@ -40,6 +43,7 @@ namespace HoraryClockUI
             LoadConfig();
             LoadKeyBindings();
             ShowTab(CLOCK_ID);
+            SetLanguage(_languageManager.GetLanguageData(_config.LanguageId));
         }
 
         public void LoadConfig()
@@ -293,6 +297,16 @@ namespace HoraryClockUI
                 case "F12": return Keys.F12;
                 default: return Keys.F1;
             }
+        }
+
+        public void SetLanguage(LanguageData languageData)
+        {
+            foreach (Control control in _controls)
+            {
+                ILanguageSetter controlLanguageSetter = control as ILanguageSetter;
+                controlLanguageSetter.SetLanguage(languageData);
+            }
+            EffectManager.Instance().SetLanguage(languageData);
         }
     }
 }

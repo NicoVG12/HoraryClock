@@ -1,6 +1,7 @@
 ﻿using Clock;
 using HoraryClock;
 using HoraryEffects;
+using Language;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -13,7 +14,7 @@ using System.Windows.Forms;
 
 namespace HoraryClockUI.Controls
 {
-    public partial class ClockControl : UserControl
+    public partial class ClockControl : UserControl, ILanguageSetter
     {
         private ClockManager _clockManager = ClockManager.Instance();
         private EffectManager _effectManager = EffectManager.Instance();
@@ -82,6 +83,7 @@ namespace HoraryClockUI.Controls
 
         public void SetInitialLabels()
         {
+            LanguageData languageData = LanguageManager.Instance().GetLanguageData(Config.Instance().LanguageId);
             if (Config.Instance().PvPOffsett == Config.CHECKED)
             {
                 UpdateLabels("17.0000s");
@@ -91,8 +93,8 @@ namespace HoraryClockUI.Controls
                 UpdateLabels("20.0000s");
             }
 
-            lblCurrentEffect.Text = "Clock hasn't been started yet.";
-            lblFirstDescription.Text = "No effects applied.";
+            lblCurrentEffect.Text = languageData.ClockWindow.NotStartedYet;
+            lblFirstDescription.Text = languageData.ClockWindow.NoEffectsApplied;
             lblSecondDescription.Text = "";
             lblCurrentEffectIcon.Image = Properties.Resources._04noeffect;
 
@@ -179,6 +181,18 @@ namespace HoraryClockUI.Controls
         internal string GetRemainingTime()
         {
             return lblRemainingTimeValue.Text;
+        }
+
+        public void SetLanguage(LanguageData languageData)
+        {
+            lblCurrentEffect.Text = languageData.ClockWindow.NotStartedYet;
+            lblFirstDescription.Text = languageData.ClockWindow.NoEffectsApplied;
+            lblSecondDescription.Text = "";
+            lblRemainingTime.Text = languageData.ClockWindow.RemainingTime;
+
+            lblStart.Text = languageData.ClockWindow.Start;
+            lblPause.Text = languageData.ClockWindow.Pause;
+            lblReset.Text = languageData.ClockWindow.Reset;
         }
     }
 }
