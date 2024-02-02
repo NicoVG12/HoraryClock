@@ -301,7 +301,7 @@ namespace HoraryClockUI
 
         public void SetLanguage(LanguageData languageData)
         {
-            foreach(Control control in _controls)
+            foreach (Control control in _controls)
             {
                 ILanguageSetter controlLanguageSetter = control as ILanguageSetter;
                 controlLanguageSetter.SetLanguage(languageData);

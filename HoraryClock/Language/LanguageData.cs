@@ -9,6 +9,7 @@ namespace Language
     public class LanguageData
     {
         public string Name { get; set; }
+        public string SampleMessage { get; set; }
         public ClockWindowData ClockWindow { get; set; } = new ClockWindowData();
         public HoraryEffectsData HoraryEffects { get; set; } = new HoraryEffectsData();
         public SettingsData Settings { get; set; } = new SettingsData();

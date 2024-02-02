@@ -49,7 +49,7 @@ namespace HoraryClockUI.Controls.SettingsWindow
 
         private void InitializeControls()
         {
-            _settingsControls[LANGUAGE_SETTINGS_ID] = new LanguageControl();
+            _settingsControls[LANGUAGE_SETTINGS_ID] = new LanguageControl(_mainForm);
             _settingsControls[CLOCK_SETTINGS_ID] = new ClockSettingsControl(_mainForm);
             _settingsControls[KEY_SETTINGS_ID] = new KeyBindingsControl(_mainForm);
         }

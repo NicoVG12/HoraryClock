@@ -14,6 +14,7 @@ namespace Language
                 sr.ReadLine();
 
                 languageData.Name = sr.ReadLine();
+                languageData.SampleMessage = sr.ReadLine();
 
                 sr.ReadLine();
                 sr.ReadLine();

@@ -51,6 +51,7 @@
             // mainPanel
             // 
             mainPanel.Location = new Point(2, 38);
+            mainPanel.Margin = new Padding(0);
             mainPanel.Name = "mainPanel";
             mainPanel.Size = new Size(525, 292);
             mainPanel.TabIndex = 2;
