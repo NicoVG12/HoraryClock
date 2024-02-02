@@ -42,7 +42,7 @@ namespace HoraryClockUI.Controls.SettingsWindow
         {
             int lblWidth = 105;
             int lblHeight = 29;
-            int LocationXDefault = 5;
+            int LocationXDefault = 6;
             int LocationX = LocationXDefault;
             int LocationY = 16;
 
@@ -132,7 +132,7 @@ namespace HoraryClockUI.Controls.SettingsWindow
 
         private int GetActiveLanguageId()
         {
-            return 0;
+            return _newActiveLanguage;
         }
         private LanguageData GetActiveLanguage()
         {
