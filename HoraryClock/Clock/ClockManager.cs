@@ -8,10 +8,11 @@ namespace Clock
     {
         private static ClockManager _instance;
 
-        private DateTime LaastCheck { get; set; }
+        private object _lock = new object();
+        private DateTime LastCheck { get; set; }
         public bool IsRunning { get; private set; }
         public double ElapsedTime { get; set; }
-
+        public int RefreshDelay { get; set; } = 10;
         private EffectManager EffectManager { get; set; } = EffectManager.Instance();
         private Config Config { get; set; } = Config.Instance();
 
@@ -37,19 +38,25 @@ namespace Clock
         {
             if (!IsRunning)
             {
-                LaastCheck = DateTime.Now;
+                LastCheck = DateTime.Now;
                 IsRunning = true;
                 while (IsRunning)
                 {
-                    DateTime newCheck = DateTime.Now;
-                    ElapsedTime += ((newCheck - LaastCheck).TotalMilliseconds);
-                    LaastCheck = newCheck;
-
-                    if (ElapsedTime > EffectManager.CurrentEffect().Duration * 1000)
+                    lock (_lock)
                     {
-                        ElapsedTime -= EffectManager.CurrentEffect().Duration * 1000;
-                        EffectManager.AdvanceEffect();          
+                        DateTime newCheck = DateTime.Now;
+                        ElapsedTime += ((newCheck - LastCheck).TotalMilliseconds);
+                        LastCheck = newCheck;
+
+                        int effectDuration = EffectManager.CurrentEffect().Duration;
+
+                        if (ElapsedTime > effectDuration * 1000)
+                        {
+                            ElapsedTime -= effectDuration * 1000;
+                            EffectManager.AdvanceEffect();
+                        }
                     }
+                    await Task.Delay(RefreshDelay);
                 }
             }
         }
@@ -64,7 +71,8 @@ namespace Clock
             if (!(Config.StartClockOnReset == Config.CHECKED))
             {
                 Pause();
-            } else
+            }
+            else
             {
                 Task.Run(() => StartAsync());
             }

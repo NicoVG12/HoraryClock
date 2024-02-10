@@ -23,6 +23,8 @@ namespace HoraryClockUI.Controls
 
         private EffectManager _effectManager = EffectManager.Instance();
         private ClockManager _clockManager = ClockManager.Instance();
+
+        private int _refreshDelay = 33;
         public MiniClockControl(MainForm mainForm)
         {
             _mainForm = mainForm;
@@ -46,11 +48,12 @@ namespace HoraryClockUI.Controls
             _mainForm.Maximize(lblRemainingTimeValue.Text);
         }
 
-        private void lblCloseWindow_Click(object sender, EventArgs e)
+        private async void lblCloseWindow_Click(object sender, EventArgs e)
         {
             while (_mainForm.Opacity > 0)
             {
                 _mainForm.Opacity -= .08;
+                _mainForm.Refresh();
                 Refresh();
             }
             _mainForm.Close();
@@ -87,20 +90,16 @@ namespace HoraryClockUI.Controls
 
         internal void UpdateLabels(string remainingTimeMessage)
         {
-            EffectType currentEffect = _effectManager.CurrentEffect();
-
             lblCurrentEffectIcon.Image = _icons[_effectManager.CurrentEffectId];
             if (!remainingTimeMessage.StartsWith("-"))
             {
-                string message = "";
-                int length = 5;
-                if (remainingTimeMessage.Length < 8)
-                {
-                    length = 4;
-                    message = "0";
-                }
-                lblRemainingTimeValue.Text = message + remainingTimeMessage.Substring(0, length) + "s";
+                lblRemainingTimeValue.Text = remainingTimeMessage;
             }
+        }
+
+        internal void SetInitialLabel()
+        {
+            lblCurrentEffectIcon.Image = Properties.Resources._04noeffect;
         }
 
         internal async Task StartClock()
@@ -110,7 +109,8 @@ namespace HoraryClockUI.Controls
             while (_clockManager.IsRunning)
             {
                 double elapsedTime = _clockManager.ElapsedTime;
-                UpdateLabels(String.Format("{0:0.0000}", ((double)_effectManager.CurrentEffect().Duration - elapsedTime / 1000)) + "s");
+                UpdateLabels(String.Format("{0:0.00}", ((double)_effectManager.CurrentEffect().Duration - elapsedTime / 1000)) + "s");
+                await(Task.Delay(_refreshDelay));
             }
         }
 
@@ -223,6 +223,9 @@ namespace HoraryClockUI.Controls
             if (!_clockManager.IsRunning)
             {
                 lblCurrentEffectIcon.Image = Properties.Resources._04noeffect;
+            } else
+            {
+                Task.Run(async() => StartClock());
             }
         }
 

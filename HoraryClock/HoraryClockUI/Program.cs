@@ -1,5 +1,6 @@
 using HoraryClock;
 using Language;
+using System.Globalization;
 
 namespace HoraryClockUI
 {
@@ -11,6 +12,9 @@ namespace HoraryClockUI
         [STAThread]
         static void Main()
         {
+            CultureInfo culture = new CultureInfo("en-US");
+            System.Threading.Thread.CurrentThread.CurrentCulture = culture;
+
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             Config.Instance().Load();

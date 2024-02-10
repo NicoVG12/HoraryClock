@@ -201,7 +201,7 @@ namespace HoraryClockUI
             }
         }
 
-        private void lblCloseWindow_Click(object sender, EventArgs e)
+        private async void lblCloseWindow_Click(object sender, EventArgs e)
         {
             while (Opacity > 0)
             {
@@ -247,13 +247,17 @@ namespace HoraryClockUI
                 ClockManager.Instance().Pause();
                 Task.Run(() => MiniClockControl.StartClock());
             }
+            else if (ClockManager.Instance().ElapsedTime == 0 || ClockManager.Instance().ElapsedTime == 3000)
+            {
+                MiniClockControl.SetInitialLabel();
+            }
             Size = new Size(239, 104);
         }
 
         public async void Maximize(string RemainingTimeMessage)
         {
             ClockControl clockControl = _controls[CLOCK_ID] as ClockControl;
-            clockControl.UpdateLabels(RemainingTimeMessage.Substring(0, RemainingTimeMessage.Length - 1) + "00s");
+            clockControl.UpdateLabels(RemainingTimeMessage);
             Controls.Clear();
             foreach (Control c in _controlsBeforeResize)
             {

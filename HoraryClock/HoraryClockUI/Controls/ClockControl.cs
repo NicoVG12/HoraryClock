@@ -18,9 +18,13 @@ namespace HoraryClockUI.Controls
     {
         private ClockManager _clockManager = ClockManager.Instance();
         private EffectManager _effectManager = EffectManager.Instance();
+        
         private Image[] _icons = new Image[4];
-
         private MainForm _mainForm;
+
+        private int _displayedEffectID;
+        private int _refreshDelay = 33;
+
         public ClockControl(MainForm mainForm)
         {
             InitializeComponent();
@@ -47,7 +51,8 @@ namespace HoraryClockUI.Controls
             while (_clockManager.IsRunning)
             {
                 double elapsedTime = _clockManager.ElapsedTime;
-                UpdateLabels(String.Format("{0:0.0000}", ((double)_effectManager.CurrentEffect().Duration - elapsedTime / 1000)) + "s");
+                UpdateLabels(String.Format("{0:0.00}", ((double)_effectManager.CurrentEffect().Duration - elapsedTime / 1000)) + "s");
+                await Task.Delay(_refreshDelay);
             }
         }
 
@@ -55,10 +60,15 @@ namespace HoraryClockUI.Controls
         {
             EffectType currentEffect = _effectManager.CurrentEffect();
 
-            lblCurrentEffect.Text = currentEffect.Name;
-            lblCurrentEffectIcon.Image = _icons[_effectManager.CurrentEffectId];
-            lblFirstDescription.Text = currentEffect.Description[0];
-            lblSecondDescription.Text = currentEffect.Description[1];
+            if(_displayedEffectID != currentEffect.Id)
+            {
+                lblCurrentEffect.Text = currentEffect.Name;
+                lblCurrentEffectIcon.Image = _icons[_effectManager.CurrentEffectId];
+                lblFirstDescription.Text = currentEffect.Description[0];
+                lblSecondDescription.Text = currentEffect.Description[1];
+                _displayedEffectID = currentEffect.Id;
+            }
+
             if (!RemainingTimeMsg.StartsWith("-"))
             {
                 lblRemainingTimeValue.Text = RemainingTimeMsg;
@@ -78,6 +88,9 @@ namespace HoraryClockUI.Controls
             if (!_clockManager.IsRunning)
             {
                 SetInitialLabels();
+            } else
+            {
+                Task.Run(async () => StartClock());
             }
         }
 
@@ -86,17 +99,18 @@ namespace HoraryClockUI.Controls
             LanguageData languageData = LanguageManager.Instance().GetLanguageData(Config.Instance().LanguageId);
             if (Config.Instance().PvPOffsett == Config.CHECKED)
             {
-                UpdateLabels("17.0000s");
+                UpdateLabels("17.00s");
             }
             else
             {
-                UpdateLabels("20.0000s");
+                UpdateLabels("20.00s");
             }
 
             lblCurrentEffect.Text = languageData.ClockWindow.NotStartedYet;
             lblFirstDescription.Text = languageData.ClockWindow.NoEffectsApplied;
             lblSecondDescription.Text = "";
             lblCurrentEffectIcon.Image = Properties.Resources._04noeffect;
+            _displayedEffectID = -1;
 
             if (!_clockManager.IsRunning)
             {
