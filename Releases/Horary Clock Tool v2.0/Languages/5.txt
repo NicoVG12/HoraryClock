@@ -1,0 +1,57 @@
+//Lingua
+Italiano
+La lingua sarà impostata su italiano.
+
+//Finestra dell'orologio (massimizzata)
+L'orologio non è stato ancora avviato.
+Nessun effetto applicato.
+Tempo rimanente:
+Inizio
+Pausa
+Ripristina
+
+//Effetti
+[Collezione di luce]
+Alleato Tutti i danni aumentano +
+%.
+[Vuoto della maledizione]
+Ignora
+% della difesa del nemico.
+La quantità di colpi è aumentata a
+.
+[Giudizio]
+Consumo di risorse speciali degli alleati
+%.
+[Culmine]
+Alleato Tutti i danni aumentano +
+%.
+Consumo di risorse speciali degli alleati
+%.
+
+//Impostazioni
+Lingua
+Orologio
+Tastiera
+Altro
+Ritorno
+Salva
+
+//Impostazioni dell'orologio
+Compensazione PvP
+Aggiunge uno spostamento di 3 secondi all'orologio.\r\n(L'orologio inizierà con 17 secondi)
+Avvia l'orologio al ripristino
+Avvia automaticamente l'orologio al ripristino.
+Opacità della finestra
+Imposta l'opacità della finestra.\r\n(10%~100%)
+Finestra sempre in primo piano
+La finestra rimarrà sempre in primo piano.
+
+//Menu Associazioni tasti
+Chiave di avvio
+L'orologio si avvia quando viene premuto questo tasto.\r\n(Mette in pausa l'orologio anche quando ridotto a icona)
+Tasto Pausa
+L'orologio si fermerà quando si preme questo tasto.\r\n(Avvia l'orologio anche quando ridotto a icona)
+Chiave di reimpostazione
+L'orologio verrà reimpostato quando si preme questo tasto.
+Sono consentiti solo i tasti F1~F12.
+La stessa chiave non può essere associata a più azioni.

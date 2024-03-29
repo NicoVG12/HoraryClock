@@ -1,0 +1,77 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "HoraryClockUI/1.0.0": {
+        "dependencies": {
+          "Clock": "1.0.0",
+          "HoraryEffects": "1.0.0",
+          "Language": "1.0.0",
+          "Settings": "1.0.0"
+        },
+        "runtime": {
+          "HoraryClockUI.dll": {}
+        }
+      },
+      "Clock/1.0.0": {
+        "dependencies": {
+          "HoraryEffects": "1.0.0",
+          "Settings": "1.0.0"
+        },
+        "runtime": {
+          "Clock.dll": {}
+        }
+      },
+      "HoraryEffects/1.0.0": {
+        "dependencies": {
+          "Language": "1.0.0",
+          "Settings": "1.0.0"
+        },
+        "runtime": {
+          "HoraryEffects.dll": {}
+        }
+      },
+      "Language/1.0.0": {
+        "runtime": {
+          "Language.dll": {}
+        }
+      },
+      "Settings/1.0.0": {
+        "runtime": {
+          "Settings.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "HoraryClockUI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Clock/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "HoraryEffects/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Language/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Settings/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

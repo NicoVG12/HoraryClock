@@ -1,0 +1,57 @@
+//Language
+Español
+El idioma será cambiado a español.
+
+//Clock Window (Maximized)
+El reloj aún no ha sido iniciado.
+Ningún efecto aplicado.
+Tiempo restante:
+Iniciar
+Pausar
+Reiniciar
+
+//Effects
+[Acumulación de Luz]
+Daño de todos los aliados +
+%.
+[Pausa lunar]
+Ignora el 
+% de la defensa del enemigo.
+Número de golpes: 
+.
+[Juicio]
+Consumo de recursos especiales de aliados 
+%.
+[Culmination]
+Daño de todos los aliados +
+%.
+Consumo de recursos especiales de aliados 
+%.
+
+//Settings
+Idioma
+Reloj
+Teclado
+Otros
+Volver
+Guardar
+
+//Clock Settings
+Atraso de PvP
+Añade un atraso de 3 segundos al reloj.\r\n(El reloj comenzará en 17s)
+Iniciar reloj al reiniciar
+Automáticamente inicia el reloj tras reiniciarlo.
+Opacidad de la ventana
+Ajusta la opacidad.\r\n(10%~100%)
+Ventana siempre encima
+La ventana se mantendrá siempre encima.
+
+//Key Bindings Menu
+Tecla de Inicio
+El reloj se iniciará al presionar esta tecla.\r\n(También pausa el reloj si está minimizado)
+Tecla de Pausa
+El reloj se pausará al presionar esta tecla.\r\n(También inicia el reloj si está minimizado)
+Tecla de Reinicio
+El reloj se reiniciará al presionar esta tecla.
+Solo se puede asignar F1~F12.
+La misma tecla no se puede asignar a múltiples acciones.
