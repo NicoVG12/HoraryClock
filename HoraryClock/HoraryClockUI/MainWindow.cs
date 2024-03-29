@@ -13,8 +13,16 @@ using System.Windows.Forms;
 
 namespace HoraryClockUI
 {
+
     public partial class MainForm : Form, ILanguageSetter
     {
+        private Keys StartKey;
+        private Keys PauseKey;
+        private Keys ResetKey;
+
+        [DllImport("user32.dll")]
+        public static extern short GetAsyncKeyState(int vKey);
+
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
@@ -29,7 +37,6 @@ namespace HoraryClockUI
         public const int SETTINGS_ID = 1;
         public const int MINI_CLOCK_ID = 2;
 
-        private List<Hotkey> _hotkeys = new List<Hotkey>();
         private Config _config = Config.Instance();
         private LanguageManager _languageManager = LanguageManager.Instance();
         private Control[] _controls = new Control[CONTROL_AMOUNT];
@@ -41,9 +48,33 @@ namespace HoraryClockUI
             InitializeTitle();
             AttachDelegates();
             LoadConfig();
+            Task.Run(() => SetUpKeyBindings());
             LoadKeyBindings();
             ShowTab(CLOCK_ID);
             SetLanguage(_languageManager.GetLanguageData(_config.LanguageId));
+        }
+
+        public async Task SetUpKeyBindings()
+        {
+            while (true)
+            {
+                if (GetAsyncKeyState((int)StartKey) < 0)
+                {
+                    StartKeyDelegate();
+                }
+
+                if (GetAsyncKeyState((int)PauseKey) < 0)
+                {
+                    PauseKeyDelegate();
+                }
+
+                if (GetAsyncKeyState((int)ResetKey) < 0)
+                {
+                    ResetKeyDelegate();
+                }
+
+                await Task.Delay(10);
+            }
         }
 
         public void LoadConfig()
@@ -52,45 +83,11 @@ namespace HoraryClockUI
             Opacity = 0.1 * (_config.WindowOpacity + 1);
         }
 
-        private void LoadKeyBindings()
+        public void LoadKeyBindings()
         {
-            try
-            {
-                foreach (Hotkey hk in _hotkeys)
-                {
-                    hk.Unregister();
-                    _hotkeys.Remove(hk);
-                }
-            }
-            catch { }
-
-
-            Hotkey startHK = new Hotkey();
-            Hotkey pauseHK = new Hotkey();
-            Hotkey resetHK = new Hotkey();
-
-            startHK.KeyCode = StringToKeys(_config.KeyBindings.StartKey);
-            startHK.Pressed += delegate { StartKeyDelegate(); };
-            startHK.Register(this);
-
-            pauseHK.KeyCode = StringToKeys(_config.KeyBindings.PauseKey);
-            pauseHK.Pressed += delegate { PauseKeyDelegate(); };
-            pauseHK.Register(this);
-
-            resetHK.KeyCode = StringToKeys(_config.KeyBindings.ResetKey);
-            resetHK.Pressed += delegate { ResetKeyDelegate(); };
-            resetHK.Register(this);
-
-            _hotkeys.Add(startHK);
-            _hotkeys.Add(pauseHK);
-            _hotkeys.Add(resetHK);
-        }
-
-        public void RefreshKeyBindings()
-        {
-            _hotkeys[0].KeyCode = StringToKeys(_config.KeyBindings.StartKey);
-            _hotkeys[1].KeyCode = StringToKeys(_config.KeyBindings.PauseKey);
-            _hotkeys[2].KeyCode = StringToKeys(_config.KeyBindings.ResetKey);
+            StartKey = StringToKeys(_config.KeyBindings.StartKey);
+            PauseKey = StringToKeys(_config.KeyBindings.PauseKey);
+            ResetKey = StringToKeys(_config.KeyBindings.ResetKey);
         }
 
         private void StartKeyDelegate()

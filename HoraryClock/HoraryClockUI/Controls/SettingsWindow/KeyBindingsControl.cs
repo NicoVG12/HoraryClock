@@ -62,7 +62,7 @@ namespace HoraryClockUI.Controls.SettingsWindow
                 _config.KeyBindings.ResetKey = txtResetKey.Text;
 
                 _mainForm.LoadConfig();
-                _mainForm.RefreshKeyBindings();
+                _mainForm.LoadKeyBindings();
                 _config.Save();
             }
 
