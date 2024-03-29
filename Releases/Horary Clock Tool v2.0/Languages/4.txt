@@ -1,0 +1,57 @@
+//Sprache
+Deutsch
+Die Sprache wird auf deutsch eingestellt.
+
+//Uhrfenster (maximiert)
+Die Uhr wurde noch nicht gestartet.
+Keine Effekte angewendet.
+Verbleibende Zeit:
+Start
+Pause
+Zurücksetzen
+
+//Auswirkungen
+[Sammlung von Licht]
+Ally Schadenserhöhung +
+%.
+[Void Of Curse]
+Ignoriert
+% der feindlichen Verteidigung.
+Anzahl der Treffer erhöht auf
+.
+[Beurteilung]
+Verbrauch besonderer Ressourcen des Verbündeten
+%.
+[Höhepunkt]
+Ally Schadenserhöhung +
+%.
+Verbrauch besonderer Ressourcen des Verbündeten
+%.
+
+//Einstellungen
+Sprache
+Uhr
+Tastatur
+Andere
+Zurückkehren
+Speichern
+
+//Uhreinstellungen
+PvP-Offset
+Fügt der Uhr einen Zeitversatz von 3 Sekunden hinzu.\r\n(Die Uhr beginnt bei 17 Sekunden)
+Uhr beim Zurücksetzen starten
+Beim Zurücksetzen wird die Uhr automatisch gestartet.
+Deckkraft des Fensters
+Legen Sie die Deckkraft des Fensters fest.\r\n(10 % ~ 100 %)
+Fenster immer oben
+Das Fenster bleibt immer oben.
+
+//Tastenbelegungsmenü
+Startschlüssel
+Die Uhr startet, wenn diese Taste gedrückt wird.\r\n(Pausiert die Uhr auch, wenn sie minimiert ist)
+Pause-Taste
+Die Uhr stoppt, wenn diese Taste gedrückt wird.\r\n(Startet die Uhr auch, wenn sie minimiert ist)
+Reset-Taste
+Durch Drücken dieser Taste wird die Uhr zurückgesetzt.
+Es sind nur die Tasten F1–F12 zulässig.
+Derselbe Schlüssel kann nicht an mehrere Aktionen gebunden werden.

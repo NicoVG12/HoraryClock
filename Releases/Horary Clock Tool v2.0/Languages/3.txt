@@ -1,0 +1,57 @@
+//Język
+Polski
+Język zostanie ustawiony na polski.
+
+//Okno zegara (maksymalne)
+Zegar nie został jeszcze uruchomiony.
+Nie zastosowano żadnych efektów.
+Pozostały czas:
+Początek
+Pauza
+Resetowanie
+
+//Efekty
+[Kolekcja światła]
+Zwiększenie obrażeń wszystkich sojuszników +
+%.
+[Próżnia klątwy]
+Ignoruje
+% obrony wroga.
+Liczba trafień wzrosła do
+.
+[Osąd]
+Zużycie zasobów specjalnych sojuszników
+%.
+[Kulminacja]
+Zwiększenie obrażeń wszystkich sojuszników +
+%.
+Zużycie zasobów specjalnych sojuszników
+%.
+
+//Ustawienia
+Język
+Zegar
+Klawiatura
+Inny
+Powrót
+Ratować
+
+//Ustawienia zegara
+Przesunięcie PvP
+Dodaje 3-sekundowe przesunięcie do zegara.\r\n(Zegar uruchomi się o 17.)
+Uruchom zegar po zresetowaniu
+Automatyczne uruchomienie zegara po zresetowaniu.
+Nieprzezroczystość okna
+Ustaw przezroczystość okna.\r\n(10%~100%)
+Okno zawsze na wierzchu
+Okno zawsze pozostanie na górze.
+
+//Menu powiązań klawiszy
+Klucz startowy
+Zegar uruchomi się po naciśnięciu tego klawisza.\r\n(Zatrzymuje także zegar po zminimalizowaniu)
+Klawisz pauzy
+Zegar zatrzyma się po naciśnięciu tego klawisza.\r\n(Uruchamia zegar również po zminimalizowaniu)
+Przycisk reset
+Naciśnięcie tego klawisza spowoduje zresetowanie zegara.
+Dozwolone są tylko klawisze F1~F12.
+Tego samego klucza nie można powiązać z wieloma akcjami.

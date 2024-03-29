@@ -1,0 +1,57 @@
+//Language
+Português
+O idioma será definido como português.
+
+//Clock Window (Maximized)
+O relógio ainda não foi iniciado.
+Nenhum efeito aplicado.
+Tempo restante:
+Começar
+Pausa
+Reiniciar
+
+//Effects
+[Coleção de Luz]
+Aumento de todos os danos do aliado +
+%.
+[Vazio de maldição]
+Ignora
+% da defesa do inimigo.
+Quantidade de acertos aumentada para
+.
+[Julgamento]
+Consumo de recursos especiais do aliado
+%.
+[Culminação]
+Aumento de todos os danos do aliado +
+%.
+Consumo de recursos especiais do aliado
+%.
+
+//Settings
+Linguagem
+Relógio
+Teclado
+Outro
+Retornar
+Salvar
+
+//Clock Settings
+Compensação de PvP
+Adiciona um deslocamento de 3 segundos ao relógio.\r\n(O relógio começará às 17s)
+Iniciar relógio ao reiniciar
+Iniciar automaticamente o relógio após a reinicialização.
+Opacidade da janela
+Defina a opacidade da janela.\r\n(10%~100%)
+Janela sempre no topo
+A janela ficará sempre no topo.
+
+//Key Bindings Menu
+Chave Iniciar
+O relógio iniciará quando esta tecla for pressionada.\r\n(Também pausa o relógio quando minimizado)
+Tecla de pausa
+O relógio irá parar quando esta tecla for pressionada.\r\n(Também inicia o relógio quando minimizado)
+Botão de reset
+O relógio será zerado quando esta tecla for pressionada.
+Somente teclas F1~F12 são permitidas.
+A mesma chave não pode ser vinculada a múltiplas ações.

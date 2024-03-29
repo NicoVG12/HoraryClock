@@ -1,0 +1,58 @@
+//Langue
+Français
+La langue sera définie sur le français.
+
+//Fenêtre d'horloge (maximisée)
+L'horloge n'a pas encore démarré.
+Aucun effet appliqué.
+Temps restant:
+Commencer
+Pause
+Réinitialiser
+
+//Effets
+[Collection de lumière]
+Augmentation des dégâts de tous les alliés +
+%.
+[Vide de malédiction]
+Ne tient pas compte
+% de la défense de l'ennemi.
+Le nombre de coups a augmenté à
+.
+[Jugement]
+Consommation des ressources spéciales des alliés
+%.
+[Culmination]
+Augmentation des dégâts de tous les alliés +
+%.
+Consommation des ressources spéciales des alliés
+%.
+
+//Paramètres
+Langue
+Horloge
+Clavier
+Autre
+Retour
+Sauvegarder
+
+//Paramètres de l'horloge
+Compensation PvP
+Ajoute un décalage de 3 secondes à l'horloge.\r\n(L'horloge démarrera à 17 s)
+Démarrer l'horloge lors de la réinitialisation
+Démarrez automatiquement l'horloge lors de la réinitialisation.
+Opacité de la fenêtre
+Définissez l'opacité de la fenêtre.\r\n(10 %~100 %)
+Fenêtre toujours au premier plan
+La fenêtre restera toujours en haut.
+
+//Menu des raccourcis clavier
+Clé de démarrage
+L'horloge démarrera lorsque cette touche sera enfoncée.\r\n(Mettre également l'horloge en pause lorsqu'elle est réduite)
+Touche Pause
+L'horloge s'arrêtera lorsque cette touche sera enfoncée.\r\n(Démarre également l'horloge lorsqu'elle est réduite)
+Touche de réinitialisation
+L'horloge sera réinitialisée lorsque cette touche est enfoncée.
+Seules les touches F1 ~ F12 sont autorisées.
+La même clé ne peut pas être liée à plusieurs actions.
+​
