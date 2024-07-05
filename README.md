@@ -10,7 +10,7 @@ It's purpose is to let know Celestia players which Horary buff version will be a
 
 ### Download
 
-You can Download the latest stable Horary Clock Tool version from the Releases page (#TODO: add LINK_TO_RELEASES)
+You can Download the latest stable Horary Clock Tool version from the [Releases page](https://github.com/NicoVG12/HoraryClock/releases)
 
 ### Running the tool
 
@@ -49,4 +49,4 @@ You can pair it with the following options for a smooth experience:
 
 Here is an example of how it would look:
 
-![Horary Clock Minimized Window Usage Example Image](./Docs/)
+![Horary Clock Minimized Window Usage Example Image](./Docs/Screenshot_1.png)
