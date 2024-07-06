@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Settings
 {
@@ -24,41 +25,42 @@ namespace Settings
         public string Name { get; private set; }
         public double Scale { get; private set; }
         public FontSizeData FontSize { get; private set; }
-        public ResolutionData FullWindowResolution { get; private set; }
-        public ResolutionData MiniWindowResolution { get; private set; }
+        public ResolutionData FullWindow { get; private set; }
+        public ResolutionData MiniWindow { get; private set; }
 
         private Resolution() { }
-        public Resolution(string resolution)
+        public static Resolution GetResolution(string resolutionName)
         {
-            switch (resolution)
+            Resolution resolution = null;
+            
+            switch (resolutionName)
             {
                 case HIGH:
-                    FullResolution();
+                    resolution = FullResolution();
                     break;
                 case MID:
-                    MidResolution();
+                    resolution = MidResolution();
                     break;
                 case LOW:
-                    LowResolution();
+                    resolution = LowResolution();
                     break;
             }
+
+            return resolution;
         }
 
-
-
-
-        private Resolution FullResolution()
+        private static Resolution FullResolution()
         {
             return new Resolution()
             {
                 Name = HIGH,
                 Scale = 2,
-                FullWindowResolution = new ResolutionData
+                FullWindow = new ResolutionData
                 {
                     Height = 664,
                     Width = 1058
                 },
-                MiniWindowResolution = new ResolutionData
+                MiniWindow = new ResolutionData
                 {
                     Height = 208,
                     Width = 478
@@ -74,18 +76,18 @@ namespace Settings
 
         }
 
-        private Resolution MidResolution()
+        private static Resolution MidResolution()
         {
             return new Resolution()
             {
                 Name = MID,
                 Scale = 1.5,
-                FullWindowResolution = new ResolutionData
+                FullWindow = new ResolutionData
                 {
                     Height = 498,
                     Width = 794
                 },
-                MiniWindowResolution = new ResolutionData
+                MiniWindow = new ResolutionData
                 {
                     Height = 156,
                     Width = 359
@@ -100,18 +102,18 @@ namespace Settings
             };
         }
 
-        private Resolution LowResolution() 
+        private static Resolution LowResolution() 
         {
             return new Resolution()
             {
                 Name = LOW,
                 Scale = 1,
-                FullWindowResolution = new ResolutionData
+                FullWindow = new ResolutionData
                 {
                     Height = 332,
                     Width = 529
                 },
-                MiniWindowResolution = new ResolutionData
+                MiniWindow = new ResolutionData
                 {
                     Height = 104,
                     Width = 239

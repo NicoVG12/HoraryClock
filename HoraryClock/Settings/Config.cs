@@ -28,7 +28,7 @@ namespace HoraryClock
             WindowOpacity = 9;
             WindowAlwaysOnTop = 0;
             KeyBindings = new KeyBinding();
-            Resolution = new Resolution(Resolution.LOW);
+            Resolution = Resolution.GetResolution(Resolution.LOW);
         }
 
         public static Config Instance()
@@ -53,7 +53,7 @@ namespace HoraryClock
                 KeyBindings.StartKey = sr.ReadLine().Split(" ")[1];
                 KeyBindings.PauseKey = sr.ReadLine().Split(" ")[1];
                 KeyBindings.ResetKey = sr.ReadLine().Split(" ")[1];
-                Resolution = new Resolution(sr.ReadLine().Split(" ")[1]);
+                Resolution = Resolution.GetResolution(sr.ReadLine().Split(" ")[1]);
                 sr.Close();
             }
             catch (Exception ex )

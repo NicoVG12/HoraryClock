@@ -248,7 +248,7 @@ namespace HoraryClockUI
             {
                 MiniClockControl.SetInitialLabel();
             }
-            Size = new Size(239, 104);
+            Size = new Size(_config.Resolution.MiniWindow.Width, _config.Resolution.MiniWindow.Height);
         }
 
         public async void Maximize(string RemainingTimeMessage)
