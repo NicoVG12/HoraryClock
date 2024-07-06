@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Settings;
+using System.ComponentModel;
 
 namespace HoraryClock
 {
@@ -14,6 +15,7 @@ namespace HoraryClock
         public int PvPOffsett { get; set; }
         public int StartClockOnReset { get; set; }
         public int WindowAlwaysOnTop { get; set; }
+        public Resolution Resolution { get; set; }
         
         public KeyBinding KeyBindings { get; set; }
 
@@ -26,6 +28,7 @@ namespace HoraryClock
             WindowOpacity = 9;
             WindowAlwaysOnTop = 0;
             KeyBindings = new KeyBinding();
+            Resolution = new Resolution(Resolution.LOW);
         }
 
         public static Config Instance()
@@ -50,6 +53,7 @@ namespace HoraryClock
                 KeyBindings.StartKey = sr.ReadLine().Split(" ")[1];
                 KeyBindings.PauseKey = sr.ReadLine().Split(" ")[1];
                 KeyBindings.ResetKey = sr.ReadLine().Split(" ")[1];
+                Resolution = new Resolution(sr.ReadLine().Split(" ")[1]);
                 sr.Close();
             }
             catch (Exception ex )
@@ -71,6 +75,7 @@ namespace HoraryClock
                 sw.WriteLine("START_KEY " + KeyBindings.StartKey);
                 sw.WriteLine("PAUSE_KEY " + KeyBindings.PauseKey);
                 sw.WriteLine("RESET_KEY " + KeyBindings.ResetKey);
+                sw.WriteLine("RESOLUTION " + Resolution.Name);
                 sw.Close();
             }
             catch (Exception ex)
