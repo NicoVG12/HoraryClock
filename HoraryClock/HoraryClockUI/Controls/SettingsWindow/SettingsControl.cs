@@ -64,7 +64,7 @@ namespace HoraryClockUI.Controls.SettingsWindow
             {
                 UnselectAllSettings();
                 _settingSelected[settingId] = true;
-                _labels[settingId].Image = Properties.Resources.btnSettingSelected;
+                _labels[settingId].Image = ImageUtils.ScaleImage(Properties.Resources.btnSettingSelected, _labels[settingId].Width, _labels[settingId].Height);
 
                 pnlSpecificSettings.Controls.Clear();
                 pnlSpecificSettings.Controls.Add(_settingsControls[settingId]);
@@ -78,7 +78,7 @@ namespace HoraryClockUI.Controls.SettingsWindow
             for (int i = 0; i < _settingSelected.Length; i++)
             {
                 _settingSelected[i] = false;
-                _labels[i].Image = Properties.Resources.btnSettingNotSelected;
+                _labels[i].Image = ImageUtils.ScaleImage(Properties.Resources.btnSettingNotSelected, _labels[i].Width, _labels[i].Height);
             }
         }
 
@@ -99,102 +99,30 @@ namespace HoraryClockUI.Controls.SettingsWindow
 
         private void InitializeHoverIcons()
         {
-            lblLanguage.MouseEnter += OnMouseEnterLanguage;
-            lblLanguage.MouseLeave += OnMouseLeaveLanguage;
-            lblPvPOffset.MouseEnter += OnMouseEnterClock;
-            lblPvPOffset.MouseLeave += OnMouseLeaveClock;
-            lblKeyBindings.MouseEnter += OnMouseEnterKeys;
-            lblKeyBindings.MouseLeave += OnMouseLeaveKeys;
-            lblOther.MouseEnter += OnMouseEnterOther;
-            lblOther.MouseLeave += OnMouseLeaveOther;
-            lblResolution.MouseEnter += OnMouseEnterResolution;
-            lblResolution.MouseLeave += OnMouseLeaveResolution;
+            for(int i = 0; i < CONTROL_AMOUNT; i++)
+            {
+                int settingId = i;
+                _labels[settingId].MouseEnter += delegate { UpdateImageEnter(settingId); };
+                _labels[settingId].MouseLeave += delegate { UpdateImageLeave(settingId); };
+            }
 
             HoverUtils.SetHoverImages(lblGoBack, Properties.Resources.btnRectangle, Properties.Resources.btnRectangleHover);
         }
 
-        private void Other_MouseEnter(object? sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
 
-        private void OnMouseEnterLanguage(object sender, EventArgs e)
+        private void UpdateImageEnter(int settingId)
         {
-            if (!_settingSelected[LANGUAGE_SETTINGS_ID])
+            if (!_settingSelected[settingId])
             {
-                lblLanguage.Image = Properties.Resources.btnSettingHovered;
+                _labels[settingId].Image = ImageUtils.ScaleImage(Properties.Resources.btnSettingHovered, _labels[settingId].Width, _labels[settingId].Height);
             }
         }
 
-        private void OnMouseLeaveLanguage(object sender, EventArgs e)
+        private void UpdateImageLeave(int settingId)
         {
-            if (!_settingSelected[LANGUAGE_SETTINGS_ID])
+            if (!_settingSelected[settingId])
             {
-                lblLanguage.Image = Properties.Resources.btnSettingNotSelected;
-            }
-        }
-
-        private void OnMouseEnterClock(object sender, EventArgs e)
-        {
-            if (!_settingSelected[CLOCK_SETTINGS_ID])
-            {
-                lblPvPOffset.Image = Properties.Resources.btnSettingHovered;
-            }
-        }
-
-        private void OnMouseLeaveClock(object sender, EventArgs e)
-        {
-            if (!_settingSelected[CLOCK_SETTINGS_ID])
-            {
-                lblPvPOffset.Image = Properties.Resources.btnSettingNotSelected;
-            }
-        }
-
-        private void OnMouseEnterKeys(object sender, EventArgs e)
-        {
-            if (!_settingSelected[KEY_SETTINGS_ID])
-            {
-                lblKeyBindings.Image = Properties.Resources.btnSettingHovered;
-            }
-        }
-
-        private void OnMouseLeaveKeys(object sender, EventArgs e)
-        {
-            if (!_settingSelected[KEY_SETTINGS_ID])
-            {
-                lblKeyBindings.Image = Properties.Resources.btnSettingNotSelected;
-            }
-        }
-
-        private void OnMouseEnterOther(object sender, EventArgs e)
-        {
-            if (!_settingSelected[OTHER_SETTINGS_ID])
-            {
-                lblOther.Image = Properties.Resources.btnSettingHovered;
-            }
-        }
-
-        private void OnMouseLeaveOther(object sender, EventArgs e)
-        {
-            if (!_settingSelected[OTHER_SETTINGS_ID])
-            {
-                lblOther.Image = Properties.Resources.btnSettingNotSelected;
-            }
-        }
-
-        private void OnMouseEnterResolution(object sender, EventArgs e)
-        {
-            if (!_settingSelected[RESOLUTION_SETTINGS_ID])
-            {
-                lblResolution.Image = Properties.Resources.btnSettingHovered;
-            }
-        }
-
-        private void OnMouseLeaveResolution(object sender, EventArgs e)
-        {
-            if (!_settingSelected[RESOLUTION_SETTINGS_ID])
-            {
-                lblResolution.Image = Properties.Resources.btnSettingNotSelected;
+                _labels[settingId].Image = ImageUtils.ScaleImage(Properties.Resources.btnSettingNotSelected, _labels[settingId].Width, _labels[settingId].Height);
             }
         }
 
@@ -228,7 +156,34 @@ namespace HoraryClockUI.Controls.SettingsWindow
 
         public void SetResolution(Resolution resolution)
         {
-            
+            Size = new Size((int)(resolution.Scale * Width), (int)(resolution.Scale * Height));
+
+            pnlMain.Size = new Size((int)(resolution.Scale * pnlMain.Width), (int)(resolution.Scale * pnlMain.Height));
+            pnlMain.BackgroundImage = ImageUtils.ScaleImage(pnlMain.BackgroundImage, pnlMain.Width, pnlMain.Height);
+
+            pnlSpecificSettings.Size = new Size((int)(resolution.Scale * pnlSpecificSettings.Width), (int)(resolution.Scale * pnlSpecificSettings.Height));
+            pnlSpecificSettings.Location = new Point((int)(resolution.Scale * pnlSpecificSettings.Location.X), (int)(resolution.Scale * pnlSpecificSettings.Location.Y));
+
+            List<Label> labelsToScale = new List<Label>()
+            {
+                lblLanguage,
+                lblKeyBindings,
+                lblPvPOffset,
+                lblResolution,
+                lblOther,
+                lblGoBack
+            };
+
+            foreach (Label label in labelsToScale)
+            {
+                label.Font = new Font("Segoe UI", (float)resolution.FontSize.Menu * 0.9375f, FontStyle.Bold, GraphicsUnit.Point);
+            }
+
+            lblGoBack.Font = new Font("Segoe UI", (float)resolution.FontSize.Menu, FontStyle.Bold, GraphicsUnit.Point);
+
+            ImageUtils.ScaleLabels(labelsToScale, resolution.Scale);
+
+            Refresh();
         }
     }
 }

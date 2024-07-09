@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsControl));
             lblLanguage = new Label();
             lblPvPOffset = new Label();
             lblKeyBindings = new Label();
             lblOther = new Label();
-            lblBackground = new Label();
             pnlSpecificSettings = new FlowLayoutPanel();
             lblGoBack = new Label();
             lblResolution = new Label();
+            pnlMain = new Panel();
+            pnlMain.SuspendLayout();
             SuspendLayout();
             // 
             // lblLanguage
@@ -90,15 +90,6 @@
             lblOther.Text = "Other";
             lblOther.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // lblBackground
-            // 
-            lblBackground.Image = (Image)resources.GetObject("lblBackground.Image");
-            lblBackground.Location = new Point(0, 0);
-            lblBackground.Margin = new Padding(0);
-            lblBackground.Name = "lblBackground";
-            lblBackground.Size = new Size(525, 292);
-            lblBackground.TabIndex = 4;
-            // 
             // pnlSpecificSettings
             // 
             pnlSpecificSettings.BackColor = Color.White;
@@ -134,20 +125,30 @@
             lblResolution.TextAlign = ContentAlignment.MiddleCenter;
             lblResolution.Click += lblResolution_Click;
             // 
+            // pnlMain
+            // 
+            pnlMain.BackColor = Color.Transparent;
+            pnlMain.BackgroundImage = Properties.Resources.background_control_settings;
+            pnlMain.Controls.Add(lblResolution);
+            pnlMain.Controls.Add(lblLanguage);
+            pnlMain.Controls.Add(lblGoBack);
+            pnlMain.Controls.Add(lblPvPOffset);
+            pnlMain.Controls.Add(pnlSpecificSettings);
+            pnlMain.Controls.Add(lblKeyBindings);
+            pnlMain.Controls.Add(lblOther);
+            pnlMain.Location = new Point(0, 0);
+            pnlMain.Name = "pnlMain";
+            pnlMain.Size = new Size(525, 292);
+            pnlMain.TabIndex = 9;
+            // 
             // SettingsControl
             // 
             AutoScaleMode = AutoScaleMode.None;
-            Controls.Add(lblResolution);
-            Controls.Add(lblGoBack);
-            Controls.Add(pnlSpecificSettings);
-            Controls.Add(lblOther);
-            Controls.Add(lblKeyBindings);
-            Controls.Add(lblPvPOffset);
-            Controls.Add(lblLanguage);
-            Controls.Add(lblBackground);
+            Controls.Add(pnlMain);
             Margin = new Padding(0);
             Name = "SettingsControl";
             Size = new Size(525, 292);
+            pnlMain.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -157,9 +158,9 @@
         private Label lblPvPOffset;
         private Label lblKeyBindings;
         private Label lblOther;
-        private Label lblBackground;
         private FlowLayoutPanel pnlSpecificSettings;
         private Label lblGoBack;
         private Label lblResolution;
+        private Panel pnlMain;
     }
 }
