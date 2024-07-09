@@ -128,16 +128,12 @@ namespace HoraryClockUI.Controls
 
         private void AttachDelegates()
         {
+            HoverUtils.SetHoverImages(lblReset, Properties.Resources.miniReset, Properties.Resources.miniResetHover);
+            HoverUtils.SetHoverImages(lblCloseWindow, Properties.Resources.btnClose, Properties.Resources.btnCloseHover);
+            HoverUtils.SetHoverImages(lblMaximize, Properties.Resources.btnMaximize, Properties.Resources.btnMaximizeHover);
+
             lblPlay.MouseEnter += OnMouseEnterStart;
             lblPlay.MouseLeave += OnMouseLeaveStart;
-            lblReset.MouseEnter += OnMouseEnterReset;
-            lblReset.MouseLeave += OnMouseLeaveReset;
-
-            lblCloseWindow.MouseEnter += OnMouseEnterClose;
-            lblCloseWindow.MouseLeave += OnMouseLeaveClose;
-            lblMaximize.MouseEnter += OnMouseEnterMaximize;
-            lblMaximize.MouseLeave += OnMouseLeaveMaximize;
-
         }
 
         private void OnMouseEnterStart(object sender, EventArgs e)
@@ -197,36 +193,6 @@ namespace HoraryClockUI.Controls
             }
         }
 
-        private void OnMouseEnterReset(object sender, EventArgs e)
-        {
-            lblReset.Image = ImageUtils.ScaleImage(Properties.Resources.miniResetHover, lblPlay.Width, lblPlay.Height);
-        }
-
-        private void OnMouseLeaveReset(object sender, EventArgs e)
-        {
-            lblReset.Image = ImageUtils.ScaleImage(Properties.Resources.miniReset, lblPlay.Width, lblPlay.Height);
-        }
-
-        private void OnMouseEnterClose(object sender, EventArgs e)
-        {
-            lblCloseWindow.Image = ImageUtils.ScaleImage(Properties.Resources.btnMiniCloseHover, lblCloseWindow.Width, lblCloseWindow.Height);
-        }
-
-        private void OnMouseLeaveClose(object sender, EventArgs e)
-        {
-            lblCloseWindow.Image = ImageUtils.ScaleImage(Properties.Resources.btnMiniClose, lblCloseWindow.Width, lblCloseWindow.Height);
-        }
-
-        private void OnMouseEnterMaximize(object sender, EventArgs e)
-        {
-            lblMaximize.Image = ImageUtils.ScaleImage(Properties.Resources.btnMaximizeHover, lblMaximize.Width, lblMaximize.Height);
-        }
-
-        private void OnMouseLeaveMaximize(object sender, EventArgs e)
-        {
-            lblMaximize.Image = ImageUtils.ScaleImage(Properties.Resources.btnMaximize, lblMaximize.Width, lblMaximize.Height);
-        }
-
         public async void lblReset_Click(object sender, EventArgs e)
         {
             _clockManager.Reset();
@@ -276,6 +242,8 @@ namespace HoraryClockUI.Controls
 
             lblBackground.Font = new Font("Segoe UI Semibold", (float)resolution.FontSize.Title, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             lblRemainingTimeValue.Font = new Font("Consolas", (float)resolution.FontSize.Full, FontStyle.Bold, GraphicsUnit.Point);
+
+            BackgroundImage = ImageUtils.ScaleImage(BackgroundImage, Width, Height);
 
             _currentScale = resolution.Scale;
         }

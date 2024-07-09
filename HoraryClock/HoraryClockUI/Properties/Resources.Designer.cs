@@ -143,9 +143,9 @@ namespace HoraryClockUI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap btnClose_hover {
+        internal static System.Drawing.Bitmap btnClose {
             get {
-                object obj = ResourceManager.GetObject("btnClose_hover", resourceCulture);
+                object obj = ResourceManager.GetObject("btnClose", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,9 +153,9 @@ namespace HoraryClockUI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap btnClose_normal {
+        internal static System.Drawing.Bitmap btnCloseHover {
             get {
-                object obj = ResourceManager.GetObject("btnClose_normal", resourceCulture);
+                object obj = ResourceManager.GetObject("btnCloseHover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -196,26 +196,6 @@ namespace HoraryClockUI.Properties {
         internal static System.Drawing.Bitmap btnMaximizeHover {
             get {
                 object obj = ResourceManager.GetObject("btnMaximizeHover", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap btnMiniClose {
-            get {
-                object obj = ResourceManager.GetObject("btnMiniClose", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap btnMiniCloseHover {
-            get {
-                object obj = ResourceManager.GetObject("btnMiniCloseHover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

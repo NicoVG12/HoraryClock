@@ -16,7 +16,7 @@ namespace HoraryClockUI
 
         private static void ChangeImage(Label label, Image image)
         {
-            label.Image = image;
+            label.Image = ImageUtils.ScaleImage(image, label.Width, label.Height);
         }
     }
 }

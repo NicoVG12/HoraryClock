@@ -40,7 +40,7 @@
             // 
             // lblCloseWindow
             // 
-            lblCloseWindow.Image = Properties.Resources.btnMiniClose;
+            lblCloseWindow.Image = Properties.Resources.btnClose;
             lblCloseWindow.Location = new Point(208, 2);
             lblCloseWindow.Name = "lblCloseWindow";
             lblCloseWindow.Size = new Size(29, 28);
@@ -113,6 +113,7 @@
             // 
             // lblNonHoverArea
             // 
+            lblNonHoverArea.BackColor = Color.Transparent;
             lblNonHoverArea.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             lblNonHoverArea.ForeColor = Color.White;
             lblNonHoverArea.Image = Properties.Resources.MiniClockwindowNonHoverArea;
@@ -127,6 +128,8 @@
             // MiniClockControl
             // 
             AutoScaleMode = AutoScaleMode.None;
+            BackColor = Color.Transparent;
+            BackgroundImage = Properties.Resources.MiniClockwindow;
             Controls.Add(lblCurrentEffectIcon);
             Controls.Add(lblMaximize);
             Controls.Add(lblPlay);

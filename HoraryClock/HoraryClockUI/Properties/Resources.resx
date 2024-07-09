@@ -118,8 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnMiniCloseHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnMiniCloseHover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnSave" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnSave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="00blueicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\00blueicon.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -136,9 +136,6 @@
   <data name="04noeffect" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\04noeffect.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="02orangeicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\02orangeicon.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="btnMaximizeHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnMaximizeHover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -148,8 +145,8 @@
   <data name="keys_settings_label_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keys_settings_label_bg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="miniPause" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\miniPause.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="keys_settings_control_bg1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\keys_settings_control_bg1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="btnSettingSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnSettingSelected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -169,8 +166,8 @@
   <data name="setting_specific_opaque_bg1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\setting_specific_opaque_bg1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Horary" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Horary.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="miniPlayHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniPlayHover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="btnRctg_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnRctg_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -187,17 +184,14 @@
   <data name="background_control_settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\background_control_settings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btnClose_normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnClose_normal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="keys_settings_control_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\keys_settings_control_bg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="background_control_clock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\background_control_clock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btnSettings" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnSettings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnSettingHovered" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnSettingHovered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="settings_control_bg1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\settings_control_bg1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -205,14 +199,20 @@
   <data name="miniPlay" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\miniPlay.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="btnSaveHover2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnSaveHover2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Horary1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Horary.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btnSettingNotSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnSettingNotSelected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="empty_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\empty_bg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btnMiniClose" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnMiniClose.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnRoundRct_Active" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnRoundRct_Active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="btnSettingsDarkBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnSettingsDarkBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -238,38 +238,29 @@
   <data name="btnRoundRct_Active_Small" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnRoundRct_Active_Small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btnClose_hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnClose_hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnSettings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnSettings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btnMinimizeDarkBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnMinimizeDarkBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="02orangeicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\02orangeicon.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btnSettingsDarkBackgroundNotHovered" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnSettingsDarkBackgroundNotHovered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btnMaximizeDarkBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnMaximizeDarkBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="keys_settings_control_bg1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\keys_settings_control_bg1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btnSave" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnSave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="btnSaveHover2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnSaveHover2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Horary" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Horary.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="setting_specific_opaque_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\setting_specific_opaque_bg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btnRoundRct_Active" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnRoundRct_Active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnMinimizeDarkBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnMinimizeDarkBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="btnRoundRct_Unactive_Small" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnRoundRct_Unactive_Small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btnSettingNotSelected" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnSettingNotSelected.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="MiniClockwindowNonHoverArea" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MiniClockwindowNonHoverArea.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="miniPause" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\miniPause.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="01purpleicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\01purpleicon.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -277,19 +268,22 @@
   <data name="03culminationicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\03culminationicon.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btnSettingHovered" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnSettingHovered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnMaximizeDarkBackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnMaximizeDarkBackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="setting_specific_opaque_bg_new2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\setting_specific_opaque_bg_new2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="miniPlayHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\miniPlayHover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnSettingsDarkBackgroundNotHovered" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnSettingsDarkBackgroundNotHovered.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="miniPauseHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\miniPauseHover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MiniClockwindowNonHoverArea" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MiniClockwindowNonHoverArea.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnClose" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnClose.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btnCloseHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnCloseHover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

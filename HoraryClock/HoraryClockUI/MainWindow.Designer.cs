@@ -32,10 +32,13 @@
             mainPanel = new FlowLayoutPanel();
             lblCloseWindow = new Label();
             lblMinimize = new Label();
+            panel1 = new Panel();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // lblBackground
             // 
+            lblBackground.BackColor = Color.Transparent;
             lblBackground.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             lblBackground.ForeColor = Color.White;
             lblBackground.Image = Properties.Resources.background;
@@ -50,6 +53,7 @@
             // 
             // mainPanel
             // 
+            mainPanel.BackColor = Color.Transparent;
             mainPanel.Location = new Point(2, 38);
             mainPanel.Margin = new Padding(0);
             mainPanel.Name = "mainPanel";
@@ -58,7 +62,8 @@
             // 
             // lblCloseWindow
             // 
-            lblCloseWindow.Image = Properties.Resources.btnClose_normal;
+            lblCloseWindow.BackColor = Color.Transparent;
+            lblCloseWindow.Image = Properties.Resources.btnClose;
             lblCloseWindow.Location = new Point(498, 2);
             lblCloseWindow.Name = "lblCloseWindow";
             lblCloseWindow.Size = new Size(29, 28);
@@ -67,6 +72,7 @@
             // 
             // lblMinimize
             // 
+            lblMinimize.BackColor = Color.Transparent;
             lblMinimize.Image = Properties.Resources.btnMinimize;
             lblMinimize.Location = new Point(471, 2);
             lblMinimize.Name = "lblMinimize";
@@ -74,18 +80,29 @@
             lblMinimize.TabIndex = 4;
             lblMinimize.Click += lblMinimize_Click;
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Transparent;
+            panel1.BackgroundImage = Properties.Resources.background;
+            panel1.Controls.Add(lblCloseWindow);
+            panel1.Controls.Add(lblBackground);
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(529, 332);
+            panel1.TabIndex = 0;
+            // 
             // MainForm
             // 
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(529, 332);
             Controls.Add(lblMinimize);
-            Controls.Add(lblCloseWindow);
             Controls.Add(mainPanel);
-            Controls.Add(lblBackground);
+            Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "MainForm";
             Text = "Form1";
             Load += Form1_Load;
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -94,5 +111,6 @@
         private FlowLayoutPanel mainPanel;
         private Label lblCloseWindow;
         private Label lblMinimize;
+        private Panel panel1;
     }
 }

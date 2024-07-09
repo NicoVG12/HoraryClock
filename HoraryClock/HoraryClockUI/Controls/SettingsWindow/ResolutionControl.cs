@@ -131,10 +131,12 @@ namespace HoraryClockUI.Controls.SettingsWindow
         private void lblSave_Click(object sender, EventArgs e)
         {
             Resolution newResolution = Resolution.GetResolution(GetActiveResolution());
-            _mainForm.LoadConfig();
-            _mainForm.SetResolution(newResolution);
+
             _config.Resolution = newResolution;
             _config.Save();
+
+            Application.Restart();
+            Environment.Exit(0);
         }
 
         private string GetActiveResolution()

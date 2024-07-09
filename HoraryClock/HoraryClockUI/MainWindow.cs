@@ -44,15 +44,21 @@ namespace HoraryClockUI
         private Control[] _controlsBeforeResize;
         public MainForm()
         {
+            Visible = false;
+
             InitializeComponent();
             InitializeControls();
             InitializeTitle();
+            
             AttachDelegates();
             LoadConfig();
             Task.Run(() => SetUpKeyBindings());
             LoadKeyBindings();
+            
             ShowTab(CLOCK_ID);
+            
             SetLanguage(_languageManager.GetLanguageData(_config.LanguageId));
+            SetResolution(_config.Resolution);
         }
 
         public async Task SetUpKeyBindings()
@@ -142,11 +148,8 @@ namespace HoraryClockUI
 
         private void AttachDelegates()
         {
-            lblCloseWindow.MouseEnter += OnMouseEnter;
-            lblCloseWindow.MouseLeave += OnMouseLeave;
-
-            lblMinimize.MouseEnter += OnMouseEnterMinimize;
-            lblMinimize.MouseLeave += OnMouseLeaveMinimize;
+            HoverUtils.SetHoverImages(lblCloseWindow, Properties.Resources.btnClose, Properties.Resources.btnCloseHover);
+            HoverUtils.SetHoverImages(lblMinimize, Properties.Resources.btnMinimize, Properties.Resources.btnMinimizeHover);
         }
 
         private void InitializeControls()
@@ -207,26 +210,6 @@ namespace HoraryClockUI
                 Refresh();
             }
             Close();
-        }
-
-        private void OnMouseEnter(object sender, EventArgs e)
-        {
-            lblCloseWindow.Image = Properties.Resources.btnClose_hover;
-        }
-
-        private void OnMouseLeave(object sender, EventArgs e)
-        {
-            lblCloseWindow.Image = Properties.Resources.btnClose_normal;
-        }
-
-        private void OnMouseEnterMinimize(object sender, EventArgs e)
-        {
-            lblMinimize.Image = Properties.Resources.btnMinimizeHover;
-        }
-
-        private void OnMouseLeaveMinimize(object sender, EventArgs e)
-        {
-            lblMinimize.Image = Properties.Resources.btnMinimize;
         }
 
         public async void Minimize(string RemainingTimeMessage)
@@ -314,14 +297,34 @@ namespace HoraryClockUI
 
         internal void SetResolution(Resolution newResolution)
         {
+            Size = new Size(newResolution.FullWindow.Width, newResolution.FullWindow.Height);
+
+            panel1.Size = new Size(newResolution.FullWindow.Width, newResolution.FullWindow.Height);
+            panel1.BackgroundImage = ImageUtils.ScaleImage(panel1.BackgroundImage, panel1.Width, panel1.Height);
+
+            mainPanel.Size = new Size((int)(newResolution.Scale* mainPanel.Width), (int)(newResolution.Scale * mainPanel.Height));
+            mainPanel.Location = new Point((int)(newResolution.Scale * mainPanel.Location.X), (int)(newResolution.Scale * mainPanel.Location.Y));
+
+            lblBackground.Font = new Font("Segoe UI Semibold", (float)newResolution.FontSize.Title, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+
             foreach (Control control in _controls)
             {
                 IResizable controlResizable = control as IResizable;
-                if (controlResizable != null)
-                {
-                    controlResizable.SetResolution(newResolution);
-                }
+                controlResizable?.SetResolution(newResolution);
             }
+
+            List<Label> labelsToScale = new List<Label>()
+            {
+                lblCloseWindow,
+                lblMinimize,
+                lblBackground,
+            };
+
+            ImageUtils.ScaleLabels(labelsToScale, newResolution.Scale);
+
+            Refresh();
+
+            Visible = true;
         }
     }
 }
