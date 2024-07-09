@@ -61,10 +61,6 @@ namespace HoraryClockUI.Controls.SettingsWindow
                 Controls.Add(lblDescription);
                 Controls.Add(btnActive);
 
-                lblResolution.BringToFront();
-                lblDescription.BringToFront();
-                btnActive.BringToFront();
-
                 lblResolution.Text = "Scale: " + currentResolution.Scale + "x (" + currentResolution.FullWindow.Width + "x" + currentResolution.FullWindow.Height + ")";
                 lblResolution.AutoSize = false;
                 lblResolution.Location = new Point(resolutionLocation.X, resolutionLocation.Y);
@@ -75,6 +71,7 @@ namespace HoraryClockUI.Controls.SettingsWindow
                 lblResolution.TextAlign = lblSampleResolution.TextAlign;
                 lblResolution.Image = lblSampleResolution.Image;
                 lblResolution.Visible = true;
+                lblResolution.BackColor = lblSampleResolution.BackColor;
                 _labels.Add(lblResolution);
 
                 lblDescription.Text = currentResolution.Description;
@@ -86,6 +83,7 @@ namespace HoraryClockUI.Controls.SettingsWindow
                 lblDescription.Margin = new Padding(0);
                 lblDescription.TextAlign = lblSampleDescription.TextAlign;
                 lblDescription.Visible = true;
+                lblDescription.BackColor = Color.White;
                 _labels.Add(lblDescription);
 
                 btnActive.Name = currentResolution.Name;
@@ -93,12 +91,21 @@ namespace HoraryClockUI.Controls.SettingsWindow
                 btnActive.Size = btnSample.Size;
                 btnActive.Location = new Point(buttonLocation.X, buttonLocation.Y);
                 btnActive.Visible = true;
+                btnActive.BackColor = Color.White;
                 _resolutionButtons.Add(btnActive);
 
                 if (_config.Resolution.Name == _resolutions[i])
                 {
                     btnActive.Checked = true;
                 }
+
+                pnlMain.Controls.Add(lblResolution);
+                pnlMain.Controls.Add(lblDescription);
+                pnlMain.Controls.Add(btnActive);
+
+                lblResolution.BringToFront();
+                lblDescription.BringToFront();
+                btnActive.BringToFront();
 
                 resolutionLocation.Y += separation;
                 descriptionLocation.Y += separation;
@@ -158,7 +165,6 @@ namespace HoraryClockUI.Controls.SettingsWindow
             foreach (Label label in _labels)
             {
                 label.Font = new Font("Segoe UI Semibold", (float)resolution.FontSize.Setting, FontStyle.Bold, GraphicsUnit.Point);
-                lblSampleResolution.BackColor = Color.Transparent;
             }
 
             lblSave.Font = new Font("Segoe UI Semibold", (float)resolution.FontSize.Menu, FontStyle.Bold, GraphicsUnit.Point);

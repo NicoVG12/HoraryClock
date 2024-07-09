@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ResolutionControl));
             lblSave = new Label();
             lblWarning = new Label();
             lblSampleDescription = new Label();
@@ -81,7 +82,7 @@
             lblSampleResolution.BackColor = Color.Transparent;
             lblSampleResolution.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lblSampleResolution.ForeColor = Color.White;
-            lblSampleResolution.Image = Properties.Resources.setting_specific_opaque_bg_new2;
+            lblSampleResolution.Image = (Image)resources.GetObject("lblSampleResolution.Image");
             lblSampleResolution.Location = new Point(4, 0);
             lblSampleResolution.Margin = new Padding(0);
             lblSampleResolution.Name = "lblSampleResolution";
@@ -116,7 +117,7 @@
             // ResolutionControl
             // 
             AutoScaleMode = AutoScaleMode.None;
-            BackColor = Color.White;
+            BackColor = Color.Transparent;
             BackgroundImageLayout = ImageLayout.None;
             Controls.Add(pnlMain);
             Margin = new Padding(0);
