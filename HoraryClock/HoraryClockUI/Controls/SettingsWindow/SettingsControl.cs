@@ -1,4 +1,5 @@
 ﻿using Language;
+using Settings;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +12,7 @@ using System.Windows.Forms;
 
 namespace HoraryClockUI.Controls.SettingsWindow
 {
-    public partial class SettingsControl : UserControl, ILanguageSetter
+    public partial class SettingsControl : UserControl, ILanguageSetter, IResizable
     {
         private const int CONTROL_AMOUNT = 5;
 
@@ -109,9 +110,7 @@ namespace HoraryClockUI.Controls.SettingsWindow
             lblResolution.MouseEnter += OnMouseEnterResolution;
             lblResolution.MouseLeave += OnMouseLeaveResolution;
 
-            lblGoBack.MouseEnter += OnMouseEnterReturn;
-            lblGoBack.MouseLeave += OnMouseLeaveReturn;
-
+            HoverUtils.SetHoverImages(lblGoBack, Properties.Resources.btnRectangle, Properties.Resources.btnRectangleHover);
         }
 
         private void Other_MouseEnter(object? sender, EventArgs e)
@@ -199,16 +198,6 @@ namespace HoraryClockUI.Controls.SettingsWindow
             }
         }
 
-        private void OnMouseEnterReturn(object sender, EventArgs e)
-        {
-            lblGoBack.Image = Properties.Resources.btnReturnToClockHover;
-        }
-
-        private void OnMouseLeaveReturn(object sender, EventArgs e)
-        {
-            lblGoBack.Image = Properties.Resources.btnReturnToClock;
-        }
-
         private void lblKeyBindings_Click(object sender, EventArgs e)
         {
             SetSelected(KEY_SETTINGS_ID);
@@ -235,6 +224,11 @@ namespace HoraryClockUI.Controls.SettingsWindow
         private void lblResolution_Click(object sender, EventArgs e)
         {
             SetSelected(RESOLUTION_SETTINGS_ID);
+        }
+
+        public void SetResolution(Resolution resolution)
+        {
+            
         }
     }
 }

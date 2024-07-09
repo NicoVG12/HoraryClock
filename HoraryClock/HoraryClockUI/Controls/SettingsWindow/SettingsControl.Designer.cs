@@ -112,7 +112,7 @@
             // 
             lblGoBack.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lblGoBack.ForeColor = Color.White;
-            lblGoBack.Image = Properties.Resources.btnReturnToClock;
+            lblGoBack.Image = Properties.Resources.btnRectangle;
             lblGoBack.Location = new Point(33, 245);
             lblGoBack.Name = "lblGoBack";
             lblGoBack.Size = new Size(107, 29);

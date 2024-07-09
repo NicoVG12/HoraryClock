@@ -131,16 +131,11 @@ namespace HoraryClockUI.Controls
             _clockManager.Pause();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void AttachDelegates()
         {
-            HoverUtils.SetHoverImages(lblStart, Properties.Resources.btnRctg_0, Properties.Resources.btnRctg_1);
-            HoverUtils.SetHoverImages(lblPause, Properties.Resources.btnRctg_0, Properties.Resources.btnRctg_1);
-            HoverUtils.SetHoverImages(lblReset, Properties.Resources.btnRctg_0, Properties.Resources.btnRctg_1);
+            HoverUtils.SetHoverImages(lblStart, Properties.Resources.btnRectangle, Properties.Resources.btnRectangleHover);
+            HoverUtils.SetHoverImages(lblPause, Properties.Resources.btnRectangle, Properties.Resources.btnRectangleHover);
+            HoverUtils.SetHoverImages(lblReset, Properties.Resources.btnRectangle, Properties.Resources.btnRectangleHover);
 
             HoverUtils.SetHoverImages(lblSettings, Properties.Resources.btnConfig, Properties.Resources.btnConfigHover);
         }

@@ -56,7 +56,7 @@
             // 
             lblStart.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblStart.ForeColor = Color.White;
-            lblStart.Image = Properties.Resources.btnRctg_0;
+            lblStart.Image = Properties.Resources.btnRectangle;
             lblStart.Location = new Point(19, 240);
             lblStart.Name = "lblStart";
             lblStart.Size = new Size(146, 40);
@@ -69,7 +69,7 @@
             // 
             lblPause.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblPause.ForeColor = Color.White;
-            lblPause.Image = Properties.Resources.btnRctg_0;
+            lblPause.Image = Properties.Resources.btnRectangle;
             lblPause.Location = new Point(190, 240);
             lblPause.Name = "lblPause";
             lblPause.Size = new Size(146, 40);
@@ -82,7 +82,7 @@
             // 
             lblReset.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblReset.ForeColor = Color.White;
-            lblReset.Image = Properties.Resources.btnRctg_0;
+            lblReset.Image = Properties.Resources.btnRectangle;
             lblReset.Location = new Point(361, 240);
             lblReset.Name = "lblReset";
             lblReset.Size = new Size(146, 40);
@@ -123,7 +123,6 @@
             lblCurrentEffect.TabIndex = 6;
             lblCurrentEffect.Text = "Current Effect";
             lblCurrentEffect.TextAlign = ContentAlignment.MiddleCenter;
-            lblCurrentEffect.Click += label1_Click;
             // 
             // lblCurrentEffectIcon
             // 

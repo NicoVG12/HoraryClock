@@ -183,29 +183,9 @@ namespace HoraryClockUI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap btnGoBack {
-            get {
-                object obj = ResourceManager.GetObject("btnGoBack", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap btnMaximize {
             get {
                 object obj = ResourceManager.GetObject("btnMaximize", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap btnMaximizeDarkBackground {
-            get {
-                object obj = ResourceManager.GetObject("btnMaximizeDarkBackground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -233,16 +213,6 @@ namespace HoraryClockUI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap btnMinimizeDarkBackground {
-            get {
-                object obj = ResourceManager.GetObject("btnMinimizeDarkBackground", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap btnMinimizeHover {
             get {
                 object obj = ResourceManager.GetObject("btnMinimizeHover", resourceCulture);
@@ -253,9 +223,9 @@ namespace HoraryClockUI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap btnRctg_0 {
+        internal static System.Drawing.Bitmap btnRectangle {
             get {
-                object obj = ResourceManager.GetObject("btnRctg_0", resourceCulture);
+                object obj = ResourceManager.GetObject("btnRectangle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -263,9 +233,9 @@ namespace HoraryClockUI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap btnRctg_1 {
+        internal static System.Drawing.Bitmap btnRectangleHover {
             get {
-                object obj = ResourceManager.GetObject("btnRctg_1", resourceCulture);
+                object obj = ResourceManager.GetObject("btnRectangleHover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -273,9 +243,9 @@ namespace HoraryClockUI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap btnReturnToClock {
+        internal static System.Drawing.Bitmap btnRectangleLong {
             get {
-                object obj = ResourceManager.GetObject("btnReturnToClock", resourceCulture);
+                object obj = ResourceManager.GetObject("btnRectangleLong", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -283,9 +253,9 @@ namespace HoraryClockUI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap btnReturnToClockHover {
+        internal static System.Drawing.Bitmap btnRectangleLongHover {
             get {
-                object obj = ResourceManager.GetObject("btnReturnToClockHover", resourceCulture);
+                object obj = ResourceManager.GetObject("btnRectangleLongHover", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
