@@ -35,7 +35,7 @@
             lblRemainingTimeValue = new Label();
             lblPlay = new Label();
             lblBackground = new Label();
-            label1 = new Label();
+            lblNonHoverArea = new Label();
             SuspendLayout();
             // 
             // lblCloseWindow
@@ -111,18 +111,18 @@
             lblBackground.Click += lblBackground_Click;
             lblBackground.MouseDown += lblBackground_MouseDown;
             // 
-            // label1
+            // lblNonHoverArea
             // 
-            label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label1.ForeColor = Color.White;
-            label1.Image = Properties.Resources.MiniClockwindow;
-            label1.ImageAlign = ContentAlignment.BottomCenter;
-            label1.Location = new Point(0, 34);
-            label1.Margin = new Padding(0);
-            label1.Name = "label1";
-            label1.Size = new Size(239, 74);
-            label1.TabIndex = 20;
-            label1.Click += label1_Click_1;
+            lblNonHoverArea.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            lblNonHoverArea.ForeColor = Color.White;
+            lblNonHoverArea.Image = Properties.Resources.MiniClockwindowNonHoverArea;
+            lblNonHoverArea.ImageAlign = ContentAlignment.BottomCenter;
+            lblNonHoverArea.Location = new Point(0, 42);
+            lblNonHoverArea.Margin = new Padding(0);
+            lblNonHoverArea.Name = "lblNonHoverArea";
+            lblNonHoverArea.Size = new Size(239, 66);
+            lblNonHoverArea.TabIndex = 20;
+            lblNonHoverArea.Click += label1_Click_1;
             // 
             // MiniClockControl
             // 
@@ -133,7 +133,7 @@
             Controls.Add(lblRemainingTimeValue);
             Controls.Add(lblReset);
             Controls.Add(lblCloseWindow);
-            Controls.Add(label1);
+            Controls.Add(lblNonHoverArea);
             Controls.Add(lblBackground);
             Margin = new Padding(0);
             Name = "MiniClockControl";
@@ -150,6 +150,6 @@
         private Label lblRemainingTimeValue;
         private Label lblPlay;
         private Label lblBackground;
-        private Label label1;
+        private Label lblNonHoverArea;
     }
 }

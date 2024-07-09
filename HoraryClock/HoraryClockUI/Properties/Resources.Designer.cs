@@ -503,6 +503,16 @@ namespace HoraryClockUI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MiniClockwindowNonHoverArea {
+            get {
+                object obj = ResourceManager.GetObject("MiniClockwindowNonHoverArea", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap miniPause {
             get {
                 object obj = ResourceManager.GetObject("miniPause", resourceCulture);

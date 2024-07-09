@@ -231,6 +231,7 @@ namespace HoraryClockUI
         public async void Minimize(string RemainingTimeMessage)
         {
             MiniClockControl MiniClockControl = _controls[MINI_CLOCK_ID] as MiniClockControl;
+            MiniClockControl.SetResolution(_config.Resolution);
             MiniClockControl.UpdateLabels(RemainingTimeMessage);
             MiniClockControl.RefreshPlayLabel();
 

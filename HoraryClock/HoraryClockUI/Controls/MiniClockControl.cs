@@ -2,6 +2,7 @@
 using HoraryClock;
 using HoraryEffects;
 using Language;
+using Settings;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +16,7 @@ using System.Windows.Forms;
 
 namespace HoraryClockUI.Controls
 {
-    public partial class MiniClockControl : UserControl, ILanguageSetter
+    public partial class MiniClockControl : UserControl, ILanguageSetter, IResizable
     {
         private MainForm _mainForm;
         private bool _isRunning;
@@ -25,12 +26,16 @@ namespace HoraryClockUI.Controls
         private ClockManager _clockManager = ClockManager.Instance();
 
         private int _refreshDelay = 33;
+
+        private int _effectIconSideLength = 0;
+        private double _currentScale = 1;
         public MiniClockControl(MainForm mainForm)
         {
             _mainForm = mainForm;
             InitializeComponent();
             AttachDelegates();
             InitializeImageArray();
+            _effectIconSideLength = _icons[0].Width;
         }
 
         private void InitializeImageArray()
@@ -78,28 +83,35 @@ namespace HoraryClockUI.Controls
             if (!_clockManager.IsRunning)
             {
                 Task.Run(() => StartClock());
-                lblPlay.Image = Properties.Resources.miniPauseHover;
+                lblPlay.Image = ImageUtils.ScaleImage(Properties.Resources.miniPauseHover, lblPlay.Width, lblPlay.Height);
             }
             else
             {
                 _clockManager.Pause();
-                lblPlay.Image = Properties.Resources.miniPlayHover;
+                lblPlay.Image = ImageUtils.ScaleImage(Properties.Resources.miniPlayHover, lblPlay.Width, lblPlay.Height);
             }
 
         }
 
         internal void UpdateLabels(string remainingTimeMessage)
         {
-            lblCurrentEffectIcon.Image = _icons[_effectManager.CurrentEffectId];
-            if (!remainingTimeMessage.StartsWith("-"))
+            lblCurrentEffectIcon.Image = ImageUtils.ScaleImage(_icons[_effectManager.CurrentEffectId], _effectIconSideLength, _effectIconSideLength);
+            try
             {
-                lblRemainingTimeValue.Text = remainingTimeMessage;
+                if (!remainingTimeMessage.StartsWith("-"))
+                {
+                    lblRemainingTimeValue.Text = remainingTimeMessage;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
         }
 
         internal void SetInitialLabel()
         {
-            lblCurrentEffectIcon.Image = Properties.Resources._04noeffect;
+            lblCurrentEffectIcon.Image = ImageUtils.ScaleImage(Properties.Resources._04noeffect, lblCurrentEffectIcon.Width, lblCurrentEffectIcon.Height);
         }
 
         internal async Task StartClock()
@@ -110,7 +122,7 @@ namespace HoraryClockUI.Controls
             {
                 double elapsedTime = _clockManager.ElapsedTime;
                 UpdateLabels(String.Format("{0:0.00}", ((double)_effectManager.CurrentEffect().Duration - elapsedTime / 1000)) + "s");
-                await(Task.Delay(_refreshDelay));
+                await (Task.Delay(_refreshDelay));
             }
         }
 
@@ -132,11 +144,11 @@ namespace HoraryClockUI.Controls
         {
             if (_clockManager.IsRunning)
             {
-                lblPlay.Image = Properties.Resources.miniPauseHover;
+                lblPlay.Image = ImageUtils.ScaleImage(Properties.Resources.miniPauseHover, lblPlay.Width, lblPlay.Height);
             }
             else
             {
-                lblPlay.Image = Properties.Resources.miniPlayHover;
+                lblPlay.Image = ImageUtils.ScaleImage(Properties.Resources.miniPlayHover, lblPlay.Width, lblPlay.Height);
             }
         }
 
@@ -144,11 +156,11 @@ namespace HoraryClockUI.Controls
         {
             if (_clockManager.IsRunning)
             {
-                lblPlay.Image = Properties.Resources.miniPause;
+                lblPlay.Image = ImageUtils.ScaleImage(Properties.Resources.miniPause, lblPlay.Width, lblPlay.Height);
             }
             else
             {
-                lblPlay.Image = Properties.Resources.miniPlay;
+                lblPlay.Image = ImageUtils.ScaleImage(Properties.Resources.miniPlay, lblPlay.Width, lblPlay.Height);
             }
         }
 
@@ -156,12 +168,12 @@ namespace HoraryClockUI.Controls
         {
             if (_clockManager.IsRunning)
             {
-                lblPlay.Image = Properties.Resources.miniPause;
+                lblPlay.Image = ImageUtils.ScaleImage(Properties.Resources.miniPause, lblPlay.Width, lblPlay.Height);
             }
             else
             {
-                lblPlay.Image = Properties.Resources.miniPlay;
-                lblCurrentEffectIcon.Image = Properties.Resources._04noeffect;
+                lblPlay.Image = ImageUtils.ScaleImage(Properties.Resources.miniPlay, lblPlay.Width, lblPlay.Height);
+                lblCurrentEffectIcon.Image = ImageUtils.ScaleImage(Properties.Resources._04noeffect, lblCurrentEffectIcon.Width, lblCurrentEffectIcon.Height);
             }
             if (Config.Instance().PvPOffsett == Config.CHECKED)
             {
@@ -177,42 +189,42 @@ namespace HoraryClockUI.Controls
         {
             if (_clockManager.IsRunning)
             {
-                lblPlay.Image = Properties.Resources.miniPause;
+                lblPlay.Image = ImageUtils.ScaleImage(Properties.Resources.miniPause, lblPlay.Width, lblPlay.Height);
             }
             else
             {
-                lblPlay.Image = Properties.Resources.miniPlay;
+                lblPlay.Image = ImageUtils.ScaleImage(Properties.Resources.miniPlay, lblPlay.Width, lblPlay.Height);
             }
         }
 
         private void OnMouseEnterReset(object sender, EventArgs e)
         {
-            lblReset.Image = Properties.Resources.miniResetHover;
+            lblReset.Image = ImageUtils.ScaleImage(Properties.Resources.miniResetHover, lblPlay.Width, lblPlay.Height);
         }
 
         private void OnMouseLeaveReset(object sender, EventArgs e)
         {
-            lblReset.Image = Properties.Resources.miniReset;
+            lblReset.Image = ImageUtils.ScaleImage(Properties.Resources.miniReset, lblPlay.Width, lblPlay.Height);
         }
 
         private void OnMouseEnterClose(object sender, EventArgs e)
         {
-            lblCloseWindow.Image = Properties.Resources.btnMiniCloseHover;
+            lblCloseWindow.Image = ImageUtils.ScaleImage(Properties.Resources.btnMiniCloseHover, lblCloseWindow.Width, lblCloseWindow.Height);
         }
 
         private void OnMouseLeaveClose(object sender, EventArgs e)
         {
-            lblCloseWindow.Image = Properties.Resources.btnMiniClose;
+            lblCloseWindow.Image = ImageUtils.ScaleImage(Properties.Resources.btnMiniClose, lblCloseWindow.Width, lblCloseWindow.Height);
         }
 
         private void OnMouseEnterMaximize(object sender, EventArgs e)
         {
-            lblMaximize.Image = Properties.Resources.btnMaximizeHover;
+            lblMaximize.Image = ImageUtils.ScaleImage(Properties.Resources.btnMaximizeHover, lblMaximize.Width, lblMaximize.Height);
         }
 
         private void OnMouseLeaveMaximize(object sender, EventArgs e)
         {
-            lblMaximize.Image = Properties.Resources.btnMaximize;
+            lblMaximize.Image = ImageUtils.ScaleImage(Properties.Resources.btnMaximize, lblMaximize.Width, lblMaximize.Height);
         }
 
         public async void lblReset_Click(object sender, EventArgs e)
@@ -222,10 +234,12 @@ namespace HoraryClockUI.Controls
             SetInitialPlayLabel();
             if (!_clockManager.IsRunning)
             {
-                lblCurrentEffectIcon.Image = Properties.Resources._04noeffect;
-            } else
+                lblCurrentEffectIcon.Image = ImageUtils.ScaleImage(Properties.Resources._04noeffect, lblCurrentEffectIcon.Width, lblCurrentEffectIcon.Height);
+            }
+            else
             {
-                Task.Run(async() => StartClock());
+                Task.Run(async () => StartClock());
+
             }
         }
 
@@ -236,7 +250,50 @@ namespace HoraryClockUI.Controls
 
         public void SetLanguage(LanguageData languageData)
         {
-            
+
+        }
+
+        public void SetResolution(Resolution resolution)
+        {
+            double ScaleRatio = resolution.Scale / _currentScale;
+            _effectIconSideLength = (int)(resolution.Scale * _icons[_effectManager.CurrentEffectId].Width);
+
+            Size = new Size((int)(Size.Width * ScaleRatio), (int)(Size.Height * ScaleRatio));
+
+            lblBackground.Size = new Size((int)(lblBackground.Width * ScaleRatio), (int)(lblBackground.Height * ScaleRatio));
+            lblBackground.Image = ImageUtils.ScaleImage(lblBackground.Image, lblBackground.Width, lblBackground.Height);
+
+            lblNonHoverArea.Size = new Size((int)(lblNonHoverArea.Width * ScaleRatio), (int)(lblNonHoverArea.Height * ScaleRatio));
+            lblNonHoverArea.Image = ImageUtils.ScaleImage(lblNonHoverArea.Image, lblNonHoverArea.Width, lblNonHoverArea.Height);
+            lblNonHoverArea.Location = new Point((int)(ScaleRatio * lblNonHoverArea.Location.X), (int)(ScaleRatio * lblNonHoverArea.Location.Y));
+
+            lblCurrentEffectIcon.Size = new Size((int)(lblCurrentEffectIcon.Width * ScaleRatio), (int)(lblCurrentEffectIcon.Height * ScaleRatio));
+            lblCurrentEffectIcon.Image = ImageUtils.ScaleImage(lblCurrentEffectIcon.Image, lblCurrentEffectIcon.Width, lblCurrentEffectIcon.Height);
+            lblCurrentEffectIcon.Location = new Point((int)(ScaleRatio * lblCurrentEffectIcon.Location.X), (int)(ScaleRatio * lblCurrentEffectIcon.Location.Y));
+
+            lblPlay.Size = new Size((int)(lblPlay.Width * ScaleRatio), (int)(lblPlay.Height * ScaleRatio));
+            lblPlay.Image = ImageUtils.ScaleImage(lblPlay.Image, lblPlay.Width, lblPlay.Height);
+            lblPlay.Location = new Point((int)(ScaleRatio * lblPlay.Location.X), (int)(ScaleRatio * lblPlay.Location.Y));
+
+            lblReset.Size = new Size((int)(lblReset.Width * ScaleRatio), (int)(lblReset.Height * ScaleRatio));
+            lblReset.Image = ImageUtils.ScaleImage(lblReset.Image, lblReset.Width, lblReset.Height);
+            lblReset.Location = new Point((int)(ScaleRatio * lblReset.Location.X), (int)(ScaleRatio * lblReset.Location.Y));
+
+            lblCloseWindow.Size = new Size((int)(lblCloseWindow.Width * ScaleRatio), (int)(lblCloseWindow.Height * ScaleRatio));
+            lblCloseWindow.Image = ImageUtils.ScaleImage(lblCloseWindow.Image, lblCloseWindow.Width, lblCloseWindow.Height);
+            lblCloseWindow.Location = new Point((int)(ScaleRatio * lblCloseWindow.Location.X), (int)(ScaleRatio * lblCloseWindow.Location.Y));
+
+            lblMaximize.Size = new Size((int)(lblMaximize.Width * ScaleRatio), (int)(lblMaximize.Height * ScaleRatio));
+            lblMaximize.Image = ImageUtils.ScaleImage(lblMaximize.Image, lblMaximize.Width, lblMaximize.Height);
+            lblMaximize.Location = new Point((int)(ScaleRatio * lblMaximize.Location.X), (int)(ScaleRatio * lblMaximize.Location.Y));
+
+            lblRemainingTimeValue.Size = new Size((int)(lblRemainingTimeValue.Width * ScaleRatio), (int)(lblRemainingTimeValue.Height * ScaleRatio));
+            lblRemainingTimeValue.Location = new Point((int)(ScaleRatio * lblRemainingTimeValue.Location.X), (int)(ScaleRatio * lblRemainingTimeValue.Location.Y));
+
+            lblBackground.Font = new Font("Segoe UI Semibold", (float)resolution.FontSize.Title, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            lblRemainingTimeValue.Font = new Font("Consolas", (float)resolution.FontSize.Full, FontStyle.Bold, GraphicsUnit.Point);
+
+            _currentScale = resolution.Scale;
         }
     }
 }
