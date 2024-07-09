@@ -255,40 +255,24 @@ namespace HoraryClockUI.Controls
 
         public void SetResolution(Resolution resolution)
         {
-            double ScaleRatio = resolution.Scale / _currentScale;
+            double scaleRatio = resolution.Scale / _currentScale;
             _effectIconSideLength = (int)(resolution.Scale * _icons[_effectManager.CurrentEffectId].Width);
 
-            Size = new Size((int)(Size.Width * ScaleRatio), (int)(Size.Height * ScaleRatio));
+            Size = new Size((int)(Size.Width * scaleRatio), (int)(Size.Height * scaleRatio));
 
-            lblBackground.Size = new Size((int)(lblBackground.Width * ScaleRatio), (int)(lblBackground.Height * ScaleRatio));
-            lblBackground.Image = ImageUtils.ScaleImage(lblBackground.Image, lblBackground.Width, lblBackground.Height);
+            List<Label> labelsToScale = new List<Label>()
+            {
+                lblBackground,
+                lblNonHoverArea,
+                lblCurrentEffectIcon,
+                lblPlay,
+                lblReset,
+                lblCloseWindow,
+                lblMaximize,
+                lblRemainingTimeValue,
+            };
 
-            lblNonHoverArea.Size = new Size((int)(lblNonHoverArea.Width * ScaleRatio), (int)(lblNonHoverArea.Height * ScaleRatio));
-            lblNonHoverArea.Image = ImageUtils.ScaleImage(lblNonHoverArea.Image, lblNonHoverArea.Width, lblNonHoverArea.Height);
-            lblNonHoverArea.Location = new Point((int)(ScaleRatio * lblNonHoverArea.Location.X), (int)(ScaleRatio * lblNonHoverArea.Location.Y));
-
-            lblCurrentEffectIcon.Size = new Size((int)(lblCurrentEffectIcon.Width * ScaleRatio), (int)(lblCurrentEffectIcon.Height * ScaleRatio));
-            lblCurrentEffectIcon.Image = ImageUtils.ScaleImage(lblCurrentEffectIcon.Image, lblCurrentEffectIcon.Width, lblCurrentEffectIcon.Height);
-            lblCurrentEffectIcon.Location = new Point((int)(ScaleRatio * lblCurrentEffectIcon.Location.X), (int)(ScaleRatio * lblCurrentEffectIcon.Location.Y));
-
-            lblPlay.Size = new Size((int)(lblPlay.Width * ScaleRatio), (int)(lblPlay.Height * ScaleRatio));
-            lblPlay.Image = ImageUtils.ScaleImage(lblPlay.Image, lblPlay.Width, lblPlay.Height);
-            lblPlay.Location = new Point((int)(ScaleRatio * lblPlay.Location.X), (int)(ScaleRatio * lblPlay.Location.Y));
-
-            lblReset.Size = new Size((int)(lblReset.Width * ScaleRatio), (int)(lblReset.Height * ScaleRatio));
-            lblReset.Image = ImageUtils.ScaleImage(lblReset.Image, lblReset.Width, lblReset.Height);
-            lblReset.Location = new Point((int)(ScaleRatio * lblReset.Location.X), (int)(ScaleRatio * lblReset.Location.Y));
-
-            lblCloseWindow.Size = new Size((int)(lblCloseWindow.Width * ScaleRatio), (int)(lblCloseWindow.Height * ScaleRatio));
-            lblCloseWindow.Image = ImageUtils.ScaleImage(lblCloseWindow.Image, lblCloseWindow.Width, lblCloseWindow.Height);
-            lblCloseWindow.Location = new Point((int)(ScaleRatio * lblCloseWindow.Location.X), (int)(ScaleRatio * lblCloseWindow.Location.Y));
-
-            lblMaximize.Size = new Size((int)(lblMaximize.Width * ScaleRatio), (int)(lblMaximize.Height * ScaleRatio));
-            lblMaximize.Image = ImageUtils.ScaleImage(lblMaximize.Image, lblMaximize.Width, lblMaximize.Height);
-            lblMaximize.Location = new Point((int)(ScaleRatio * lblMaximize.Location.X), (int)(ScaleRatio * lblMaximize.Location.Y));
-
-            lblRemainingTimeValue.Size = new Size((int)(lblRemainingTimeValue.Width * ScaleRatio), (int)(lblRemainingTimeValue.Height * ScaleRatio));
-            lblRemainingTimeValue.Location = new Point((int)(ScaleRatio * lblRemainingTimeValue.Location.X), (int)(ScaleRatio * lblRemainingTimeValue.Location.Y));
+            ImageUtils.ScaleLabels(labelsToScale, scaleRatio);
 
             lblBackground.Font = new Font("Segoe UI Semibold", (float)resolution.FontSize.Title, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
             lblRemainingTimeValue.Font = new Font("Consolas", (float)resolution.FontSize.Full, FontStyle.Bold, GraphicsUnit.Point);

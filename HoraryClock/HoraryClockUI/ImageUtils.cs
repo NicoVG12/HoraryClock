@@ -29,5 +29,19 @@ namespace HoraryClockUI
 
             return scaledImage;
         }
+
+        public static void ScaleLabels(IEnumerable<Label> labels, double scaleRatio)
+        {
+            foreach (Label label in labels)
+            {
+                label.Size = new Size((int)(label.Width * scaleRatio), (int)(label.Height * scaleRatio));
+                label.Location = new Point((int)(scaleRatio * label.Location.X), (int)(scaleRatio * label.Location.Y));
+
+                if (label.Image != null)
+                {
+                    label.Image = ImageUtils.ScaleImage(label.Image, label.Width, label.Height);
+                }
+            }
+        }
     }
 }
