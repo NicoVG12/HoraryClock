@@ -173,9 +173,9 @@ namespace HoraryClockUI
 
         public void ShowTab(int tabId)
         {
-            mainPanel.Controls.Clear();
-            mainPanel.Controls.Add(_controls[tabId]);
-            mainPanel.Refresh();
+            pnlFlow.Controls.Clear();
+            pnlFlow.Controls.Add(_controls[tabId]);
+            pnlFlow.Refresh();
             Refresh();
         }
 
@@ -299,11 +299,11 @@ namespace HoraryClockUI
         {
             Size = new Size(newResolution.FullWindow.Width, newResolution.FullWindow.Height);
 
-            panel1.Size = new Size(newResolution.FullWindow.Width, newResolution.FullWindow.Height);
-            panel1.BackgroundImage = ImageUtils.ScaleImage(panel1.BackgroundImage, panel1.Width, panel1.Height);
+            pnlMain.Size = new Size(newResolution.FullWindow.Width, newResolution.FullWindow.Height);
+            pnlMain.BackgroundImage = ImageUtils.ScaleImage(pnlMain.BackgroundImage, pnlMain.Width, pnlMain.Height);
 
-            mainPanel.Size = new Size((int)(newResolution.Scale* mainPanel.Width), (int)(newResolution.Scale * mainPanel.Height));
-            mainPanel.Location = new Point((int)(newResolution.Scale * mainPanel.Location.X), (int)(newResolution.Scale * mainPanel.Location.Y));
+            pnlFlow.Size = new Size((int)(newResolution.Scale* pnlFlow.Width), (int)(newResolution.Scale * pnlFlow.Height));
+            pnlFlow.Location = new Point((int)(newResolution.Scale * pnlFlow.Location.X), (int)(newResolution.Scale * pnlFlow.Location.Y));
 
             lblBackground.Font = new Font("Segoe UI Semibold", (float)newResolution.FontSize.Title, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
 

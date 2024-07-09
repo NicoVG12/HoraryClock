@@ -38,12 +38,14 @@
             lblCurrentEffectIcon = new Label();
             lblFirstDescription = new Label();
             lblSecondDescription = new Label();
-            lblBackground = new Label();
+            pnlMain = new Panel();
+            pnlMain.SuspendLayout();
             SuspendLayout();
             // 
             // lblSettings
             // 
-            lblSettings.Image = Properties.Resources.btnSettingsDarkBackgroundNotHovered;
+            lblSettings.BackColor = Color.Transparent;
+            lblSettings.Image = Properties.Resources.btnConfig;
             lblSettings.Location = new Point(469, 13);
             lblSettings.Name = "lblSettings";
             lblSettings.Size = new Size(35, 46);
@@ -93,7 +95,6 @@
             // 
             lblRemainingTime.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblRemainingTime.ForeColor = Color.White;
-            lblRemainingTime.Image = Properties.Resources.lblBackgroundDark;
             lblRemainingTime.Location = new Point(22, 194);
             lblRemainingTime.Name = "lblRemainingTime";
             lblRemainingTime.Size = new Size(218, 32);
@@ -105,7 +106,6 @@
             // 
             lblRemainingTimeValue.Font = new Font("Consolas", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblRemainingTimeValue.ForeColor = Color.White;
-            lblRemainingTimeValue.Image = Properties.Resources.lblBackgroundDark;
             lblRemainingTimeValue.Location = new Point(255, 194);
             lblRemainingTimeValue.Name = "lblRemainingTimeValue";
             lblRemainingTimeValue.Size = new Size(240, 32);
@@ -117,7 +117,6 @@
             // 
             lblCurrentEffect.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblCurrentEffect.ForeColor = Color.White;
-            lblCurrentEffect.Image = Properties.Resources.lblBackgroundDark;
             lblCurrentEffect.Location = new Point(39, 17);
             lblCurrentEffect.Name = "lblCurrentEffect";
             lblCurrentEffect.Size = new Size(448, 30);
@@ -139,9 +138,9 @@
             // 
             // lblFirstDescription
             // 
+            lblFirstDescription.BackColor = Color.Transparent;
             lblFirstDescription.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lblFirstDescription.ForeColor = Color.White;
-            lblFirstDescription.Image = Properties.Resources.lblBackgroundDark;
             lblFirstDescription.Location = new Point(39, 101);
             lblFirstDescription.Name = "lblFirstDescription";
             lblFirstDescription.Size = new Size(448, 40);
@@ -151,9 +150,9 @@
             // 
             // lblSecondDescription
             // 
+            lblSecondDescription.BackColor = Color.Transparent;
             lblSecondDescription.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lblSecondDescription.ForeColor = Color.White;
-            lblSecondDescription.Image = Properties.Resources.lblBackgroundDark;
             lblSecondDescription.Location = new Point(39, 131);
             lblSecondDescription.Name = "lblSecondDescription";
             lblSecondDescription.Size = new Size(448, 40);
@@ -161,35 +160,33 @@
             lblSecondDescription.Text = "Second Effect Line";
             lblSecondDescription.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // lblBackground
+            // pnlMain
             // 
-            lblBackground.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblBackground.ForeColor = Color.Black;
-            lblBackground.Image = Properties.Resources.background_control_clock;
-            lblBackground.Location = new Point(0, 0);
-            lblBackground.Margin = new Padding(0);
-            lblBackground.Name = "lblBackground";
-            lblBackground.Size = new Size(525, 292);
-            lblBackground.TabIndex = 10;
-            lblBackground.TextAlign = ContentAlignment.MiddleLeft;
+            pnlMain.BackgroundImage = Properties.Resources.background_control_clock;
+            pnlMain.Controls.Add(lblSettings);
+            pnlMain.Controls.Add(lblStart);
+            pnlMain.Controls.Add(lblCurrentEffectIcon);
+            pnlMain.Controls.Add(lblPause);
+            pnlMain.Controls.Add(lblFirstDescription);
+            pnlMain.Controls.Add(lblReset);
+            pnlMain.Controls.Add(lblSecondDescription);
+            pnlMain.Controls.Add(lblRemainingTime);
+            pnlMain.Controls.Add(lblCurrentEffect);
+            pnlMain.Controls.Add(lblRemainingTimeValue);
+            pnlMain.Location = new Point(0, 0);
+            pnlMain.Name = "pnlMain";
+            pnlMain.Size = new Size(525, 292);
+            pnlMain.TabIndex = 11;
             // 
             // ClockControl
             // 
             AutoScaleMode = AutoScaleMode.None;
-            Controls.Add(lblSettings);
-            Controls.Add(lblCurrentEffectIcon);
-            Controls.Add(lblFirstDescription);
-            Controls.Add(lblSecondDescription);
-            Controls.Add(lblCurrentEffect);
-            Controls.Add(lblRemainingTimeValue);
-            Controls.Add(lblRemainingTime);
-            Controls.Add(lblReset);
-            Controls.Add(lblPause);
-            Controls.Add(lblStart);
-            Controls.Add(lblBackground);
+            BackColor = Color.Transparent;
+            Controls.Add(pnlMain);
             Margin = new Padding(0);
             Name = "ClockControl";
             Size = new Size(525, 292);
+            pnlMain.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -205,6 +202,6 @@
         private Label lblCurrentEffectIcon;
         private Label lblFirstDescription;
         private Label lblSecondDescription;
-        private Label lblBackground;
+        private Panel pnlMain;
     }
 }

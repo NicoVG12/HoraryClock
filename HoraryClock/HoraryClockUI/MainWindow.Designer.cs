@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             lblBackground = new Label();
-            mainPanel = new FlowLayoutPanel();
+            pnlFlow = new FlowLayoutPanel();
             lblCloseWindow = new Label();
             lblMinimize = new Label();
-            panel1 = new Panel();
-            panel1.SuspendLayout();
+            pnlMain = new Panel();
+            pnlMain.SuspendLayout();
             SuspendLayout();
             // 
             // lblBackground
@@ -53,12 +53,12 @@
             // 
             // mainPanel
             // 
-            mainPanel.BackColor = Color.Transparent;
-            mainPanel.Location = new Point(2, 38);
-            mainPanel.Margin = new Padding(0);
-            mainPanel.Name = "mainPanel";
-            mainPanel.Size = new Size(525, 292);
-            mainPanel.TabIndex = 2;
+            pnlFlow.BackColor = Color.Transparent;
+            pnlFlow.Location = new Point(2, 38);
+            pnlFlow.Margin = new Padding(0);
+            pnlFlow.Name = "mainPanel";
+            pnlFlow.Size = new Size(525, 292);
+            pnlFlow.TabIndex = 2;
             // 
             // lblCloseWindow
             // 
@@ -82,35 +82,35 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.Transparent;
-            panel1.BackgroundImage = Properties.Resources.background;
-            panel1.Controls.Add(lblCloseWindow);
-            panel1.Controls.Add(lblBackground);
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(529, 332);
-            panel1.TabIndex = 0;
+            pnlMain.BackColor = Color.Transparent;
+            pnlMain.BackgroundImage = Properties.Resources.background;
+            pnlMain.Controls.Add(lblCloseWindow);
+            pnlMain.Controls.Add(lblBackground);
+            pnlMain.Location = new Point(0, 0);
+            pnlMain.Name = "panel1";
+            pnlMain.Size = new Size(529, 332);
+            pnlMain.TabIndex = 0;
             // 
             // MainForm
             // 
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(529, 332);
             Controls.Add(lblMinimize);
-            Controls.Add(mainPanel);
-            Controls.Add(panel1);
+            Controls.Add(pnlFlow);
+            Controls.Add(pnlMain);
             FormBorderStyle = FormBorderStyle.None;
             Name = "MainForm";
             Text = "Form1";
             Load += Form1_Load;
-            panel1.ResumeLayout(false);
+            pnlMain.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
         private Label lblBackground;
-        private FlowLayoutPanel mainPanel;
+        private FlowLayoutPanel pnlFlow;
         private Label lblCloseWindow;
         private Label lblMinimize;
-        private Panel panel1;
+        private Panel pnlMain;
     }
 }

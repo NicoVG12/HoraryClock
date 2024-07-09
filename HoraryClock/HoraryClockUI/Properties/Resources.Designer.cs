@@ -163,6 +163,26 @@ namespace HoraryClockUI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap btnConfig {
+            get {
+                object obj = ResourceManager.GetObject("btnConfig", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap btnConfigHover {
+            get {
+                object obj = ResourceManager.GetObject("btnConfigHover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btnGoBack {
             get {
                 object obj = ResourceManager.GetObject("btnGoBack", resourceCulture);
@@ -356,36 +376,6 @@ namespace HoraryClockUI.Properties {
         internal static System.Drawing.Bitmap btnSettingNotSelected {
             get {
                 object obj = ResourceManager.GetObject("btnSettingNotSelected", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap btnSettings {
-            get {
-                object obj = ResourceManager.GetObject("btnSettings", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap btnSettingsDarkBackground {
-            get {
-                object obj = ResourceManager.GetObject("btnSettingsDarkBackground", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap btnSettingsDarkBackgroundNotHovered {
-            get {
-                object obj = ResourceManager.GetObject("btnSettingsDarkBackgroundNotHovered", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

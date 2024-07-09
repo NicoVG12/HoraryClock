@@ -2,6 +2,7 @@
 using HoraryClock;
 using HoraryEffects;
 using Language;
+using Settings;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -14,13 +15,14 @@ using System.Windows.Forms;
 
 namespace HoraryClockUI.Controls
 {
-    public partial class ClockControl : UserControl, ILanguageSetter
+    public partial class ClockControl : UserControl, ILanguageSetter, IResizable
     {
         private ClockManager _clockManager = ClockManager.Instance();
         private EffectManager _effectManager = EffectManager.Instance();
-        
+
         private Image[] _icons = new Image[4];
         private MainForm _mainForm;
+        private Config _config = Config.Instance();
 
         private int _displayedEffectID;
         private int _refreshDelay = 33;
@@ -60,7 +62,7 @@ namespace HoraryClockUI.Controls
         {
             EffectType currentEffect = _effectManager.CurrentEffect();
 
-            if(_displayedEffectID != currentEffect.Id)
+            if (_displayedEffectID != currentEffect.Id)
             {
                 lblCurrentEffect.Text = currentEffect.Name;
                 lblCurrentEffectIcon.Image = _icons[_effectManager.CurrentEffectId];
@@ -88,7 +90,8 @@ namespace HoraryClockUI.Controls
             if (!_clockManager.IsRunning)
             {
                 SetInitialLabels();
-            } else
+            }
+            else
             {
                 Task.Run(async () => StartClock());
             }
@@ -135,61 +138,11 @@ namespace HoraryClockUI.Controls
 
         private void AttachDelegates()
         {
-            lblStart.MouseEnter += OnMouseEnterStart;
-            lblStart.MouseLeave += OnMouseLeaveStart;
-            lblPause.MouseEnter += OnMouseEnterPause;
-            lblPause.MouseLeave += OnMouseLeavePause;
-            lblReset.MouseEnter += OnMouseEnterReset;
-            lblReset.MouseLeave += OnMouseLeaveReset;
+            HoverUtils.SetHoverImages(lblStart, Properties.Resources.btnRctg_0, Properties.Resources.btnRctg_1);
+            HoverUtils.SetHoverImages(lblPause, Properties.Resources.btnRctg_0, Properties.Resources.btnRctg_1);
+            HoverUtils.SetHoverImages(lblReset, Properties.Resources.btnRctg_0, Properties.Resources.btnRctg_1);
 
-            lblSettings.MouseEnter += OnMouseEnterSettings;
-            lblSettings.MouseLeave += OnMouseLeaveSettings;
-        }
-
-        private void OnMouseEnterStart(object sender, EventArgs e)
-        {
-            lblStart.Image = Properties.Resources.btnRctg_1;
-        }
-
-        private void OnMouseLeaveStart(object sender, EventArgs e)
-        {
-            lblStart.Image = Properties.Resources.btnRctg_0;
-        }
-
-        private void OnMouseEnterPause(object sender, EventArgs e)
-        {
-            lblPause.Image = Properties.Resources.btnRctg_1;
-        }
-
-        private void OnMouseLeavePause(object sender, EventArgs e)
-        {
-            lblPause.Image = Properties.Resources.btnRctg_0;
-        }
-
-        private void OnMouseEnterReset(object sender, EventArgs e)
-        {
-            lblReset.Image = Properties.Resources.btnRctg_1;
-        }
-
-        private void OnMouseLeaveReset(object sender, EventArgs e)
-        {
-            lblReset.Image = Properties.Resources.btnRctg_0;
-        }
-
-        private void lblMinimize_Click(object sender, EventArgs e)
-        {
-            _mainForm.Minimize(lblRemainingTimeValue.Text);
-
-        }
-
-        private void OnMouseEnterSettings(object sender, EventArgs e)
-        {
-            lblSettings.Image = Properties.Resources.btnSettingsDarkBackground;
-        }
-
-        private void OnMouseLeaveSettings(object sender, EventArgs e)
-        {
-            lblSettings.Image = Properties.Resources.btnSettingsDarkBackgroundNotHovered;
+            HoverUtils.SetHoverImages(lblSettings, Properties.Resources.btnConfig, Properties.Resources.btnConfigHover);
         }
 
         internal string GetRemainingTime()
@@ -207,6 +160,46 @@ namespace HoraryClockUI.Controls
             lblStart.Text = languageData.ClockWindow.Start;
             lblPause.Text = languageData.ClockWindow.Pause;
             lblReset.Text = languageData.ClockWindow.Reset;
+        }
+
+        public void SetResolution(Resolution resolution)
+        {
+            Size = new Size((int)(resolution.Scale * Width), (int)(resolution.Scale * Height));
+
+            pnlMain.Size = new Size((int)(resolution.Scale * pnlMain.Width), (int)(resolution.Scale * pnlMain.Height));
+            pnlMain.BackgroundImage = ImageUtils.ScaleImage(pnlMain.BackgroundImage, pnlMain.Width, pnlMain.Height);
+
+            List<Label> labelsToScale = new List<Label>()
+            {
+                lblCurrentEffect,
+                lblCurrentEffectIcon,
+                lblFirstDescription,
+                lblSecondDescription,
+
+                lblRemainingTime,
+                lblRemainingTimeValue,
+
+                lblStart,
+                lblPause,
+                lblReset,
+
+                lblSettings,
+            };
+
+            ImageUtils.ScaleLabels(labelsToScale, _config.Resolution.Scale);
+
+            lblCurrentEffect.Font = new Font("Segoe UI Semibold", (float)resolution.FontSize.Full, FontStyle.Bold, GraphicsUnit.Point);
+            lblFirstDescription.Font = new Font("Segoe UI Semibold", (float)resolution.FontSize.Menu, FontStyle.Bold, GraphicsUnit.Point);
+            lblSecondDescription.Font = new Font("Segoe UI Semibold", (float)resolution.FontSize.Menu, FontStyle.Bold, GraphicsUnit.Point);
+
+            lblRemainingTime.Font = new Font("Segoe UI Semibold", (float)resolution.FontSize.Full, FontStyle.Bold, GraphicsUnit.Point);
+            lblRemainingTimeValue.Font = new Font("Consolas", (float)resolution.FontSize.Full, FontStyle.Bold, GraphicsUnit.Point);
+
+            lblStart.Font = new Font("Segoe UI Semibold", (float)resolution.FontSize.Full, FontStyle.Bold, GraphicsUnit.Point);
+            lblPause.Font = new Font("Segoe UI Semibold", (float)resolution.FontSize.Full, FontStyle.Bold, GraphicsUnit.Point);
+            lblReset.Font = new Font("Segoe UI Semibold", (float)resolution.FontSize.Full, FontStyle.Bold, GraphicsUnit.Point);
+
+            Refresh();
         }
     }
 }
