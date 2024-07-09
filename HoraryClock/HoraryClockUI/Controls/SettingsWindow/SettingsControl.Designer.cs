@@ -36,6 +36,7 @@
             lblBackground = new Label();
             pnlSpecificSettings = new FlowLayoutPanel();
             lblGoBack = new Label();
+            lblResolution = new Label();
             SuspendLayout();
             // 
             // lblLanguage
@@ -82,7 +83,7 @@
             lblOther.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblOther.ForeColor = Color.White;
             lblOther.Image = Properties.Resources.btnSettingNotSelected;
-            lblOther.Location = new Point(27, 112);
+            lblOther.Location = new Point(27, 143);
             lblOther.Name = "lblOther";
             lblOther.Size = new Size(127, 27);
             lblOther.TabIndex = 3;
@@ -120,9 +121,23 @@
             lblGoBack.TextAlign = ContentAlignment.MiddleCenter;
             lblGoBack.Click += lblGoBack_Click;
             // 
+            // lblResolution
+            // 
+            lblResolution.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblResolution.ForeColor = Color.White;
+            lblResolution.Image = Properties.Resources.btnSettingNotSelected;
+            lblResolution.Location = new Point(27, 112);
+            lblResolution.Name = "lblResolution";
+            lblResolution.Size = new Size(127, 27);
+            lblResolution.TabIndex = 8;
+            lblResolution.Text = "Resolution";
+            lblResolution.TextAlign = ContentAlignment.MiddleCenter;
+            lblResolution.Click += lblResolution_Click;
+            // 
             // SettingsControl
             // 
             AutoScaleMode = AutoScaleMode.None;
+            Controls.Add(lblResolution);
             Controls.Add(lblGoBack);
             Controls.Add(pnlSpecificSettings);
             Controls.Add(lblOther);
@@ -145,5 +160,6 @@
         private Label lblBackground;
         private FlowLayoutPanel pnlSpecificSettings;
         private Label lblGoBack;
+        private Label lblResolution;
     }
 }

@@ -5,6 +5,7 @@ using HoraryClockUI.Controls.MainWindow;
 using HoraryClockUI.Controls.SettingsWindow;
 using HoraryEffects;
 using Language;
+using Settings;
 using System.Configuration;
 using System.Globalization;
 using System.Linq.Expressions;
@@ -309,6 +310,18 @@ namespace HoraryClockUI
                 controlLanguageSetter.SetLanguage(languageData);
             }
             EffectManager.Instance().SetLanguage(languageData);
+        }
+
+        internal void SetResolution(Resolution newResolution)
+        {
+            foreach (Control control in _controls)
+            {
+                IResizable controlResizable = control as IResizable;
+                if (controlResizable != null)
+                {
+                    controlResizable.SetResolution(newResolution);
+                }
+            }
         }
     }
 }

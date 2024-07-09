@@ -13,12 +13,13 @@ namespace HoraryClockUI.Controls.SettingsWindow
 {
     public partial class SettingsControl : UserControl, ILanguageSetter
     {
-        private const int CONTROL_AMOUNT = 4;
+        private const int CONTROL_AMOUNT = 5;
 
         private const int LANGUAGE_SETTINGS_ID = 0;
         private const int CLOCK_SETTINGS_ID = 1;
         private const int KEY_SETTINGS_ID = 2;
-        private const int OTHER_SETTINGS_ID = 3;
+        private const int RESOLUTION_SETTINGS_ID = 3;
+        private const int OTHER_SETTINGS_ID = 4;
 
         private Label[] _labels = new Label[CONTROL_AMOUNT];
         private bool[] _settingSelected = new bool[CONTROL_AMOUNT];
@@ -44,6 +45,7 @@ namespace HoraryClockUI.Controls.SettingsWindow
             _labels[LANGUAGE_SETTINGS_ID] = lblLanguage;
             _labels[CLOCK_SETTINGS_ID] = lblPvPOffset;
             _labels[KEY_SETTINGS_ID] = lblKeyBindings;
+            _labels[RESOLUTION_SETTINGS_ID] = lblResolution;
             _labels[OTHER_SETTINGS_ID] = lblOther;
         }
 
@@ -52,6 +54,7 @@ namespace HoraryClockUI.Controls.SettingsWindow
             _settingsControls[LANGUAGE_SETTINGS_ID] = new LanguageControl(_mainForm);
             _settingsControls[CLOCK_SETTINGS_ID] = new ClockSettingsControl(_mainForm);
             _settingsControls[KEY_SETTINGS_ID] = new KeyBindingsControl(_mainForm);
+            _settingsControls[RESOLUTION_SETTINGS_ID] = new ResolutionControl(_mainForm);
         }
 
         private void SetSelected(int settingId)
@@ -103,6 +106,8 @@ namespace HoraryClockUI.Controls.SettingsWindow
             lblKeyBindings.MouseLeave += OnMouseLeaveKeys;
             lblOther.MouseEnter += OnMouseEnterOther;
             lblOther.MouseLeave += OnMouseLeaveOther;
+            lblResolution.MouseEnter += OnMouseEnterResolution;
+            lblResolution.MouseLeave += OnMouseLeaveResolution;
 
             lblGoBack.MouseEnter += OnMouseEnterReturn;
             lblGoBack.MouseLeave += OnMouseLeaveReturn;
@@ -178,6 +183,22 @@ namespace HoraryClockUI.Controls.SettingsWindow
             }
         }
 
+        private void OnMouseEnterResolution(object sender, EventArgs e)
+        {
+            if (!_settingSelected[RESOLUTION_SETTINGS_ID])
+            {
+                lblResolution.Image = Properties.Resources.btnSettingHovered;
+            }
+        }
+
+        private void OnMouseLeaveResolution(object sender, EventArgs e)
+        {
+            if (!_settingSelected[RESOLUTION_SETTINGS_ID])
+            {
+                lblResolution.Image = Properties.Resources.btnSettingNotSelected;
+            }
+        }
+
         private void OnMouseEnterReturn(object sender, EventArgs e)
         {
             lblGoBack.Image = Properties.Resources.btnReturnToClockHover;
@@ -209,6 +230,11 @@ namespace HoraryClockUI.Controls.SettingsWindow
                     languageSetter.SetLanguage(languageData);
                 }
             }
+        }
+
+        private void lblResolution_Click(object sender, EventArgs e)
+        {
+            SetSelected(RESOLUTION_SETTINGS_ID);
         }
     }
 }

@@ -23,6 +23,7 @@ namespace Settings
         }
 
         public string Name { get; private set; }
+        public string Description { get; private set; }
         public double Scale { get; private set; }
         public FontSizeData FontSize { get; private set; }
         public ResolutionData FullWindow { get; private set; }
@@ -54,6 +55,7 @@ namespace Settings
             return new Resolution()
             {
                 Name = HIGH,
+                Description = "Recommended for 3840x2160 Screen Resolution.",
                 Scale = 2,
                 FullWindow = new ResolutionData
                 {
@@ -81,6 +83,7 @@ namespace Settings
             return new Resolution()
             {
                 Name = MID,
+                Description = "Recommended for 2880x1620 Screen Resolution.",
                 Scale = 1.5,
                 FullWindow = new ResolutionData
                 {
@@ -107,6 +110,7 @@ namespace Settings
             return new Resolution()
             {
                 Name = LOW,
+                Description = "Recommended for 1920x1080 Screen Resolution.",
                 Scale = 1,
                 FullWindow = new ResolutionData
                 {
