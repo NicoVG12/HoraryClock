@@ -123,7 +123,6 @@
             lblNonHoverArea.Name = "lblNonHoverArea";
             lblNonHoverArea.Size = new Size(239, 66);
             lblNonHoverArea.TabIndex = 20;
-            lblNonHoverArea.Click += label1_Click_1;
             // 
             // MiniClockControl
             // 

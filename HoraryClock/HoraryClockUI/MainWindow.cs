@@ -256,7 +256,7 @@ namespace HoraryClockUI
             {
                 clockControl.SetInitialLabels();
             }
-            Size = new Size(529, 332);
+            Size = new Size(_config.Resolution.FullWindow.Width, _config.Resolution.FullWindow.Height);
         }
 
         private void lblMinimize_Click(object sender, EventArgs e)

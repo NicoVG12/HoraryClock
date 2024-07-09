@@ -209,11 +209,6 @@ namespace HoraryClockUI.Controls
             }
         }
 
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         public void SetLanguage(LanguageData languageData)
         {
 
