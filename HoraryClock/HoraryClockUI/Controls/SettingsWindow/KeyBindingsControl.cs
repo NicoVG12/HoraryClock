@@ -54,8 +54,9 @@ namespace HoraryClockUI.Controls.SettingsWindow
             {
                 lblMessage.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
                 lblMessage.Text = _cannotBoundSameKeyToMultipleActionsMessage;
-               
-            } else
+
+            }
+            else
             {
                 _config.KeyBindings.StartKey = txtStartKey.Text;
                 _config.KeyBindings.PauseKey = txtPauseKey.Text;

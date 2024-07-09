@@ -28,23 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblBackground = new Label();
             lblSave = new Label();
-            lblLanguageSampleMessage = new Label();
+            lblWarning = new Label();
             lblSampleDescription = new Label();
             lblSampleResolution = new Label();
             btnSample = new RadioButton();
+            pnlMain = new Panel();
+            pnlMain.SuspendLayout();
             SuspendLayout();
-            // 
-            // lblBackground
-            // 
-            lblBackground.Image = Properties.Resources.keys_settings_control_bg1;
-            lblBackground.Location = new Point(0, 0);
-            lblBackground.Margin = new Padding(0);
-            lblBackground.Name = "lblBackground";
-            lblBackground.Size = new Size(326, 257);
-            lblBackground.TabIndex = 1;
-            lblBackground.Click += lblBackground_Click;
             // 
             // lblSave
             // 
@@ -60,33 +51,34 @@
             lblSave.TextAlign = ContentAlignment.MiddleCenter;
             lblSave.Click += lblSave_Click;
             // 
-            // lblLanguageSampleMessage
+            // lblWarning
             // 
-            lblLanguageSampleMessage.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lblLanguageSampleMessage.ForeColor = Color.White;
-            lblLanguageSampleMessage.Image = Properties.Resources.keys_settings_label_bg;
-            lblLanguageSampleMessage.Location = new Point(35, 171);
-            lblLanguageSampleMessage.Margin = new Padding(0);
-            lblLanguageSampleMessage.Name = "lblLanguageSampleMessage";
-            lblLanguageSampleMessage.Size = new Size(255, 38);
-            lblLanguageSampleMessage.TabIndex = 18;
-            lblLanguageSampleMessage.Text = "This feature is experimental.";
-            lblLanguageSampleMessage.TextAlign = ContentAlignment.MiddleCenter;
+            lblWarning.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblWarning.ForeColor = Color.White;
+            lblWarning.Location = new Point(0, 171);
+            lblWarning.Margin = new Padding(0);
+            lblWarning.Name = "lblWarning";
+            lblWarning.Size = new Size(326, 38);
+            lblWarning.TabIndex = 18;
+            lblWarning.Text = "This feature is experimental.\r\nRestart required upon resolution change.";
+            lblWarning.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblSampleDescription
             // 
+            lblSampleDescription.BackColor = Color.White;
             lblSampleDescription.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lblSampleDescription.ForeColor = Color.Black;
             lblSampleDescription.Location = new Point(7, 16);
             lblSampleDescription.Margin = new Padding(0);
             lblSampleDescription.Name = "lblSampleDescription";
-            lblSampleDescription.Size = new Size(300, 31);
+            lblSampleDescription.Size = new Size(313, 31);
             lblSampleDescription.TabIndex = 20;
             lblSampleDescription.Text = "Recommended for 1920x1080 Screen Resolution.";
             lblSampleDescription.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblSampleResolution
             // 
+            lblSampleResolution.BackColor = Color.Transparent;
             lblSampleResolution.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lblSampleResolution.ForeColor = Color.White;
             lblSampleResolution.Image = Properties.Resources.setting_specific_opaque_bg_new2;
@@ -99,35 +91,47 @@
             // 
             // btnSample
             // 
+            btnSample.BackColor = Color.White;
             btnSample.Location = new Point(292, 16);
             btnSample.Name = "btnSample";
             btnSample.Size = new Size(28, 31);
             btnSample.TabIndex = 21;
             btnSample.TabStop = true;
-            btnSample.UseVisualStyleBackColor = true;
+            btnSample.UseVisualStyleBackColor = false;
+            // 
+            // pnlMain
+            // 
+            pnlMain.BackColor = Color.Transparent;
+            pnlMain.BackgroundImage = Properties.Resources.keys_settings_control_bg1;
+            pnlMain.Controls.Add(btnSample);
+            pnlMain.Controls.Add(lblSampleDescription);
+            pnlMain.Controls.Add(lblSave);
+            pnlMain.Controls.Add(lblWarning);
+            pnlMain.Controls.Add(lblSampleResolution);
+            pnlMain.Location = new Point(0, 0);
+            pnlMain.Name = "pnlMain";
+            pnlMain.Size = new Size(326, 257);
+            pnlMain.TabIndex = 22;
             // 
             // ResolutionControl
             // 
             AutoScaleMode = AutoScaleMode.None;
-            Controls.Add(btnSample);
-            Controls.Add(lblSampleDescription);
-            Controls.Add(lblSampleResolution);
-            Controls.Add(lblLanguageSampleMessage);
-            Controls.Add(lblSave);
-            Controls.Add(lblBackground);
+            BackColor = Color.White;
+            BackgroundImageLayout = ImageLayout.None;
+            Controls.Add(pnlMain);
             Margin = new Padding(0);
             Name = "ResolutionControl";
             Size = new Size(326, 257);
+            pnlMain.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Label lblBackground;
         private Label lblSave;
-        private Label lblLanguageSampleMessage;
+        private Label lblWarning;
         private Label lblSampleDescription;
         private Label lblSampleResolution;
         private RadioButton btnSample;
+        private Panel pnlMain;
     }
 }

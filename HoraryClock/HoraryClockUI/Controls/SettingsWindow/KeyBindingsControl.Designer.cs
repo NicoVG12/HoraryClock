@@ -56,18 +56,20 @@
             // 
             // lblStartKeyDescription
             // 
+            lblStartKeyDescription.BackColor = Color.White;
             lblStartKeyDescription.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lblStartKeyDescription.ForeColor = Color.Black;
             lblStartKeyDescription.Location = new Point(7, 16);
             lblStartKeyDescription.Margin = new Padding(0);
             lblStartKeyDescription.Name = "lblStartKeyDescription";
-            lblStartKeyDescription.Size = new Size(255, 31);
+            lblStartKeyDescription.Size = new Size(312, 31);
             lblStartKeyDescription.TabIndex = 5;
             lblStartKeyDescription.Text = "The clock will start when this key is pressed.\r\n(Also pauses the clock when minimized)";
             lblStartKeyDescription.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // txtStartKey
             // 
+            txtStartKey.BackColor = Color.White;
             txtStartKey.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             txtStartKey.Location = new Point(264, 17);
             txtStartKey.Name = "txtStartKey";
@@ -80,6 +82,7 @@
             // 
             // txtPauseKey
             // 
+            txtPauseKey.BackColor = Color.White;
             txtPauseKey.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             txtPauseKey.Location = new Point(264, 71);
             txtPauseKey.Name = "txtPauseKey";
@@ -92,12 +95,13 @@
             // 
             // lblPauseKeyDescription
             // 
+            lblPauseKeyDescription.BackColor = Color.White;
             lblPauseKeyDescription.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lblPauseKeyDescription.ForeColor = Color.Black;
             lblPauseKeyDescription.Location = new Point(7, 70);
             lblPauseKeyDescription.Margin = new Padding(0);
             lblPauseKeyDescription.Name = "lblPauseKeyDescription";
-            lblPauseKeyDescription.Size = new Size(255, 31);
+            lblPauseKeyDescription.Size = new Size(312, 31);
             lblPauseKeyDescription.TabIndex = 8;
             lblPauseKeyDescription.Text = "The clock will stop when this key is pressed.\r\n(Also starts the clock when minimized)";
             lblPauseKeyDescription.TextAlign = ContentAlignment.MiddleLeft;
@@ -116,6 +120,7 @@
             // 
             // txtResetKey
             // 
+            txtResetKey.BackColor = Color.White;
             txtResetKey.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             txtResetKey.Location = new Point(264, 125);
             txtResetKey.Name = "txtResetKey";
@@ -128,6 +133,7 @@
             // 
             // lblResetKeyDescription
             // 
+            lblResetKeyDescription.BackColor = Color.White;
             lblResetKeyDescription.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lblResetKeyDescription.ForeColor = Color.Black;
             lblResetKeyDescription.Location = new Point(7, 124);

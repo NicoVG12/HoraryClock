@@ -92,7 +92,7 @@
             // 
             // pnlSpecificSettings
             // 
-            pnlSpecificSettings.BackColor = Color.White;
+            pnlSpecificSettings.BackColor = Color.Transparent;
             pnlSpecificSettings.Location = new Point(181, 17);
             pnlSpecificSettings.Margin = new Padding(0);
             pnlSpecificSettings.Name = "pnlSpecificSettings";

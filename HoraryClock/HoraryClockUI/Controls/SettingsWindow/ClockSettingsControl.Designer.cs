@@ -96,48 +96,52 @@
             // 
             // lblOffsetDescription
             // 
+            lblOffsetDescription.BackColor = Color.White;
             lblOffsetDescription.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lblOffsetDescription.ForeColor = Color.Black;
             lblOffsetDescription.Location = new Point(7, 16);
             lblOffsetDescription.Margin = new Padding(0);
             lblOffsetDescription.Name = "lblOffsetDescription";
-            lblOffsetDescription.Size = new Size(255, 31);
+            lblOffsetDescription.Size = new Size(312, 31);
             lblOffsetDescription.TabIndex = 4;
             lblOffsetDescription.Text = "Adds a 3 second offset to the clock. \r\n(The clock will start on 17s)";
             lblOffsetDescription.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblStartClockOnResetDescription
             // 
+            lblStartClockOnResetDescription.BackColor = Color.White;
             lblStartClockOnResetDescription.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lblStartClockOnResetDescription.ForeColor = Color.Black;
             lblStartClockOnResetDescription.Location = new Point(7, 70);
             lblStartClockOnResetDescription.Margin = new Padding(0);
             lblStartClockOnResetDescription.Name = "lblStartClockOnResetDescription";
-            lblStartClockOnResetDescription.Size = new Size(255, 31);
+            lblStartClockOnResetDescription.Size = new Size(312, 31);
             lblStartClockOnResetDescription.TabIndex = 5;
             lblStartClockOnResetDescription.Text = "Automatically start the clock upon reset.";
             lblStartClockOnResetDescription.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblOpacityDescription
             // 
+            lblOpacityDescription.BackColor = Color.White;
             lblOpacityDescription.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lblOpacityDescription.ForeColor = Color.Black;
             lblOpacityDescription.Location = new Point(7, 124);
             lblOpacityDescription.Margin = new Padding(0);
             lblOpacityDescription.Name = "lblOpacityDescription";
-            lblOpacityDescription.Size = new Size(146, 31);
+            lblOpacityDescription.Size = new Size(312, 31);
             lblOpacityDescription.TabIndex = 6;
             lblOpacityDescription.Text = "Set the window's opacity.\r\n(10%~100%)";
             lblOpacityDescription.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lblAlwaysOnTopDescription
             // 
+            lblAlwaysOnTopDescription.BackColor = Color.White;
             lblAlwaysOnTopDescription.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lblAlwaysOnTopDescription.ForeColor = Color.Black;
             lblAlwaysOnTopDescription.Location = new Point(7, 178);
             lblAlwaysOnTopDescription.Margin = new Padding(0);
             lblAlwaysOnTopDescription.Name = "lblAlwaysOnTopDescription";
-            lblAlwaysOnTopDescription.Size = new Size(255, 31);
+            lblAlwaysOnTopDescription.Size = new Size(312, 31);
             lblAlwaysOnTopDescription.TabIndex = 7;
             lblAlwaysOnTopDescription.Text = "The window will always stay on top.";
             lblAlwaysOnTopDescription.TextAlign = ContentAlignment.MiddleLeft;
@@ -156,27 +160,30 @@
             // 
             // chkOffset
             // 
+            chkOffset.BackColor = Color.White;
             chkOffset.Location = new Point(291, 16);
             chkOffset.Name = "chkOffset";
             chkOffset.Size = new Size(28, 31);
             chkOffset.TabIndex = 9;
-            chkOffset.UseVisualStyleBackColor = true;
+            chkOffset.UseVisualStyleBackColor = false;
             // 
             // chkStartClockOnReset
             // 
+            chkStartClockOnReset.BackColor = Color.White;
             chkStartClockOnReset.Location = new Point(291, 70);
             chkStartClockOnReset.Name = "chkStartClockOnReset";
             chkStartClockOnReset.Size = new Size(28, 31);
             chkStartClockOnReset.TabIndex = 10;
-            chkStartClockOnReset.UseVisualStyleBackColor = true;
+            chkStartClockOnReset.UseVisualStyleBackColor = false;
             // 
             // chkAlwaysOnTop
             // 
+            chkAlwaysOnTop.BackColor = Color.White;
             chkAlwaysOnTop.Location = new Point(291, 178);
             chkAlwaysOnTop.Name = "chkAlwaysOnTop";
             chkAlwaysOnTop.Size = new Size(28, 31);
             chkAlwaysOnTop.TabIndex = 12;
-            chkAlwaysOnTop.UseVisualStyleBackColor = true;
+            chkAlwaysOnTop.UseVisualStyleBackColor = false;
             // 
             // lblSave
             // 
@@ -195,6 +202,7 @@
             // trkOpacity
             // 
             trkOpacity.AutoSize = false;
+            trkOpacity.BackColor = Color.White;
             trkOpacity.Location = new Point(215, 124);
             trkOpacity.Maximum = 9;
             trkOpacity.Name = "trkOpacity";
@@ -204,6 +212,7 @@
             // 
             // lblOpacityProgress
             // 
+            lblOpacityProgress.BackColor = Color.White;
             lblOpacityProgress.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lblOpacityProgress.ForeColor = Color.Black;
             lblOpacityProgress.Location = new Point(153, 124);

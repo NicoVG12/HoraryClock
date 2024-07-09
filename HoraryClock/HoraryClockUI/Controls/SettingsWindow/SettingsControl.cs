@@ -99,7 +99,7 @@ namespace HoraryClockUI.Controls.SettingsWindow
 
         private void InitializeHoverIcons()
         {
-            for(int i = 0; i < CONTROL_AMOUNT; i++)
+            for (int i = 0; i < CONTROL_AMOUNT; i++)
             {
                 int settingId = i;
                 _labels[settingId].MouseEnter += delegate { UpdateImageEnter(settingId); };
@@ -182,6 +182,12 @@ namespace HoraryClockUI.Controls.SettingsWindow
             lblGoBack.Font = new Font("Segoe UI", (float)resolution.FontSize.Menu, FontStyle.Bold, GraphicsUnit.Point);
 
             ImageUtils.ScaleLabels(labelsToScale, resolution.Scale);
+
+            foreach (Control control in _settingsControls)
+            {
+                IResizable controlResizable = control as IResizable;
+                controlResizable?.SetResolution(resolution);
+            }
 
             Refresh();
         }

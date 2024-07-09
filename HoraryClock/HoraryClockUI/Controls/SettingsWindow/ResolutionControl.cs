@@ -14,22 +14,18 @@ using System.Windows.Forms;
 
 namespace HoraryClockUI.Controls.SettingsWindow
 {
-    public partial class ResolutionControl : UserControl, ILanguageSetter
+    public partial class ResolutionControl : UserControl, ILanguageSetter, IResizable
     {
         private GroupBox _btnGroup = new GroupBox();
         private List<RadioButton> _resolutionButtons = new List<RadioButton>();
+        private List<Label> _labels = new List<Label>();
         private string[] _resolutions = { Resolution.HIGH, Resolution.MID, Resolution.LOW };
 
         private MainForm _mainForm;
         private Config _config = Config.Instance();
-        private LanguageManager _languageManager = LanguageManager.Instance();
-        private Label[] _languageButtons = new Label[LanguageManager.LANGUAGE_AMOUNT];
-        private string[] _languageMessages = new string[LanguageManager.LANGUAGE_AMOUNT];
-        private int _newActiveLanguage = 0;
         public ResolutionControl(MainForm mainForm)
         {
             _mainForm = mainForm;
-            _newActiveLanguage = _config.LanguageId;
 
             InitializeComponent();
             LoadResolutions();
@@ -79,6 +75,7 @@ namespace HoraryClockUI.Controls.SettingsWindow
                 lblResolution.TextAlign = lblSampleResolution.TextAlign;
                 lblResolution.Image = lblSampleResolution.Image;
                 lblResolution.Visible = true;
+                _labels.Add(lblResolution);
 
                 lblDescription.Text = currentResolution.Description;
                 lblDescription.AutoSize = false;
@@ -89,6 +86,7 @@ namespace HoraryClockUI.Controls.SettingsWindow
                 lblDescription.Margin = new Padding(0);
                 lblDescription.TextAlign = lblSampleDescription.TextAlign;
                 lblDescription.Visible = true;
+                _labels.Add(lblDescription);
 
                 btnActive.Name = currentResolution.Name;
                 btnActive.AutoSize = false;
@@ -108,24 +106,6 @@ namespace HoraryClockUI.Controls.SettingsWindow
             }
 
             Refresh();
-        }
-
-
-        public void MouseLeave(Label label, int languageId)
-        {
-            if (languageId == _newActiveLanguage)
-            {
-                label.Image = Properties.Resources.btnRoundRct_Active_Small;
-            }
-            else
-            {
-                label.Image = Properties.Resources.btnRoundRct_Unactive_Small;
-            }
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
         }
 
         private void lblSave_Click(object sender, EventArgs e)
@@ -155,14 +135,43 @@ namespace HoraryClockUI.Controls.SettingsWindow
             return activeResolution;
         }
 
-        private void lblBackground_Click(object sender, EventArgs e)
+        public void SetLanguage(LanguageData languageData)
         {
 
         }
 
-        public void SetLanguage(LanguageData languageData)
+        public void SetResolution(Resolution resolution)
         {
-            //throw new NotImplementedException();
+            Size = new Size((int)(resolution.Scale * Width), (int)(resolution.Scale * Height));
+
+            pnlMain.Size = new Size((int)(resolution.Scale * pnlMain.Width), (int)(resolution.Scale * pnlMain.Height));
+            pnlMain.BackgroundImage = ImageUtils.ScaleImage(pnlMain.BackgroundImage, pnlMain.Width, pnlMain.Height);
+
+            List<Label> labelsToScale = new List<Label>(_labels)
+            {
+                lblSave,
+                lblWarning
+            };
+
+            ImageUtils.ScaleLabels(labelsToScale, resolution.Scale);
+
+            foreach (Label label in _labels)
+            {
+                label.Font = new Font("Segoe UI Semibold", (float)resolution.FontSize.Setting, FontStyle.Bold, GraphicsUnit.Point);
+                lblSampleResolution.BackColor = Color.Transparent;
+            }
+
+            lblSave.Font = new Font("Segoe UI Semibold", (float)resolution.FontSize.Menu, FontStyle.Bold, GraphicsUnit.Point);
+            lblWarning.Font = new Font("Segoe UI Semibold", (float)resolution.FontSize.Setting, FontStyle.Bold, GraphicsUnit.Point);
+
+            foreach (RadioButton button in _resolutionButtons)
+            {
+                button.Size = new Size((int)(resolution.Scale * button.Width), (int)(resolution.Scale * button.Height));
+                button.Location = new Point((int)(resolution.Scale * button.Location.X), (int)(resolution.Scale * button.Location.Y));
+                //TODO: Customize appeareance to increase size
+            }
+
+            Refresh();
         }
     }
 }
