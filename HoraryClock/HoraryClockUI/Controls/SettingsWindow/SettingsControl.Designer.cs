@@ -92,7 +92,8 @@
             // 
             // pnlSpecificSettings
             // 
-            pnlSpecificSettings.BackColor = Color.Transparent;
+            pnlSpecificSettings.BackColor = Color.DarkGray;
+            pnlSpecificSettings.BackgroundImage = Properties.Resources.bgSettingControl;
             pnlSpecificSettings.Location = new Point(181, 17);
             pnlSpecificSettings.Margin = new Padding(0);
             pnlSpecificSettings.Name = "pnlSpecificSettings";

@@ -36,7 +36,7 @@
             // 
             // lblBackground
             // 
-            lblBackground.Image = Properties.Resources.keys_settings_control_bg1;
+            lblBackground.Image = Properties.Resources.bgSettingControl;
             lblBackground.Location = new Point(0, 0);
             lblBackground.Margin = new Padding(0);
             lblBackground.Name = "lblBackground";
@@ -75,7 +75,7 @@
             // 
             lblLanguageSampleMessage.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             lblLanguageSampleMessage.ForeColor = Color.White;
-            lblLanguageSampleMessage.Image = Properties.Resources.keys_settings_label_bg;
+            lblLanguageSampleMessage.Image = Properties.Resources.bgWarning;
             lblLanguageSampleMessage.Location = new Point(35, 171);
             lblLanguageSampleMessage.Margin = new Padding(0);
             lblLanguageSampleMessage.Name = "lblLanguageSampleMessage";

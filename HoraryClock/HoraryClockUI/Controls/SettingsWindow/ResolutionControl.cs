@@ -152,11 +152,11 @@ namespace HoraryClockUI.Controls.SettingsWindow
             Size = new Size((int)(resolution.Scale * Width), (int)(resolution.Scale * Height));
 
             pnlMain.Size = new Size((int)(resolution.Scale * pnlMain.Width), (int)(resolution.Scale * pnlMain.Height));
-            pnlMain.BackgroundImage = ImageUtils.ScaleImage(pnlMain.BackgroundImage, pnlMain.Width, pnlMain.Height);
 
             List<Label> labelsToScale = new List<Label>(_labels)
             {
                 lblSave,
+                lblIcon,
                 lblWarning
             };
 

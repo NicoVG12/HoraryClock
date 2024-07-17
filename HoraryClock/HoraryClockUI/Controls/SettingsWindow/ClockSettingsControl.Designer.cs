@@ -50,7 +50,7 @@
             // 
             lblPvPOffsetTitle.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lblPvPOffsetTitle.ForeColor = Color.White;
-            lblPvPOffsetTitle.Image = Properties.Resources.setting_specific_opaque_bg_new2;
+            lblPvPOffsetTitle.Image = Properties.Resources.bgSettingDescription;
             lblPvPOffsetTitle.Location = new Point(4, 0);
             lblPvPOffsetTitle.Margin = new Padding(0);
             lblPvPOffsetTitle.Name = "lblPvPOffsetTitle";
@@ -62,7 +62,7 @@
             // 
             lblStartClockOnReset.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lblStartClockOnReset.ForeColor = Color.White;
-            lblStartClockOnReset.Image = Properties.Resources.setting_specific_opaque_bg_new2;
+            lblStartClockOnReset.Image = Properties.Resources.bgSettingDescription;
             lblStartClockOnReset.Location = new Point(4, 54);
             lblStartClockOnReset.Margin = new Padding(0);
             lblStartClockOnReset.Name = "lblStartClockOnReset";
@@ -74,7 +74,7 @@
             // 
             lblOpacity.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lblOpacity.ForeColor = Color.White;
-            lblOpacity.Image = Properties.Resources.setting_specific_opaque_bg_new2;
+            lblOpacity.Image = Properties.Resources.bgSettingDescription;
             lblOpacity.Location = new Point(4, 108);
             lblOpacity.Margin = new Padding(0);
             lblOpacity.Name = "lblOpacity";
@@ -86,7 +86,7 @@
             // 
             lblAlwaysOnTop.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lblAlwaysOnTop.ForeColor = Color.White;
-            lblAlwaysOnTop.Image = Properties.Resources.setting_specific_opaque_bg_new2;
+            lblAlwaysOnTop.Image = Properties.Resources.bgSettingDescription;
             lblAlwaysOnTop.Location = new Point(4, 162);
             lblAlwaysOnTop.Margin = new Padding(0);
             lblAlwaysOnTop.Name = "lblAlwaysOnTop";
@@ -150,7 +150,7 @@
             // 
             label1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Image = Properties.Resources.settings_control_bg1;
+            label1.Image = Properties.Resources.bgSettingControl;
             label1.Location = new Point(0, 0);
             label1.Margin = new Padding(0);
             label1.Name = "label1";

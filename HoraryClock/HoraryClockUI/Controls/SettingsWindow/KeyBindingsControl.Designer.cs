@@ -46,7 +46,7 @@
             // 
             lblStartKey.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lblStartKey.ForeColor = Color.White;
-            lblStartKey.Image = Properties.Resources.setting_specific_opaque_bg_new2;
+            lblStartKey.Image = Properties.Resources.bgSettingDescription;
             lblStartKey.Location = new Point(4, 0);
             lblStartKey.Margin = new Padding(0);
             lblStartKey.Name = "lblStartKey";
@@ -110,7 +110,7 @@
             // 
             lblPauseKey.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lblPauseKey.ForeColor = Color.White;
-            lblPauseKey.Image = Properties.Resources.setting_specific_opaque_bg_new2;
+            lblPauseKey.Image = Properties.Resources.bgSettingDescription;
             lblPauseKey.Location = new Point(4, 54);
             lblPauseKey.Margin = new Padding(0);
             lblPauseKey.Name = "lblPauseKey";
@@ -148,7 +148,7 @@
             // 
             lblResetKey.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lblResetKey.ForeColor = Color.White;
-            lblResetKey.Image = Properties.Resources.setting_specific_opaque_bg_new2;
+            lblResetKey.Image = Properties.Resources.bgSettingDescription;
             lblResetKey.Location = new Point(4, 108);
             lblResetKey.Margin = new Padding(0);
             lblResetKey.Name = "lblResetKey";
@@ -174,7 +174,7 @@
             // 
             label1.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Image = Properties.Resources.keys_settings_control_bg1;
+            label1.Image = Properties.Resources.bgSettingControl;
             label1.Location = new Point(0, 0);
             label1.Margin = new Padding(0);
             label1.Name = "label1";
@@ -186,7 +186,7 @@
             // 
             lblMessage.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             lblMessage.ForeColor = Color.White;
-            lblMessage.Image = Properties.Resources.keys_settings_label_bg;
+            lblMessage.Image = Properties.Resources.bgWarning;
             lblMessage.Location = new Point(35, 171);
             lblMessage.Margin = new Padding(0);
             lblMessage.Name = "lblMessage";

@@ -30,11 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ResolutionControl));
             lblSave = new Label();
-            lblWarning = new Label();
             lblSampleDescription = new Label();
             lblSampleResolution = new Label();
             btnSample = new RadioButton();
             pnlMain = new Panel();
+            lblWarning = new Label();
+            lblIcon = new Label();
             pnlMain.SuspendLayout();
             SuspendLayout();
             // 
@@ -51,18 +52,6 @@
             lblSave.Text = "Save";
             lblSave.TextAlign = ContentAlignment.MiddleCenter;
             lblSave.Click += lblSave_Click;
-            // 
-            // lblWarning
-            // 
-            lblWarning.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblWarning.ForeColor = Color.White;
-            lblWarning.Location = new Point(0, 171);
-            lblWarning.Margin = new Padding(0);
-            lblWarning.Name = "lblWarning";
-            lblWarning.Size = new Size(326, 38);
-            lblWarning.TabIndex = 18;
-            lblWarning.Text = "This feature is experimental.\r\nRestart required upon resolution change.";
-            lblWarning.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lblSampleDescription
             // 
@@ -103,16 +92,38 @@
             // pnlMain
             // 
             pnlMain.BackColor = Color.Transparent;
-            pnlMain.BackgroundImage = Properties.Resources.keys_settings_control_bg1;
+            pnlMain.BackgroundImage = Properties.Resources.bgSettingControl;
+            pnlMain.Controls.Add(lblIcon);
+            pnlMain.Controls.Add(lblWarning);
             pnlMain.Controls.Add(btnSample);
             pnlMain.Controls.Add(lblSampleDescription);
             pnlMain.Controls.Add(lblSave);
-            pnlMain.Controls.Add(lblWarning);
             pnlMain.Controls.Add(lblSampleResolution);
             pnlMain.Location = new Point(0, 0);
             pnlMain.Name = "pnlMain";
             pnlMain.Size = new Size(326, 257);
             pnlMain.TabIndex = 22;
+            // 
+            // lblWarning
+            // 
+            lblWarning.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblWarning.ForeColor = Color.White;
+            lblWarning.Image = Properties.Resources.bgWarning;
+            lblWarning.Location = new Point(5, 171);
+            lblWarning.Margin = new Padding(0);
+            lblWarning.Name = "lblWarning";
+            lblWarning.Size = new Size(316, 38);
+            lblWarning.TabIndex = 18;
+            lblWarning.Text = "This feature is experimental.\r\nRestart required upon resolution change.";
+            lblWarning.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblIcon
+            // 
+            lblIcon.Image = Properties.Resources.icoWarning;
+            lblIcon.Location = new Point(20, 178);
+            lblIcon.Name = "lblIcon";
+            lblIcon.Size = new Size(16, 23);
+            lblIcon.TabIndex = 22;
             // 
             // ResolutionControl
             // 
@@ -134,5 +145,6 @@
         private Label lblSampleResolution;
         private RadioButton btnSample;
         private Panel pnlMain;
+        private Label lblIcon;
     }
 }
